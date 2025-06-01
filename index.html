@@ -102,22 +102,153 @@
             justify-content: center;
             z-index: 100; /* Ensure it's on top */
         }
+
+        /* Mobile sidebar specific styles */
+        #mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40; /* Below modals, above main content */
+        }
+
+        #mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 75%; /* Adjust as needed */
+            max-width: 300px; /* Max width for sidebar */
+            background-color: white;
+            z-index: 50; /* Above overlay */
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            overflow-y: auto; /* Ensure sidebar content is scrollable */
+            padding-top: 1rem;
+        }
+
+        #mobile-sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Make modal content scrollable */
+        .modal-content-scrollable {
+            max-height: 80vh; /* 80% of viewport height */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        /* Table styling for better PDF export and general display */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f3e8ff; /* Tailwind purple-50 */
+            color: #6b21a8; /* Tailwind purple-800 */
+            font-weight: 600;
+        }
+        .data-table tbody tr:nth-child(even) {
+            background-color: #fbf6ff; /* Lighter purple for even rows */
+        }
+        .data-table tbody tr:hover {
+            background-color: #ede9fe; /* Even lighter purple on hover */
+        }
     </style>
 </head>
 <body class="bg-purple-50 min-h-screen font-sans">
+    <div id="mobile-sidebar-overlay" class="hidden lg:hidden"></div>
+
+    <div id="mobile-sidebar" class="hidden lg:hidden">
+        <div class="flex justify-end p-4">
+            <button id="closeMobileSidebar" class="text-purple-600 hover:text-purple-800 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="px-6 pb-6">
+            <div class="mb-6">
+                <h2 class="text-xl font-semibold text-purple-800 mb-4">Sections</h2>
+                <ul class="space-y-2" id="mobile-sections-list">
+                    <li>
+                        <button data-section="overview" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-chart-pie mr-3"></i> Vue d'ensemble
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="todos" class="section-btn w-full text-left px-4 py-2 rounded-lg bg-purple-100 text-purple-800 font-medium flex items-center">
+                            <i class="fas fa-tasks mr-3"></i> Tâches
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="notes" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-sticky-note mr-3"></i> Notes
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-wallet mr-3"></i> Dépenses & Finances
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="wellness" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-heartbeat mr-3"></i> Bien-être
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="salary-forecast" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-money-bill-wave mr-3"></i> Prévision Salariale
+                        </button>
+                    </li>
+                    <li>
+                        <button data-section="planned-expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <i class="fas fa-clipboard-list mr-3"></i> Dépenses Planifiées
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            
+            <details class="mb-6" open>
+                <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
+                <div id="categories-list-display-mobile" class="space-y-2 mb-4 mt-2">
+                    </div>
+                <button id="addCategoryBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                    <i class="fas fa-plus mr-2"></i> Nouvelle Catégorie
+                </button>
+            </details>
+
+            <details class="mb-6" open>
+                <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
+                <div id="origins-list-display-mobile" class="space-y-2 mb-4 mt-2">
+                    </div>
+                <button id="addOriginBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                    <i class="fas fa-plus mr-2"></i> Nouvelle Provenance
+                </button>
+            </details>
+        </div>
+    </div>
+
+
     <div class="container mx-auto px-4 py-8">
         <header class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
-            <div>
-                <h1 class="text-3xl font-bold text-purple-800">Mon Espace Personnel</h1>
-                <p class="text-purple-600">Tout ce dont vous avez besoin au même endroit</p>
+            <div class="flex items-center">
+                <button id="openMobileSidebar" class="lg:hidden text-purple-800 text-2xl mr-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div>
+                    <h1 class="text-3xl font-bold text-purple-800">Mon Espace Personnel</h1>
+                    <p class="text-purple-600">Tout ce dont vous avez besoin au même endroit</p>
+                </div>
             </div>
             <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-                <button id="exportBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
-                    <i class="fas fa-download mr-2"></i>Exporter
-                </button>
-                <button id="importBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
-                    <i class="fas fa-upload mr-2"></i>Importer
-                </button>
                 <button id="exportPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
                     <i class="fas fa-file-pdf mr-2"></i>Exporter PDF
                 </button>
@@ -158,7 +289,7 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            <div class="lg:col-span-1 bg-white rounded-xl shadow-md p-6 h-fit sticky top-6">
+            <div class="lg:col-span-1 bg-white rounded-xl shadow-md p-6 h-fit sticky top-6 hidden lg:block">
                 <div class="mb-6">
                     <h2 class="text-xl font-semibold text-purple-800 mb-4">Sections</h2>
                     <ul class="space-y-2">
@@ -315,6 +446,9 @@
                             <button id="addLoanBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
                                 <i class="fas fa-hand-holding-usd mr-2"></i> Nouveau Prêt
                             </button>
+                            <button id="exportExpensesPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
+                                <i class="fas fa-file-pdf mr-2"></i> Exporter Dépenses PDF
+                            </button>
                         </div>
                     </div>
                     
@@ -419,7 +553,7 @@
                             <i class="fas fa-plus mr-2"></i> Nouvelle Prévision
                         </button>
                     </div>
-                    <div id="salary-forecast-container" class="space-y-4">
+                    <div id="salary-forecast-container">
                         </div>
                 </div>
 
@@ -430,7 +564,7 @@
                             <i class="fas fa-plus mr-2"></i> Nouvelle Dépense Planifiée
                         </button>
                     </div>
-                    <div id="planned-expenses-container" class="space-y-4">
+                    <div id="planned-expenses-container">
                         </div>
                 </div>
 
@@ -439,7 +573,7 @@
     </div>
 
     <div id="todoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Tâche</h3>
                 <button id="closeTodoModal" class="text-purple-600 hover:text-purple-800">
@@ -484,7 +618,7 @@
     </div>
 
     <div id="noteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Note</h3>
                 <button id="closeNoteModal" class="text-purple-600 hover:text-purple-800">
@@ -522,7 +656,7 @@
     </div>
 
     <div id="listModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Liste</h3>
                 <button id="closeListModal" class="text-purple-600 hover:text-purple-800">
@@ -564,7 +698,7 @@
     </div>
 
     <div id="expenseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Dépense</h3>
                 <button id="closeExpenseModal" class="text-purple-600 hover:text-purple-800">
@@ -604,7 +738,7 @@
     </div>
 
     <div id="incomeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Ajouter Revenu</h3>
                 <button id="closeIncomeModal" class="text-purple-600 hover:text-purple-800">
@@ -638,7 +772,7 @@
     </div>
 
     <div id="wellnessModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Entrée Bien-être</h3>
                 <button id="closeWellnessModal" class="text-purple-600 hover:text-purple-800">
@@ -699,7 +833,7 @@
     </div>
 
     <div id="categoryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Catégorie</h3>
                 <button id="closeCategoryModal" class="text-purple-600 hover:text-purple-800">
@@ -725,7 +859,7 @@
     </div>
 
     <div id="originModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Provenance</h3>
                 <button id="closeOriginModal" class="text-purple-600 hover:text-purple-800">
@@ -751,7 +885,7 @@
     </div>
 
     <div id="loanModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouveau Prêt</h3>
                 <button id="closeLoanModal" class="text-purple-600 hover:text-purple-800">
@@ -785,7 +919,7 @@
     </div>
 
     <div id="savingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Mon Épargne</h3>
                 <button id="closeSavingsModal" class="text-purple-600 hover:text-purple-800">
@@ -812,7 +946,7 @@
     </div>
 
     <div id="depositSavingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Déposer dans l'épargne</h3>
                 <button id="closeDepositSavingsModal" class="text-purple-600 hover:text-purple-800">
@@ -833,7 +967,7 @@
     </div>
 
     <div id="withdrawSavingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Retirer de l'épargne</h3>
                 <button id="closeWithdrawSavingsModal" class="text-purple-600 hover:text-purple-800">
@@ -858,7 +992,7 @@
     </div>
 
     <div id="salaryForecastModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Prévision Salariale</h3>
                 <button id="closeSalaryForecastModal" class="text-purple-600 hover:text-purple-800">
@@ -898,7 +1032,7 @@
     </div>
 
     <div id="plannedExpenseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-xl p-6 w-full max-w-md">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-purple-800">Nouvelle Dépense Planifiée</h3>
                 <button id="closePlannedExpenseModal" class="text-purple-600 hover:text-purple-800">
@@ -953,6 +1087,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0/dist/chartjs-adapter-moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script>
         // Structure de données initiale (valeurs par défaut si localStorage est vide)
         const defaultCategories = [
@@ -997,12 +1132,12 @@
         let githubUsername = '';
         let githubRepo = '';
         let githubToken = '';
-        // Removed githubFileSha - it will be fetched dynamically before each save
 
         const GITHUB_DATA_FILE = 'appData.json'; // Nom du fichier JSON sur GitHub
 
         // Éléments du DOM
         const sectionBtns = document.querySelectorAll('.section-btn');
+        const mobileSectionBtns = document.querySelectorAll('#mobile-sections-list .section-btn'); // For mobile sidebar
         const sectionContents = document.querySelectorAll('.section-content');
         const todoFilterBtns = document.querySelectorAll('.todo-filter-btn');
         const expenseFilterBtns = document.querySelectorAll('.expense-filter-btn');
@@ -1046,11 +1181,21 @@
         const expensesContainer = document.getElementById('expenses-container');
         const wellnessContainer = document.getElementById('wellness-container');
         const categoriesListDisplay = document.getElementById('categories-list-display');
+        const categoriesListDisplayMobile = document.getElementById('categories-list-display-mobile');
         const originsListDisplay = document.getElementById('origins-list-display');
+        const originsListDisplayMobile = document.getElementById('origins-list-display-mobile');
         const loansContainer = document.getElementById('loans-container');
         const savingsTransactionsContainer = document.getElementById('savingsTransactionsContainer');
         const salaryForecastContainer = document.getElementById('salary-forecast-container');
         const plannedExpensesContainer = document.getElementById('planned-expenses-container');
+
+        // Mobile sidebar elements
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+        const openMobileSidebarBtn = document.getElementById('openMobileSidebar');
+        const closeMobileSidebarBtn = document.getElementById('closeMobileSidebar');
+        const addCategoryBtnMobile = document.getElementById('addCategoryBtnMobile');
+        const addOriginBtnMobile = document.getElementById('addOriginBtnMobile');
 
         // Éléments de graphique
         let weightChartInstance, moodChartInstance, sleepChartInstance, exerciseChartInstance, waterChartInstance, expenseCategoryChartInstance;
@@ -1144,7 +1289,6 @@
                     throw new Error(`Erreur GitHub: ${response.status} - ${errorJson.message || JSON.stringify(errorJson)}`);
                 } else {
                     const data = await response.json();
-                    // Do NOT set githubFileSha here. It will be fetched dynamically before each save.
 
                     if (data.content && typeof data.content === 'string') {
                         try {
@@ -1292,7 +1436,6 @@
                 }
 
                 const result = await response.json();
-                // No need to store SHA globally anymore, it's fetched on each save.
                 document.getElementById('githubStatusMessage').textContent = 'Données sauvegardées avec succès sur GitHub.';
             } catch (error) {
                 console.error("Erreur lors de la sauvegarde des données sur GitHub:", error);
@@ -1305,8 +1448,6 @@
 
         // Initialisation de l'application
         document.addEventListener('DOMContentLoaded', async () => {
-            // Ne pas appeler loadData() ici directement car nous voulons d'abord vérifier la config GitHub
-            // Les appels à renderAllSections, updateStats, etc. se feront après le chargement/initialisation via GitHub
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('todoDueDate').value = today;
             document.getElementById('expenseDate').value = today;
@@ -1350,7 +1491,7 @@
             renderPlannedExpenses();
         }
 
-        // Navigation entre les sections
+        // Navigation entre les sections (desktop)
         sectionBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const section = btn.dataset.section;
@@ -1358,8 +1499,29 @@
             });
         });
 
+        // Navigation entre les sections (mobile)
+        mobileSectionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const section = btn.dataset.section;
+                setActiveSection(section);
+                closeMobileSidebar(); // Close sidebar after selection
+            });
+        });
+
         function setActiveSection(section) {
+            // Update desktop section buttons
             sectionBtns.forEach(btn => {
+                if (btn.dataset.section === section) {
+                    btn.classList.remove('hover:bg-purple-50', 'text-purple-700');
+                    btn.classList.add('bg-purple-100', 'text-purple-800');
+                } else {
+                    btn.classList.add('hover:bg-purple-50', 'text-purple-700');
+                    btn.classList.remove('bg-purple-100', 'text-purple-800');
+                }
+            });
+
+            // Update mobile section buttons (if they exist)
+            mobileSectionBtns.forEach(btn => {
                 if (btn.dataset.section === section) {
                     btn.classList.remove('hover:bg-purple-50', 'text-purple-700');
                     btn.classList.add('bg-purple-100', 'text-purple-800');
@@ -1388,6 +1550,22 @@
                 case 'salary-forecast': renderSalaryForecasts(); break;
                 case 'planned-expenses': renderPlannedExpenses(); break;
             }
+        }
+
+        // Mobile sidebar toggle functions
+        openMobileSidebarBtn.addEventListener('click', () => {
+            mobileSidebar.classList.remove('hidden');
+            mobileSidebarOverlay.classList.remove('hidden');
+            setTimeout(() => mobileSidebar.classList.add('open'), 10); // Small delay for transition
+        });
+
+        closeMobileSidebarBtn.addEventListener('click', closeMobileSidebar);
+        mobileSidebarOverlay.addEventListener('click', closeMobileSidebar);
+
+        function closeMobileSidebar() {
+            mobileSidebar.classList.remove('open');
+            mobileSidebarOverlay.classList.add('hidden');
+            setTimeout(() => mobileSidebar.classList.add('hidden'), 300); // Wait for transition to finish
         }
 
         // Boutons de filtre des tâches
@@ -1430,7 +1608,9 @@
         document.getElementById('addIncomeBtn').addEventListener('click', () => { resetIncomeForm(); incomeModal.classList.remove('hidden'); });
         document.getElementById('addWellnessBtn').addEventListener('click', () => { resetWellnessForm(); updateWellnessFormFields(); wellnessModal.classList.remove('hidden'); });
         document.getElementById('addCategoryBtn').addEventListener('click', () => { resetCategoryForm(); categoryModal.classList.remove('hidden'); });
+        addCategoryBtnMobile.addEventListener('click', () => { resetCategoryForm(); categoryModal.classList.remove('hidden'); closeMobileSidebar(); }); // For mobile
         document.getElementById('addOriginBtn').addEventListener('click', () => { resetOriginForm(); originModal.classList.remove('hidden'); });
+        addOriginBtnMobile.addEventListener('click', () => { resetOriginForm(); originModal.classList.remove('hidden'); closeMobileSidebar(); }); // For mobile
         document.getElementById('addLoanBtn').addEventListener('click', () => { resetLoanForm(); loanModal.classList.remove('hidden'); });
         document.getElementById('overviewCurrentBalanceCard').addEventListener('click', () => { /* Peut-être ouvrir une modale d'historique de solde détaillé ici */ });
         document.getElementById('currentBalanceCard').addEventListener('click', () => { /* Peut-être ouvrir une modale d'historique de solde détaillé ici */ });
@@ -2038,13 +2218,12 @@
         });
 
         // Fonctionnalité d'exportation/importation
-        document.getElementById('exportBtn').addEventListener('click', exportData);
-        document.getElementById('importBtn').addEventListener('click', () => document.getElementById('fileInput').click());
-        document.getElementById('fileInput').addEventListener('change', importData);
+        // Removed Export/Import buttons from header as requested
         document.getElementById('exportPdfBtn').addEventListener('click', exportPdf);
+        document.getElementById('exportExpensesPdfBtn').addEventListener('click', exportExpensesPdf);
 
 
-        function exportData() {
+        function exportData() { // Kept for potential internal use or if user changes mind
             const dataStr = JSON.stringify(appData, null, 2);
             const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
             
@@ -2056,7 +2235,7 @@
             linkElement.click();
         }
 
-        function importData(e) {
+        function importData(e) { // Kept for potential internal use or if user changes mind
             const file = e.target.files[0];
             if (!file) return;
             
@@ -2129,9 +2308,11 @@
             // --- Overview Section ---
             checkPageBreak(100);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8'); // purple-800
             pdf.text('Vue d\'ensemble', margin, yPos);
             yPos += 25;
             pdf.setFontSize(12);
+            pdf.setTextColor('#333333'); // dark gray
             pdf.text(`Solde Actuel: €${calculateCurrentBalance().toFixed(2)}`, margin, yPos); yPos += 15;
             pdf.text(`Épargne Totale: €${appData.savings.balance.toFixed(2)}`, margin, yPos); yPos += 15;
             pdf.text(`Prêts Restants: €${calculateTotalLoansRemaining().toFixed(2)}`, margin, yPos); yPos += 15;
@@ -2145,6 +2326,7 @@
             // Add Expense Category Chart to PDF
             checkPageBreak(250); // Estimate space for chart
             pdf.setFontSize(16);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Répartition des Dépenses par Catégorie', margin, yPos);
             yPos += 20;
             const expenseChartCanvas = document.getElementById('expenseCategoryChart');
@@ -2159,8 +2341,10 @@
             // --- To-do Section ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Mes Tâches', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.todos.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune tâche enregistrée.', margin, yPos);
@@ -2170,7 +2354,7 @@
                     checkPageBreak(40);
                     const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
                     pdf.setFontSize(12);
-                    pdf.text(`- ${todo.title} (Priorité: ${todo.priority}, Catégorie: ${category.name}, Échéance: ${todo.dueDate || 'N/A'}) ${todo.completed ? '[Terminée]' : ''}`, margin + 10, yPos);
+                    pdf.text(`- ${todo.title} (Priorité: ${todo.priority}, Catégorie: ${category.name}, Échéance: ${todo.dueDate ? new Date(todo.dueDate).toLocaleDateString('fr-FR') : 'N/A'}) ${todo.completed ? '[Terminée]' : ''}`, margin + 10, yPos);
                     yPos += 15;
                     if (todo.description) {
                         pdf.setFontSize(10);
@@ -2184,8 +2368,10 @@
             // --- Notes Section ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Mes Notes et Listes', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.notes.length === 0 && appData.lists.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune note ou liste enregistrée.', margin, yPos);
@@ -2216,17 +2402,19 @@
                 yPos += 10;
             }
 
-            // --- Expenses Section ---
+            // --- Expenses Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Historique des Dépenses et Revenus', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.expenses.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune transaction enregistrée.', margin, yPos);
                 yPos += 20;
             } else {
-                const headers = ['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (€)'];
+                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (€)']];
                 const data = appData.expenses.map(exp => {
                     const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
                     const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
@@ -2240,7 +2428,7 @@
                 });
                 pdf.autoTable({
                     startY: yPos,
-                    head: [headers],
+                    head: headers,
                     body: data,
                     theme: 'grid',
                     styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
@@ -2259,28 +2447,53 @@
             // --- Loans Section ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Mes Prêts', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.loans.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucun prêt enregistré.', margin, yPos);
                 yPos += 20;
             } else {
-                appData.loans.forEach(loan => {
-                    checkPageBreak(40);
+                const loanHeaders = [['Nom du Prêt', 'Total (€)', 'Remboursé (€)', 'Restant (€)', 'Échéance']];
+                const loanData = appData.loans.map(loan => {
                     const remaining = (loan.amount - loan.paid).toFixed(2);
-                    pdf.setFontSize(12);
-                    pdf.text(`- ${loan.name}: Total: €${loan.amount.toFixed(2)}, Remboursé: €${loan.paid.toFixed(2)}, Restant: €${remaining} (Échéance: ${loan.dueDate || 'N/A'})`, margin + 10, yPos);
-                    yPos += 15;
+                    return [
+                        loan.name,
+                        loan.amount.toFixed(2),
+                        loan.paid.toFixed(2),
+                        remaining,
+                        loan.dueDate ? new Date(loan.dueDate).toLocaleDateString('fr-FR') : 'N/A'
+                    ];
                 });
-                yPos += 10;
+                pdf.autoTable({
+                    startY: yPos,
+                    head: loanHeaders,
+                    body: loanData,
+                    theme: 'grid',
+                    styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
+                    headStyles: { fillColor: '#9333ea', textColor: '#fff', fontStyle: 'bold' },
+                    columnStyles: {
+                        1: { halign: 'right' },
+                        2: { halign: 'right' },
+                        3: { halign: 'right' }
+                    },
+                    margin: { left: margin, right: margin },
+                    didDrawPage: function (data) {
+                        yPos = data.cursor.y + 10;
+                    }
+                });
+                yPos = pdf.autoTable.previous.finalY + 10;
             }
 
             // --- Wellness Section (Summary) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Résumé Bien-être', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.wellness.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune entrée bien-être enregistrée.', margin, yPos);
@@ -2316,11 +2529,13 @@
                 yPos += 10;
             }
 
-            // --- Salary Forecast Section ---
+            // --- Salary Forecast Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Prévisions Salariales', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.salaryForecasts.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune prévision salariale enregistrée.', margin, yPos);
@@ -2330,34 +2545,54 @@
                     checkPageBreak(60 + forecast.expenses.length * 15);
                     let totalExpenses = forecast.expenses.reduce((sum, exp) => sum + exp.amount, 0);
                     let remainingSalary = forecast.averageSalary - totalExpenses;
+                    
                     pdf.setFontSize(12);
-                    pdf.text(`- ${forecast.name}: Salaire Moyen: €${forecast.averageSalary.toFixed(2)}`, margin + 10, yPos);
+                    pdf.text(`- ${forecast.name}`, margin + 10, yPos);
                     yPos += 15;
                     pdf.setFontSize(10);
-                    pdf.text(`  Dépenses Fixes:`, margin + 20, yPos);
+                    pdf.text(`  Salaire Moyen: €${forecast.averageSalary.toFixed(2)}`, margin + 20, yPos);
                     yPos += 15;
-                    if (forecast.expenses.length === 0) {
+                    pdf.text(`  Dépenses Fixes:`, margin + 20, yPos);
+                    yPos += 10;
+
+                    const expenseHeaders = [['Description', 'Montant (€)']];
+                    const expenseData = forecast.expenses.map(exp => [exp.description, exp.amount.toFixed(2)]);
+
+                    if (expenseData.length > 0) {
+                        pdf.autoTable({
+                            startY: yPos,
+                            head: expenseHeaders,
+                            body: expenseData,
+                            theme: 'grid',
+                            styles: { fontSize: 9, cellPadding: 4, textColor: '#333' },
+                            headStyles: { fillColor: '#b8a4e8', textColor: '#fff', fontStyle: 'bold' },
+                            columnStyles: { 1: { halign: 'right' } },
+                            margin: { left: margin + 30, right: margin }, // Indent table
+                            didDrawPage: function (data) {
+                                yPos = data.cursor.y + 5;
+                            }
+                        });
+                        yPos = pdf.autoTable.previous.finalY + 10;
+                    } else {
                         pdf.text(`    Aucune.`, margin + 30, yPos);
                         yPos += 15;
-                    } else {
-                        forecast.expenses.forEach(exp => {
-                            pdf.text(`    - ${exp.description}: €${exp.amount.toFixed(2)}`, margin + 30, yPos);
-                            yPos += 15;
-                        });
                     }
-                    pdf.setFontSize(12);
-                    pdf.text(`  Total Dépenses: €${totalExpenses.toFixed(2)}`, margin + 20, yPos);
+                    
+                    pdf.setFontSize(10);
+                    pdf.text(`  Total Dépenses Fixes: €${totalExpenses.toFixed(2)}`, margin + 20, yPos);
                     yPos += 15;
                     pdf.text(`  Reste après dépenses: €${remainingSalary.toFixed(2)}`, margin + 20, yPos);
                     yPos += 20;
                 });
             }
 
-            // --- Planned Expenses Section ---
+            // --- Planned Expenses Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
+            pdf.setTextColor('#6b21a8');
             pdf.text('Dépenses Planifiées', margin, yPos);
             yPos += 25;
+            pdf.setTextColor('#333333');
             if (appData.plannedExpenses.length === 0) {
                 pdf.setFontSize(12);
                 pdf.text('Aucune dépense planifiée enregistrée.', margin, yPos);
@@ -2369,28 +2604,43 @@
                     let totalPaid = 0;
                     
                     pdf.setFontSize(12);
-                    pdf.text(`- ${plannedExpense.name}:`, margin + 10, yPos);
+                    pdf.text(`- ${plannedExpense.name}`, margin + 10, yPos);
                     yPos += 15;
                     pdf.setFontSize(10);
                     pdf.text(`  Éléments:`, margin + 20, yPos);
-                    yPos += 15;
+                    yPos += 10;
 
-                    if (plannedExpense.items.length === 0) {
+                    const plannedItemHeaders = [['Description', 'Montant (€)', 'Statut']];
+                    const plannedItemData = plannedExpense.items.map(item => {
+                        totalAmount += item.amount;
+                        if (item.paid) totalPaid += item.amount;
+                        const status = item.paid ? 'Payé' : 'Non payé';
+                        return [item.description, item.amount.toFixed(2), status];
+                    });
+
+                    if (plannedItemData.length > 0) {
+                        pdf.autoTable({
+                            startY: yPos,
+                            head: plannedItemHeaders,
+                            body: plannedItemData,
+                            theme: 'grid',
+                            styles: { fontSize: 9, cellPadding: 4, textColor: '#333' },
+                            headStyles: { fillColor: '#b8a4e8', textColor: '#fff', fontStyle: 'bold' },
+                            columnStyles: { 1: { halign: 'right' } },
+                            margin: { left: margin + 30, right: margin }, // Indent table
+                            didDrawPage: function (data) {
+                                yPos = data.cursor.y + 5;
+                            }
+                        });
+                        yPos = pdf.autoTable.previous.finalY + 10;
+                    } else {
                         pdf.text(`    Aucun élément planifié.`, margin + 30, yPos);
                         yPos += 15;
-                    } else {
-                        plannedExpense.items.forEach(item => {
-                            totalAmount += item.amount;
-                            if (item.paid) totalPaid += item.amount;
-                            const status = item.paid ? '[Payé]' : '[Non payé]';
-                            pdf.text(`    - ${item.description}: €${item.amount.toFixed(2)} ${status}`, margin + 30, yPos);
-                            yPos += 15;
-                        });
                     }
 
                     const remainingToPay = totalAmount - totalPaid;
                     
-                    pdf.setFontSize(12);
+                    pdf.setFontSize(10);
                     pdf.text(`  Total Planifié: €${totalAmount.toFixed(2)}`, margin + 20, yPos);
                     yPos += 15;
                     pdf.text(`  Total Payé: €${totalPaid.toFixed(2)}`, margin + 20, yPos);
@@ -2401,6 +2651,62 @@
             }
 
             pdf.save(`mon-espace-personnel-rapport-${new Date().toISOString().split('T')[0]}.pdf`);
+        }
+
+        async function exportExpensesPdf() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            const margin = 20;
+            let yPos = margin;
+            const pageHeight = pdf.internal.pageSize.height;
+            const pageWidth = pdf.internal.pageSize.width;
+
+            pdf.setFontSize(22);
+            pdf.setTextColor('#6b21a8');
+            pdf.text('Historique des Dépenses et Revenus', pageWidth / 2, yPos, { align: 'center' });
+            yPos += 30;
+
+            pdf.setFontSize(12);
+            pdf.setTextColor('#333333');
+            pdf.text(`Date du rapport: ${new Date().toLocaleDateString('fr-FR')}`, margin, yPos);
+            yPos += 20;
+
+            if (appData.expenses.length === 0) {
+                pdf.setFontSize(12);
+                pdf.text('Aucune transaction enregistrée.', margin, yPos);
+                yPos += 20;
+            } else {
+                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (€)']];
+                const data = appData.expenses.map(exp => {
+                    const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
+                    const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
+                    return [
+                        new Date(exp.date).toLocaleDateString('fr-FR'),
+                        exp.description,
+                        category.name,
+                        origin.name,
+                        exp.amount.toFixed(2)
+                    ];
+                });
+                pdf.autoTable({
+                    startY: yPos,
+                    head: headers,
+                    body: data,
+                    theme: 'grid',
+                    styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
+                    headStyles: { fillColor: '#9333ea', textColor: '#fff', fontStyle: 'bold' },
+                    columnStyles: {
+                        4: { halign: 'right' }
+                    },
+                    margin: { left: margin, right: margin },
+                    didDrawPage: function (data) {
+                        yPos = data.cursor.y + 10;
+                    }
+                });
+                yPos = pdf.autoTable.previous.finalY + 10;
+            }
+
+            pdf.save(`mon-espace-personnel-depenses-${new Date().toISOString().split('T')[0]}.pdf`);
         }
 
 
@@ -3107,16 +3413,21 @@
 
             appData.salaryForecasts.forEach(forecast => {
                 let totalExpenses = 0;
-                const expensesHtml = forecast.expenses.map(exp => {
+                const expenseRowsHtml = forecast.expenses.map(exp => {
                     totalExpenses += exp.amount;
-                    return `<p class="text-sm text-gray-600 ml-4">- ${exp.description}: €${exp.amount.toFixed(2)}</p>`;
+                    return `
+                        <tr>
+                            <td class="py-2 px-4">${exp.description}</td>
+                            <td class="py-2 px-4 text-right">€${exp.amount.toFixed(2)}</td>
+                        </tr>
+                    `;
                 }).join('');
 
                 const remainingSalary = forecast.averageSalary - totalExpenses;
                 const remainingClass = remainingSalary >= 0 ? 'text-green-600' : 'text-red-600';
 
                 const forecastElement = document.createElement('div');
-                forecastElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition`;
+                forecastElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
                 forecastElement.dataset.id = forecast.id;
                 forecastElement.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
@@ -3132,7 +3443,21 @@
                     </div>
                     <p class="text-sm text-gray-600">Salaire Moyen: <span class="font-medium">€${forecast.averageSalary.toFixed(2)}</span></p>
                     <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Dépenses Fixes:</h4>
-                    ${expensesHtml || '<p class="text-sm text-gray-500 ml-4">Aucune dépense fixe.</p>'}
+                    ${forecast.expenses.length > 0 ? `
+                        <div class="overflow-x-auto">
+                            <table class="data-table text-sm">
+                                <thead>
+                                    <tr>
+                                        <th class="py-2 px-4">Description</th>
+                                        <th class="py-2 px-4 text-right">Montant (€)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${expenseRowsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    ` : '<p class="text-sm text-gray-500 ml-4">Aucune dépense fixe.</p>'}
                     <p class="text-md font-bold text-purple-800 mt-3">Total Dépenses: €${totalExpenses.toFixed(2)}</p>
                     <p class="text-md font-bold mt-1 ${remainingClass}">Reste après dépenses: €${remainingSalary.toFixed(2)}</p>
                 `;
@@ -3190,11 +3515,16 @@
                     if (item.paid) totalPaid += item.amount;
                     const itemClass = item.paid ? 'line-through text-gray-500' : '';
                     return `
-                        <div class="flex items-center text-sm text-gray-700 ml-4">
-                            <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
-                            <span class="${itemClass}">${item.description}: €${item.amount.toFixed(2)}</span>
-                            ${!item.paid ? `<button onclick="payPlannedExpenseItem('${plannedExpense.id}', ${idx})" class="ml-auto bg-green-500 hover:bg-green-600 text-white text-xs px-2 py-1 rounded-full">Payer</button>` : ''}
-                        </div>
+                        <tr>
+                            <td class="py-2 px-4">
+                                <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
+                                <span class="${itemClass}">${item.description}</span>
+                            </td>
+                            <td class="py-2 px-4 text-right">€${item.amount.toFixed(2)}</td>
+                            <td class="py-2 px-4">
+                                ${item.paid ? '<span class="text-green-600">Payé</span>' : `<button onclick="payPlannedExpenseItem('${plannedExpense.id}', ${idx})" class="bg-green-500 hover:bg-green-600 text-white text-xs px-2 py-1 rounded-full">Payer</button>`}
+                            </td>
+                        </tr>
                     `;
                 }).join('');
 
@@ -3202,7 +3532,7 @@
                 const remainingClass = remainingToPay > 0 ? 'text-red-600' : 'text-green-600';
 
                 const plannedExpenseElement = document.createElement('div');
-                plannedExpenseElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition`;
+                plannedExpenseElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
                 plannedExpenseElement.dataset.id = plannedExpense.id;
                 plannedExpenseElement.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
@@ -3217,7 +3547,22 @@
                         </div>
                     </div>
                     <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Éléments:</h4>
-                    ${itemsHtml || '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
+                    ${plannedExpense.items.length > 0 ? `
+                        <div class="overflow-x-auto">
+                            <table class="data-table text-sm">
+                                <thead>
+                                    <tr>
+                                        <th class="py-2 px-4">Description</th>
+                                        <th class="py-2 px-4 text-right">Montant (€)</th>
+                                        <th class="py-2 px-4">Statut</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${itemsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    ` : '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
                     <p class="text-md font-bold text-purple-800 mt-3">Total Planifié: €${totalAmount.toFixed(2)}</p>
                     <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">€${totalPaid.toFixed(2)}</span></p>
                     <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: €${remainingToPay.toFixed(2)}</p>
@@ -3620,6 +3965,7 @@
         // Afficher les catégories dans la sidebar avec modification/suppression
         function renderCategoriesDisplay() {
             categoriesListDisplay.innerHTML = '';
+            categoriesListDisplayMobile.innerHTML = ''; // For mobile sidebar
             appData.categories.forEach(category => {
                 const div = document.createElement('div');
                 div.className = 'flex items-center justify-between bg-purple-50 p-2 rounded-lg';
@@ -3637,6 +3983,7 @@
                     </div>
                 `;
                 categoriesListDisplay.appendChild(div);
+                categoriesListDisplayMobile.appendChild(div.cloneNode(true)); // Clone for mobile
             });
         }
 
@@ -3653,6 +4000,7 @@
         // Afficher les provenances dans la sidebar avec modification/suppression
         function renderOriginsDisplay() {
             originsListDisplay.innerHTML = '';
+            originsListDisplayMobile.innerHTML = ''; // For mobile sidebar
             appData.origins.forEach(origin => {
                 const div = document.createElement('div');
                 div.className = 'flex items-center justify-between bg-purple-50 p-2 rounded-lg';
@@ -3670,6 +4018,7 @@
                     </div>
                 `;
                 originsListDisplay.appendChild(div);
+                originsListDisplayMobile.appendChild(div.cloneNode(true)); // Clone for mobile
             });
         }
 
