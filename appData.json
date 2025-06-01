@@ -84,6 +84,18 @@
         {
           "description": "carburent (800 x 30)",
           "amount": 25000
+        },
+        {
+          "description": "Epargne",
+          "amount": 20000
+        },
+        {
+          "description": "Loyer",
+          "amount": 30000
+        },
+        {
+          "description": "Parent (5000 x 2)",
+          "amount": 10000
         }
       ],
       "createdAt": "2025-06-01T19:20:32.585Z"
