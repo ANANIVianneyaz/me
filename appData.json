@@ -6,7 +6,7 @@
       "description": "gbbrgbt",
       "dueDate": "2025-06-01",
       "priority": "medium",
-      "category": "gbg",
+      "category": "other",
       "completed": true,
       "createdAt": "2025-06-01T19:44:14.945Z"
     }
@@ -15,13 +15,7 @@
   "lists": [],
   "expenses": [],
   "wellness": [],
-  "categories": [
-    {
-      "id": "gbg",
-      "name": "gbg",
-      "color": "#9333ea"
-    }
-  ],
+  "categories": [],
   "origins": [],
   "loans": [],
   "savings": {
