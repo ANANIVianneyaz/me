@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "transport",
-      "name": "Transport",
-      "color": "#0ea5e9"
-    },
-    {
       "id": "housing",
       "name": "Logement",
       "color": "#7c3aed"
