@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "salary",
-      "name": "Salaire",
-      "color": "#4CAF50"
-    },
-    {
       "id": "gift",
       "name": "Don",
       "color": "#FFC107"
