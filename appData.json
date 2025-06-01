@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "savings-transfer",
-      "name": "Transfert �pargne",
-      "color": "#9C27B0"
-    },
-    {
       "id": "other-income",
       "name": "Autre Revenu",
       "color": "#607D8B"
