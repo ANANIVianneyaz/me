@@ -11,6 +11,15 @@
       "origin": "",
       "amount": 5000,
       "createdAt": "2025-06-01T21:40:08.801Z"
+    },
+    {
+      "id": "_ltueqhzdt",
+      "date": "2025-06-01",
+      "description": "Gestion de semaine",
+      "category": "finance",
+      "origin": "",
+      "amount": 5000,
+      "createdAt": "2025-06-01T21:40:13.735Z"
     }
   ],
   "wellness": [],
