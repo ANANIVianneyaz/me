@@ -11,24 +11,7 @@
     "balance": 0,
     "transactions": []
   },
-  "salaryForecasts": [
-    {
-      "id": "_96vu0hv9w",
-      "name": "nhjh",
-      "averageSalary": 200000,
-      "expenses": [
-        {
-          "description": "eee",
-          "amount": 223
-        },
-        {
-          "description": "jhjhg",
-          "amount": 56566
-        }
-      ],
-      "createdAt": "2025-06-01T20:10:48.652Z"
-    }
-  ],
+  "salaryForecasts": [],
   "plannedExpenses": [
     {
       "id": "_bhroq2iio",
