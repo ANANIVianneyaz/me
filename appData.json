@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "work",
-      "name": "Travail",
-      "color": "#9333ea"
-    },
-    {
       "id": "personal",
       "name": "Personnel",
       "color": "#3b82f6"
