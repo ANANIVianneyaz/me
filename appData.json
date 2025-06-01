@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "finance",
-      "name": "Finances",
-      "color": "#f59e0b"
-    },
-    {
       "id": "food",
       "name": "Nourriture",
       "color": "#65a30d"
