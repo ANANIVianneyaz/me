@@ -46,16 +46,7 @@
       "color": "#4caf50"
     }
   ],
-  "loans": [
-    {
-      "id": "_psy2kfn0g",
-      "name": "n jkj",
-      "amount": 10000,
-      "paid": 10000,
-      "dueDate": "2025-06-10",
-      "createdAt": "2025-06-01T23:34:57.699Z"
-    }
-  ],
+  "loans": [],
   "savings": {
     "balance": 0,
     "transactions": []
