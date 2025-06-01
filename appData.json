@@ -1,16 +1,5 @@
 {
-  "todos": [
-    {
-      "id": "_l8xys8kib",
-      "title": "vgbgrb",
-      "description": "gbbrgbt",
-      "dueDate": "2025-06-01",
-      "priority": "medium",
-      "category": "other",
-      "completed": true,
-      "createdAt": "2025-06-01T19:44:14.945Z"
-    }
-  ],
+  "todos": [],
   "notes": [],
   "lists": [],
   "expenses": [],
