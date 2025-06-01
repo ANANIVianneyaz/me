@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "cash",
-      "name": "Esp�ces",
-      "color": "#78716c"
-    },
-    {
       "id": "bank-card",
       "name": "Carte Bancaire",
       "color": "#4c1d95"
