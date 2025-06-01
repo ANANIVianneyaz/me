@@ -997,7 +997,7 @@
         let githubUsername = '';
         let githubRepo = '';
         let githubToken = '';
-        let githubFileSha = undefined; // Initialisé à undefined pour indiquer qu'aucun SHA n'est connu
+        // Removed githubFileSha - it will be fetched dynamically before each save
 
         const GITHUB_DATA_FILE = 'appData.json'; // Nom du fichier JSON sur GitHub
 
@@ -1125,45 +1125,69 @@
                 const response = await fetch(url, {
                     headers: {
                         'Authorization': `token ${githubToken}`,
-                        'Accept': 'application/vnd.github.v3+json' // Changed to get JSON with SHA
+                        'Accept': 'application/vnd.github.v3+json'
                     }
                 });
 
                 if (response.status === 404) {
-                    // Fichier non trouvé, initialiser avec les données par défaut et tenter de créer le fichier
-                    showMessage('Initialisation', 'Fichier de données GitHub non trouvé. Création d\'un nouveau fichier...');
+                    // Fichier non trouvé, initialiser avec les données par défaut
+                    showMessage('Initialisation', 'Fichier de données GitHub non trouvé. Création d\'un nouveau fichier lors de la première sauvegarde.');
                     appData = {
                         todos: [], notes: [], lists: [], expenses: [], wellness: [],
                         categories: defaultCategories, origins: defaultOrigins, loans: [],
                         savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                     };
-                    githubFileSha = undefined; // Explicitly set to undefined for new creation
-                    await saveDataToGitHub(); // Attempt to create the file
-                    document.getElementById('githubStatusMessage').textContent = 'Données initialisées et fichier créé sur GitHub.';
+                    document.getElementById('githubStatusMessage').textContent = 'Données initialisées. Prêtes à être sauvegardées.';
+                    document.getElementById('githubConfigSection').classList.remove('hidden'); // Ensure config is visible for user action
                 } else if (!response.ok) {
-                    const errorJson = await response.json(); // Parse error response
+                    const errorJson = await response.json();
                     throw new Error(`Erreur GitHub: ${response.status} - ${errorJson.message || JSON.stringify(errorJson)}`);
                 } else {
                     const data = await response.json();
-                    githubFileSha = data.sha; // Store the SHA for future updates
-                    const decodedContent = atob(data.content); // Decode Base64 content
-                    appData = JSON.parse(decodedContent);
-                    
-                    // Ensure new properties are initialized if they are missing in loaded data
-                    appData.todos = appData.todos || [];
-                    appData.notes = appData.notes || [];
-                    appData.lists = appData.lists || [];
-                    appData.expenses = appData.expenses || [];
-                    appData.wellness = appData.wellness || [];
-                    appData.loans = appData.loans || [];
-                    appData.savings = appData.savings || { balance: 0, transactions: [] };
-                    appData.salaryForecasts = appData.salaryForecasts || [];
-                    appData.plannedExpenses = appData.plannedExpenses || [];
-                    appData.categories = appData.categories !== undefined ? appData.categories : defaultCategories;
-                    appData.origins = appData.origins !== undefined ? appData.origins : defaultOrigins;
+                    // Do NOT set githubFileSha here. It will be fetched dynamically before each save.
 
-                    document.getElementById('githubStatusMessage').textContent = 'Données chargées avec succès depuis GitHub.';
-                    document.getElementById('githubConfigSection').classList.add('hidden'); // Hide config if loading successful
+                    if (data.content && typeof data.content === 'string') {
+                        try {
+                            const decodedContent = atob(data.content); // Decode Base64 content
+                            appData = JSON.parse(decodedContent);
+                            
+                            // Ensure new properties are initialized if they are missing in loaded data
+                            appData.todos = appData.todos || [];
+                            appData.notes = appData.notes || [];
+                            appData.lists = appData.lists || [];
+                            appData.expenses = appData.expenses || [];
+                            appData.wellness = appData.wellness || [];
+                            appData.loans = appData.loans || [];
+                            appData.savings = appData.savings || { balance: 0, transactions: [] };
+                            appData.salaryForecasts = appData.salaryForecasts || [];
+                            appData.plannedExpenses = appData.plannedExpenses || [];
+                            appData.categories = appData.categories !== undefined ? appData.categories : defaultCategories;
+                            appData.origins = appData.origins !== undefined ? appData.origins : defaultOrigins;
+
+                            document.getElementById('githubStatusMessage').textContent = 'Données chargées avec succès depuis GitHub.';
+                            document.getElementById('githubConfigSection').classList.add('hidden'); // Hide config if loading successful
+                        } catch (decodeError) {
+                            console.error("Erreur de décodage/parsing des données GitHub:", decodeError);
+                            showMessage('Erreur de décodage', `Impossible de décoder ou de parser les données du fichier GitHub: ${decodeError.message}. Le fichier pourrait être corrompu. Réinitialisation des données locales.`);
+                            appData = {
+                                todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                                categories: defaultCategories, origins: defaultOrigins, loans: [],
+                                savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
+                            }; // Revert to defaults locally
+                            document.getElementById('githubStatusMessage').textContent = 'Fichier GitHub corrompu. Données locales réinitialisées.';
+                            document.getElementById('githubConfigSection').classList.remove('hidden');
+                        }
+                    } else {
+                        // Content is missing or not a string, treat as empty/corrupted
+                        showMessage('Fichier vide/corrompu', 'Le fichier de données GitHub est vide ou invalide. Réinitialisation des données locales.');
+                        appData = {
+                            todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                            categories: defaultCategories, origins: defaultOrigins, loans: [],
+                            savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
+                        };
+                        document.getElementById('githubStatusMessage').textContent = 'Fichier GitHub vide ou invalide. Données locales réinitialisées.';
+                        document.getElementById('githubConfigSection').classList.remove('hidden');
+                    }
                 }
 
             } catch (error) {
@@ -1173,6 +1197,12 @@
                 document.getElementById('githubStatusMessage').textContent = `Erreur de chargement GitHub: ${error.message}. Vérifiez votre configuration.`;
                 showMessage('Erreur de chargement', `Impossible de charger les données depuis GitHub: ${error.message}. Veuillez vérifier vos informations de configuration.`);
                 document.getElementById('githubConfigSection').classList.remove('hidden'); // Show config on error
+                // Ensure appData is reset on critical fetch error
+                appData = {
+                    todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                    categories: defaultCategories, origins: defaultOrigins, loans: [],
+                    savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
+                };
             } finally {
                 // Initialiser l'interface utilisateur après la tentative de chargement
                 populateCategoryDropdowns();
@@ -1205,7 +1235,7 @@
 
             let currentSha = undefined; // Start with undefined, will try to fetch
 
-            // Always attempt to get the current SHA of the file
+            // Always attempt to get the current SHA of the file to ensure correct update/creation
             try {
                 const response = await fetch(url, {
                     method: 'GET',
@@ -1230,7 +1260,7 @@
                 document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                 document.getElementById('githubStatusMessage').textContent = `Erreur lors de la récupération du SHA: ${error.message}`;
                 showMessage('Erreur de sauvegarde', `Impossible de récupérer le SHA du fichier: ${error.message}.`);
-                return;
+                return; // Stop execution if SHA retrieval fails
             }
 
             const commitMessage = currentSha ? `Mise à jour des données personnelles (${new Date().toLocaleString()})` : `Création de ${GITHUB_DATA_FILE}`;
@@ -1245,7 +1275,6 @@
             if (currentSha) {
                 payload.sha = currentSha;
             }
-
 
             try {
                 const response = await fetch(url, {
@@ -1263,7 +1292,7 @@
                 }
 
                 const result = await response.json();
-                githubFileSha = result.content.sha; // Update SHA after successful save
+                // No need to store SHA globally anymore, it's fetched on each save.
                 document.getElementById('githubStatusMessage').textContent = 'Données sauvegardées avec succès sur GitHub.';
             } catch (error) {
                 console.error("Erreur lors de la sauvegarde des données sur GitHub:", error);
@@ -1336,7 +1365,7 @@
                     btn.classList.add('bg-purple-100', 'text-purple-800');
                 } else {
                     btn.classList.add('hover:bg-purple-50', 'text-purple-700');
-                    btn.classList.remove('bg-purple-100', 'text-white'); // Fix: remove bg-purple-600, text-white
+                    btn.classList.remove('bg-purple-100', 'text-purple-800');
                 }
             });
 
