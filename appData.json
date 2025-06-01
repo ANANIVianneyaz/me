@@ -7,7 +7,7 @@
       "dueDate": "2025-06-01",
       "priority": "medium",
       "category": "",
-      "completed": true,
+      "completed": false,
       "createdAt": "2025-06-01T19:44:14.945Z"
     }
   ],
@@ -15,7 +15,13 @@
   "lists": [],
   "expenses": [],
   "wellness": [],
-  "categories": [],
+  "categories": [
+    {
+      "id": "gbg",
+      "name": "gbg",
+      "color": "#9333ea"
+    }
+  ],
   "origins": [],
   "loans": [],
   "savings": {
