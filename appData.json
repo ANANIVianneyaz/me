@@ -1,24 +1,7 @@
 {
   "todos": [],
   "notes": [],
-  "lists": [
-    {
-      "id": "_zr6cpi279",
-      "title": "gtgtg",
-      "color": "bg-purple-100",
-      "items": [
-        {
-          "text": "rege",
-          "completed": false
-        },
-        {
-          "text": "ggeg",
-          "completed": false
-        }
-      ],
-      "createdAt": "2025-06-01T21:18:37.136Z"
-    }
-  ],
+  "lists": [],
   "expenses": [],
   "wellness": [],
   "categories": [],
