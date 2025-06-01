@@ -24,14 +24,23 @@
     {
       "id": "_4vzhss645",
       "date": "2025-06-01",
-      "description": "Remboursement de pr�t: n jkj",
+      "description": "Remboursement de prêt: n jkj",
       "category": "finance",
       "origin": "loan-repayment",
       "amount": -10000,
       "createdAt": "2025-06-01T23:35:10.979Z"
     }
   ],
-  "wellness": [],
+  "wellness": [
+    {
+      "id": "_ddklg79x4",
+      "date": "2025-06-01",
+      "type": "water",
+      "value": 6,
+      "notes": "nnk",
+      "createdAt": "2025-06-01T23:36:43.829Z"
+    }
+  ],
   "categories": [
     {
       "id": "carburent",
@@ -74,7 +83,7 @@
           "amount": 6000
         },
         {
-          "description": "Carburant 1000×30",
+          "description": "Carburant 1000Ã—30",
           "amount": 30000
         },
         {
@@ -82,15 +91,15 @@
           "amount": 6000
         },
         {
-          "description": "Parent (5000×2)",
+          "description": "Parent (5000Ã—2)",
           "amount": 10000
         },
         {
-          "description": "Épargne",
+          "description": "Ã‰pargne",
           "amount": 20000
         },
         {
-          "description": "Poche (500 × 30)",
+          "description": "Poche (500 Ã— 30)",
           "amount": 15000
         }
       ],
