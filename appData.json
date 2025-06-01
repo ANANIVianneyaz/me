@@ -2,7 +2,17 @@
   "todos": [],
   "notes": [],
   "lists": [],
-  "expenses": [],
+  "expenses": [
+    {
+      "id": "_suktl7a9x",
+      "date": "2025-06-01",
+      "description": "Gestion de semaine",
+      "category": "finance",
+      "origin": "",
+      "amount": 5000,
+      "createdAt": "2025-06-01T21:40:08.801Z"
+    }
+  ],
   "wellness": [],
   "categories": [],
   "origins": [],
