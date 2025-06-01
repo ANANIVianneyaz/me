@@ -1,16 +1,5 @@
 {
-  "todos": [
-    {
-      "id": "_m3aedtmgk",
-      "title": "Faire du sport",
-      "description": "65okli",
-      "dueDate": "2025-06-02",
-      "priority": "low",
-      "category": "",
-      "completed": true,
-      "createdAt": "2025-06-01T20:25:05.063Z"
-    }
-  ],
+  "todos": [],
   "notes": [],
   "lists": [],
   "expenses": [],
@@ -53,5 +42,6 @@
       ],
       "createdAt": "2025-06-01T20:11:17.655Z"
     }
-  ]
+  ],
+  "todoLists": []
 }
