@@ -11,7 +11,52 @@
     "balance": 0,
     "transactions": []
   },
-  "salaryForecasts": [],
+  "salaryForecasts": [
+    {
+      "id": "_fm6n76w7e",
+      "name": "Si je suis encore chez mes parents",
+      "averageSalary": 150000,
+      "expenses": [
+        {
+          "description": "WiFi",
+          "amount": 15500
+        },
+        {
+          "description": "Lavage moto",
+          "amount": 3000
+        },
+        {
+          "description": "Entretien moto",
+          "amount": 10000
+        },
+        {
+          "description": "Habillage",
+          "amount": 6000
+        },
+        {
+          "description": "Carburant 1000×30",
+          "amount": 30000
+        },
+        {
+          "description": "Facture",
+          "amount": 6000
+        },
+        {
+          "description": "Parent (5000×2)",
+          "amount": 10000
+        },
+        {
+          "description": "Épargne",
+          "amount": 20000
+        },
+        {
+          "description": "Poche (500 × 30)",
+          "amount": 15000
+        }
+      ],
+      "createdAt": "2025-06-01T21:37:00.962Z"
+    }
+  ],
   "plannedExpenses": [
     {
       "id": "_bhroq2iio",
