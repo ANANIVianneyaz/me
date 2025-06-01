@@ -7,7 +7,7 @@
       "dueDate": "2025-06-01",
       "priority": "medium",
       "category": "gbg",
-      "completed": false,
+      "completed": true,
       "createdAt": "2025-06-01T19:44:14.945Z"
     }
   ],
