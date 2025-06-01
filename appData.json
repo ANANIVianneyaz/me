@@ -4,13 +4,7 @@
   "lists": [],
   "expenses": [],
   "wellness": [],
-  "categories": [
-    {
-      "id": "other",
-      "name": "Autre",
-      "color": "#64748b"
-    }
-  ],
+  "categories": [],
   "origins": [
     {
       "id": "salary",
