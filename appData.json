@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "other-income",
-      "name": "Autre Revenu",
-      "color": "#607D8B"
-    },
-    {
       "id": "cash",
       "name": "Esp�ces",
       "color": "#78716c"
