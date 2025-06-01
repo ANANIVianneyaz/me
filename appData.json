@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "bank-card",
-      "name": "Carte Bancaire",
-      "color": "#4c1d95"
-    },
-    {
       "id": "online-payment",
       "name": "Paiement en ligne",
       "color": "#6d28d9"
