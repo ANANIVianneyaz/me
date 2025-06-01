@@ -42,6 +42,11 @@
       "id": "nourriture",
       "name": "Nourriture",
       "color": "#34eae7"
+    },
+    {
+      "id": "gillotages",
+      "name": "Gillotages",
+      "color": "#3483ea"
     }
   ],
   "origins": [
