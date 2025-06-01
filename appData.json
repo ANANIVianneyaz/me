@@ -80,6 +80,10 @@
         {
           "description": "Facture",
           "amount": 10000
+        },
+        {
+          "description": "carburent (800 x 30)",
+          "amount": 25000
         }
       ],
       "createdAt": "2025-06-01T19:20:32.585Z"
