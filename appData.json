@@ -7,11 +7,6 @@
   "categories": [],
   "origins": [
     {
-      "id": "gift",
-      "name": "Don",
-      "color": "#FFC107"
-    },
-    {
       "id": "savings-transfer",
       "name": "Transfert �pargne",
       "color": "#9C27B0"
