@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "personal",
-      "name": "Personnel",
-      "color": "#3b82f6"
-    },
-    {
       "id": "health",
       "name": "Sant�",
       "color": "#10b981"
