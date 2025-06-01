@@ -20,6 +20,15 @@
       "origin": "",
       "amount": 5000,
       "createdAt": "2025-06-01T21:40:13.735Z"
+    },
+    {
+      "id": "_4vzhss645",
+      "date": "2025-06-01",
+      "description": "Remboursement de prêt: n jkj",
+      "category": "finance",
+      "origin": "loan-repayment",
+      "amount": -10000,
+      "createdAt": "2025-06-01T23:35:10.979Z"
     }
   ],
   "wellness": [],
@@ -42,7 +51,7 @@
       "id": "_psy2kfn0g",
       "name": "n jkj",
       "amount": 10000,
-      "paid": 0,
+      "paid": 10000,
       "dueDate": "2025-06-10",
       "createdAt": "2025-06-01T23:34:57.699Z"
     }
