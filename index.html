@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Espace Personnel</title>
+    <title>MindFlow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Styles personnalisés */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Douceur du gris-bleu clair */
         }
         .draggable {
             cursor: grab; /* Curseur pour indiquer que l'élément est déplaçable */
@@ -60,7 +61,7 @@
             cursor: pointer;
             padding: 8px 0;
             font-weight: 600;
-            color: #6b21a8; /* purple-800 */
+            color: #4a5568; /* couleur texte plus neutre */
             list-style: none; /* Remove default arrow */
         }
         details summary::-webkit-details-marker {
@@ -153,63 +154,63 @@
             text-align: left;
         }
         .data-table th {
-            background-color: #f3e8ff; /* Tailwind purple-50 */
-            color: #6b21a8; /* Tailwind purple-800 */
+            background-color: #e0e7ff; /* light blue-violet */
+            color: #4338ca; /* indigo-700 */
             font-weight: 600;
         }
         .data-table tbody tr:nth-child(even) {
-            background-color: #fbf6ff; /* Lighter purple for even rows */
+            background-color: #eff6ff; /* Lighter blue for even rows */
         }
         .data-table tbody tr:hover {
-            background-color: #ede9fe; /* Even lighter purple on hover */
+            background-color: #e0f2fe; /* Even lighter blue on hover */
         }
     </style>
 </head>
-<body class="bg-purple-50 min-h-screen font-sans">
+<body class="bg-gray-100 min-h-screen font-sans">
     <div id="mobile-sidebar-overlay" class="hidden lg:hidden"></div>
 
     <div id="mobile-sidebar" class="hidden lg:hidden">
         <div class="flex justify-end p-4">
-            <button id="closeMobileSidebar" class="text-purple-600 hover:text-purple-800 text-2xl">
+            <button id="closeMobileSidebar" class="text-gray-600 hover:text-gray-800 text-2xl">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="px-6 pb-6">
             <div class="mb-6">
-                <h2 class="text-xl font-semibold text-purple-800 mb-4">Sections</h2>
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Sections</h2>
                 <ul class="space-y-2" id="mobile-sections-list">
                     <li>
-                        <button data-section="overview" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="overview" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-chart-pie mr-3"></i> Vue d'ensemble
                         </button>
                     </li>
                     <li>
-                        <button data-section="todos" class="section-btn w-full text-left px-4 py-2 rounded-lg bg-purple-100 text-purple-800 font-medium flex items-center">
+                        <button data-section="todos" class="section-btn w-full text-left px-4 py-2 rounded-lg bg-blue-100 text-blue-800 font-medium flex items-center">
                             <i class="fas fa-tasks mr-3"></i> Tâches
                         </button>
                     </li>
                     <li>
-                        <button data-section="notes" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="notes" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-sticky-note mr-3"></i> Notes
                         </button>
                     </li>
                     <li>
-                        <button data-section="expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-wallet mr-3"></i> Dépenses & Finances
                         </button>
                     </li>
                     <li>
-                        <button data-section="wellness" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="wellness" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-heartbeat mr-3"></i> Bien-être
                         </button>
                     </li>
                     <li>
-                        <button data-section="salary-forecast" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="salary-forecast" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-money-bill-wave mr-3"></i> Prévision Salariale
                         </button>
                     </li>
                     <li>
-                        <button data-section="planned-expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                        <button data-section="planned-expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                             <i class="fas fa-clipboard-list mr-3"></i> Dépenses Planifiées
                         </button>
                     </li>
@@ -217,19 +218,19 @@
             </div>
             
             <details class="mb-6">
-                <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
+                <summary class="text-xl font-semibold text-gray-800 mb-4">Catégories</summary>
                 <div id="categories-list-display-mobile" class="space-y-2 mb-4 mt-2">
                     </div>
-                <button id="addCategoryBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                <button id="addCategoryBtnMobile" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
                     <i class="fas fa-plus mr-2"></i> Nouvelle Catégorie
                 </button>
             </details>
 
             <details class="mb-6">
-                <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
+                <summary class="text-xl font-semibold text-gray-800 mb-4">Provenances</summary>
                 <div id="origins-list-display-mobile" class="space-y-2 mb-4 mt-2">
                     </div>
-                <button id="addOriginBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                <button id="addOriginBtnMobile" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
                     <i class="fas fa-plus mr-2"></i> Nouvelle Provenance
                 </button>
             </details>
@@ -240,16 +241,18 @@
     <div class="container mx-auto px-4 py-8">
         <header class="flex flex-col sm:flex-row justify-between items-center mb-8 space-y-4 sm:space-y-0">
             <div class="flex items-center">
-                <button id="openMobileSidebar" class="lg:hidden text-purple-800 text-2xl mr-4">
+                <button id="openMobileSidebar" class="lg:hidden text-gray-800 text-2xl mr-4">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div>
-                    <h1 class="text-3xl font-bold text-purple-800">Mon Espace Personnel</h1>
-                    <p class="text-purple-600">Tout ce dont vous avez besoin au même endroit</p>
+                <div class="flex items-center">
+                    <i class="fas fa-brain text-4xl text-indigo-600 mr-3"></i> <div>
+                        <h1 class="text-3xl font-bold text-indigo-800">MindFlow</h1>
+                        <p class="text-gray-600">Tout ce dont vous avez besoin au même endroit</p>
+                    </div>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-                <button id="exportPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
+                <button id="exportPdfBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
                     <i class="fas fa-file-pdf mr-2"></i>Exporter PDF
                 </button>
                 <input type="file" id="fileInput" class="hidden" accept=".json">
@@ -257,7 +260,7 @@
         </header>
 
         <div id="githubConfigSection" class="bg-white rounded-xl shadow-md p-6 mb-6 hidden">
-            <h2 class="text-xl font-semibold text-purple-800 mb-4">Configuration GitHub</h2>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Configuration GitHub</h2>
             <p class="text-red-600 mb-4">
                 <strong>Attention :</strong> Pour des raisons de simplicité, votre Personal Access Token (PAT) sera stocké dans le stockage local de votre navigateur.
                 Cela signifie qu'il est accessible via les outils de développement du navigateur. N'utilisez cette fonction que pour un usage strictement personnel.
@@ -265,25 +268,25 @@
             </p>
             <div class="space-y-4">
                 <div>
-                    <label for="githubUsername" class="block text-sm font-medium text-purple-700 mb-1">Nom d'utilisateur GitHub</label>
-                    <input type="text" id="githubUsername" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Votre nom d'utilisateur GitHub">
+                    <label for="githubUsername" class="block text-sm font-medium text-gray-700 mb-1">Nom d'utilisateur GitHub</label>
+                    <input type="text" id="githubUsername" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Votre nom d'utilisateur GitHub">
                 </div>
                 <div>
-                    <label for="githubRepo" class="block text-sm font-medium text-purple-700 mb-1">Nom du dépôt GitHub</label>
-                    <input type="text" id="githubRepo" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Nom du dépôt (ex: my-personal-data)">
+                    <label for="githubRepo" class="block text-sm font-medium text-gray-700 mb-1">Nom du dépôt GitHub</label>
+                    <input type="text" id="githubRepo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Nom du dépôt (ex: my-personal-data)">
                 </div>
                 <div>
-                    <label for="githubToken" class="block text-sm font-medium text-purple-700 mb-1">Personal Access Token (PAT) GitHub</label>
-                    <input type="password" id="githubToken" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+                    <label for="githubToken" class="block text-sm font-medium text-gray-700 mb-1">Personal Access Token (PAT) GitHub</label>
+                    <input type="password" id="githubToken" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
                 </div>
                 <div class="flex justify-end">
-                    <button id="saveGithubConfigBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition">
+                    <button id="saveGithubConfigBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition">
                         <i class="fas fa-save mr-2"></i>Enregistrer la configuration
                     </button>
                 </div>
             </div>
         </div>
-        <div id="githubStatus" class="bg-purple-100 text-purple-800 p-3 rounded-lg mb-6 hidden">
+        <div id="githubStatus" class="bg-blue-100 text-blue-800 p-3 rounded-lg mb-6 hidden">
             <i class="fas fa-info-circle mr-2"></i>
             <span id="githubStatusMessage"></span>
         </div>
@@ -291,40 +294,40 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <div class="lg:col-span-1 bg-white rounded-xl shadow-md p-6 h-fit sticky top-6 hidden lg:block">
                 <div class="mb-6">
-                    <h2 class="text-xl font-semibold text-purple-800 mb-4">Sections</h2>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Sections</h2>
                     <ul class="space-y-2">
                         <li>
-                            <button data-section="overview" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="overview" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-chart-pie mr-3"></i> Vue d'ensemble
                             </button>
                         </li>
                         <li>
-                            <button data-section="todos" class="section-btn w-full text-left px-4 py-2 rounded-lg bg-purple-100 text-purple-800 font-medium flex items-center">
+                            <button data-section="todos" class="section-btn w-full text-left px-4 py-2 rounded-lg bg-blue-100 text-blue-800 font-medium flex items-center">
                                 <i class="fas fa-tasks mr-3"></i> Tâches
                             </button>
                         </li>
                         <li>
-                            <button data-section="notes" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="notes" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-sticky-note mr-3"></i> Notes
                             </button>
                         </li>
                         <li>
-                            <button data-section="expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-wallet mr-3"></i> Dépenses & Finances
                             </button>
                         </li>
                         <li>
-                            <button data-section="wellness" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="wellness" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-heartbeat mr-3"></i> Bien-être
                             </button>
                         </li>
                         <li>
-                            <button data-section="salary-forecast" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="salary-forecast" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-money-bill-wave mr-3"></i> Prévision Salariale
                             </button>
                         </li>
                         <li>
-                            <button data-section="planned-expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-purple-50 text-purple-700 font-medium flex items-center">
+                            <button data-section="planned-expenses" class="section-btn w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 text-blue-700 font-medium flex items-center">
                                 <i class="fas fa-clipboard-list mr-3"></i> Dépenses Planifiées
                             </button>
                         </li>
@@ -332,19 +335,19 @@
                 </div>
                 
                 <details class="mb-6">
-                    <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
+                    <summary class="text-xl font-semibold text-gray-800 mb-4">Catégories</summary>
                     <div id="categories-list-display" class="space-y-2 mb-4 mt-2">
                         </div>
-                    <button id="addCategoryBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                    <button id="addCategoryBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
                         <i class="fas fa-plus mr-2"></i> Nouvelle Catégorie
                     </button>
                 </details>
 
                 <details class="mb-6">
-                    <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
+                    <summary class="text-xl font-semibold text-gray-800 mb-4">Provenances</summary>
                     <div id="origins-list-display" class="space-y-2 mb-4 mt-2">
                         </div>
-                    <button id="addOriginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
+                    <button id="addOriginBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
                         <i class="fas fa-plus mr-2"></i> Nouvelle Provenance
                     </button>
                 </details>
@@ -352,63 +355,73 @@
 
             <div class="lg:col-span-3 space-y-6">
                 <div id="overview-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
-                    <h2 class="text-2xl font-bold text-purple-800 mb-6">Vue d'ensemble</h2>
+                    <h2 class="text-2xl font-bold text-indigo-800 mb-6">Vue d'ensemble</h2>
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <i class="fas fa-tasks text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Total Tâches Actives</p>
-                            <p id="overviewActiveTasks" class="text-2xl font-bold text-purple-800">0</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-tasks text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Total Tâches Actives</p>
+                            <p id="overviewActiveTasks" class="text-2xl font-bold text-blue-800">0</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <i class="fas fa-check-circle text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Taux de Complétion Tâches</p>
-                            <p id="overviewTaskCompletion" class="text-2xl font-bold text-purple-800">0%</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-check-circle text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Taux de Complétion Tâches</p>
+                            <p id="overviewTaskCompletion" class="text-2xl font-bold text-blue-800">0%</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <i class="fas fa-heartbeat text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Indice de Bien-être</p>
-                            <p id="overviewWellnessIndex" class="text-2xl font-bold text-purple-800">N/A</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-heartbeat text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Indice de Bien-être</p>
+                            <p id="overviewWellnessIndex" class="text-2xl font-bold text-blue-800">N/A</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="overviewCurrentBalanceCard">
-                            <i class="fas fa-money-bill-wave text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Solde Actuel</p>
-                            <p id="overviewCurrentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center cursor-pointer" id="overviewCurrentBalanceCard">
+                            <i class="fas fa-money-bill-wave text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Solde Actuel</p>
+                            <p id="overviewCurrentBalance" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="overviewSavingsBalanceCard">
-                            <i class="fas fa-piggy-bank text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Total Épargne</p>
-                            <p id="overviewSavingsBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center cursor-pointer" id="overviewSavingsBalanceCard">
+                            <i class="fas fa-piggy-bank text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Total Épargne</p>
+                            <p id="overviewSavingsBalance" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <i class="fas fa-hand-holding-usd text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Total Prêts Restants</p>
-                            <p id="overviewLoansRemaining" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-hand-holding-usd text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Total Prêts Restants</p>
+                            <p id="overviewLoansRemaining" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
                     </div>
                     <div class="mt-8">
-                        <h3 class="text-xl font-semibold text-purple-800 mb-4">Répartition des Dépenses</h3>
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Répartition des Dépenses</h3>
+                        <div class="flex space-x-2 overflow-x-auto scrollbar-hide pb-2 mb-4">
+                            <button data-filter="all" class="expense-overview-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-indigo-600 text-white text-sm">Toutes</button>
+                            <button data-filter="thisMonth" class="expense-overview-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Ce Mois</button>
+                            <button data-filter="thisWeek" class="expense-overview-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Cette Semaine</button>
+                            <button data-filter="thisYear" class="expense-overview-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Cette Année</button>
+                        </div>
                         <div class="chart-container">
                             <canvas id="expenseCategoryChart"></canvas>
+                        </div>
+                        <div id="expenseChartInfo" class="mt-4 text-center text-gray-600 text-sm">
+                            <p>Total des dépenses affichées: <span id="totalFilteredExpenses" class="font-bold text-indigo-800">0 FCFA</span></p>
+                            <p>Catégorie la plus dépensée: <span id="mostSpentCategory" class="font-bold text-indigo-800">N/A</span></p>
                         </div>
                     </div>
                 </div>
 
                 <div id="todos-section" class="section-content bg-white rounded-xl shadow-md p-6 fade-in">
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-                        <h2 class="text-2xl font-bold text-purple-800">Mes Tâches</h2>
-                        <button id="addTodoBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center w-full sm:w-auto justify-center">
+                        <h2 class="text-2xl font-bold text-indigo-800">Mes Tâches</h2>
+                        <button id="addTodoBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center w-full sm:w-auto justify-center">
                             <i class="fas fa-plus mr-2"></i> Nouvelle Tâche (<span id="tasksProgressText">0/0</span>)
                         </button>
                     </div>
                     
                     <div class="mb-6">
                         <div class="flex space-x-2 overflow-x-auto scrollbar-hide pb-2">
-                            <button data-filter="all" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-600 text-white text-sm">Toutes</button>
-                            <button data-filter="active" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Actives</button>
-                            <button data-filter="completed" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Terminées</button>
-                            <button data-filter="today" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Aujourd'hui</button>
-                            <button data-filter="thisWeek" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Cette Semaine</button>
-                            <button data-filter="thisMonth" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Ce Mois</button>
+                            <button data-filter="all" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-indigo-600 text-white text-sm">Toutes</button>
+                            <button data-filter="active" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Actives</button>
+                            <button data-filter="completed" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Terminées</button>
+                            <button data-filter="today" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Aujourd'hui</button>
+                            <button data-filter="thisWeek" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Cette Semaine</button>
+                            <button data-filter="thisMonth" class="todo-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Ce Mois</button>
                         </div>
                     </div>
                     
@@ -418,12 +431,12 @@
 
                 <div id="notes-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-                        <h2 class="text-2xl font-bold text-purple-800">Mes Notes</h2>
+                        <h2 class="text-2xl font-bold text-indigo-800">Mes Notes</h2>
                         <div class="flex space-x-2 w-full sm:w-auto">
-                            <button id="addNoteBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
+                            <button id="addNoteBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
                                 <i class="fas fa-plus mr-2"></i> Nouvelle Note
                             </button>
-                            <button id="addListBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
+                            <button id="addListBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
                                 <i class="fas fa-list mr-2"></i> Nouvelle Liste
                             </button>
                         </div>
@@ -435,54 +448,54 @@
 
                 <div id="expenses-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-                        <h2 class="text-2xl font-bold text-purple-800">Mes Dépenses & Finances</h2>
+                        <h2 class="text-2xl font-bold text-indigo-800">Mes Dépenses & Finances</h2>
                         <div class="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto">
-                            <button id="addExpenseBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
+                            <button id="addExpenseBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
                                 <i class="fas fa-plus mr-1"></i> Dépense
                             </button>
                             <button id="addIncomeBtn" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
                                 <i class="fas fa-dollar-sign mr-1"></i> Revenu
                             </button>
-                            <button id="addLoanBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
+                            <button id="addLoanBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
                                 <i class="fas fa-hand-holding-usd mr-1"></i> Prêt
                             </button>
-                            <button id="exportExpensesPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
+                            <button id="exportExpensesPdfBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
                                 <i class="fas fa-file-pdf mr-1"></i> PDF Dépenses
                             </button>
                         </div>
                     </div>
                     
                     <div class="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="currentBalanceCard">
-                            <i class="fas fa-money-bill-wave text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Solde Actuel</p>
-                            <p id="currentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center cursor-pointer" id="currentBalanceCard">
+                            <i class="fas fa-money-bill-wave text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Solde Actuel</p>
+                            <p id="currentBalance" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="totalSavingsCard">
-                            <i class="fas fa-piggy-bank text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Épargne Totale</p>
-                            <p id="totalSavings" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center cursor-pointer" id="totalSavingsCard">
+                            <i class="fas fa-piggy-bank text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Épargne Totale</p>
+                            <p id="totalSavings" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <i class="fas fa-hand-holding-usd text-3xl text-purple-600 mb-2"></i>
-                            <p class="text-sm text-purple-600">Prêts Restants</p>
-                            <p id="totalLoansRemaining" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-hand-holding-usd text-3xl text-blue-600 mb-2"></i>
+                            <p class="text-sm text-blue-600">Prêts Restants</p>
+                            <p id="totalLoansRemaining" class="text-2xl font-bold text-blue-800">0 FCFA</p>
                         </div>
                     </div>
 
                     <div class="mb-6">
                         <div class="flex space-x-2 overflow-x-auto scrollbar-hide pb-2">
-                            <button data-filter="all" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-600 text-white text-sm">Toutes</button>
-                            <button data-filter="thisMonth" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Ce Mois</button>
-                            <button data-filter="thisWeek" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-purple-100 text-purple-800 text-sm">Cette Semaine</button>
+                            <button data-filter="all" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-indigo-600 text-white text-sm">Toutes</button>
+                            <button data-filter="thisMonth" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Ce Mois</button>
+                            <button data-filter="thisWeek" class="expense-filter-btn flex-shrink-0 px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Cette Semaine</button>
                         </div>
                     </div>
                     
-                    <h3 class="text-xl font-semibold text-purple-800 mb-4">Historique des Dépenses</h3>
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-4">Historique des Dépenses</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead>
-                                <tr class="text-left text-purple-800 border-b">
+                                <tr class="text-left text-indigo-800 border-b">
                                     <th class="pb-2">Date</th>
                                     <th class="pb-2">Description</th>
                                     <th class="pb-2">Catégorie</th>
@@ -496,46 +509,45 @@
                         </table>
                     </div>
 
-                    <h3 class="text-xl font-semibold text-purple-800 mt-8 mb-4">Mes Prêts</h3>
+                    <h3 class="text-xl font-semibold text-indigo-800 mt-8 mb-4">Mes Prêts</h3>
                     <div id="loans-container" class="space-y-4">
                         </div>
                 </div>
 
                 <div id="wellness-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-purple-800">Mon Bien-être</h2>
-                        <button id="addWellnessBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <h2 class="text-2xl font-bold text-indigo-800">Mon Bien-être</h2>
+                        <button id="addWellnessBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center">
                             <i class="fas fa-plus mr-2"></i> Nouvelle Entrée
                         </button>
                     </div>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-purple-100 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-2">Suivi de Poids</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"> <div class="bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Suivi de Poids</h3>
                             <div class="chart-container">
                                 <canvas id="weightChart"></canvas>
                             </div>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-2">Humeur</h3>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Humeur</h3>
                             <div class="chart-container">
                                 <canvas id="moodChart"></canvas>
                             </div>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-2">Sommeil (heures)</h3>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Sommeil (heures)</h3>
                             <div class="chart-container">
                                 <canvas id="sleepChart"></canvas>
                             </div>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-2">Exercice (minutes)</h3>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Exercice (minutes)</h3>
                             <div class="chart-container">
                                 <canvas id="exerciseChart"></canvas>
                             </div>
                         </div>
-                        <div class="bg-purple-100 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-2">Consommation d'eau (verres)</h3>
+                        <div class="bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Consommation d'eau (verres)</h3>
                             <div class="chart-container">
                                 <canvas id="waterChart"></canvas>
                             </div>
@@ -548,8 +560,8 @@
 
                 <div id="salary-forecast-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-purple-800">Prévisions Salariale</h2>
-                        <button id="addSalaryForecastBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <h2 class="text-2xl font-bold text-indigo-800">Prévisions Salariale</h2>
+                        <button id="addSalaryForecastBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center">
                             <i class="fas fa-plus mr-2"></i> Nouvelle Prévision
                         </button>
                     </div>
@@ -559,8 +571,8 @@
 
                 <div id="planned-expenses-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-purple-800">Dépenses Planifiées</h2>
-                        <button id="addPlannedExpenseBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <h2 class="text-2xl font-bold text-indigo-800">Dépenses Planifiées</h2>
+                        <button id="addPlannedExpenseBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center">
                             <i class="fas fa-plus mr-2"></i> Nouvelle Dépense Planifiée
                         </button>
                     </div>
@@ -575,29 +587,29 @@
     <div id="todoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Tâche</h3>
-                <button id="closeTodoModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Tâche</h3>
+                <button id="closeTodoModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="todoForm" class="space-y-4">
                 <input type="hidden" id="todoId">
                 <div>
-                    <label for="todoTitle" class="block text-sm font-medium text-purple-700 mb-1">Titre</label>
-                    <input type="text" id="todoTitle" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="todoTitle" class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
+                    <input type="text" id="todoTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="todoDescription" class="block text-sm font-medium text-purple-700 mb-1">Description</label>
-                    <textarea id="todoDescription" rows="3" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                    <label for="todoDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <textarea id="todoDescription" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="todoDueDate" class="block text-sm font-medium text-purple-700 mb-1">Date limite</label>
-                        <input type="date" id="todoDueDate" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        <label for="todoDueDate" class="block text-sm font-medium text-gray-700 mb-1">Date limite</label>
+                        <input type="date" id="todoDueDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                     </div>
                     <div>
-                        <label for="todoPriority" class="block text-sm font-medium text-purple-700 mb-1">Priorité</label>
-                        <select id="todoPriority" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        <label for="todoPriority" class="block text-sm font-medium text-gray-700 mb-1">Priorité</label>
+                        <select id="todoPriority" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                             <option value="low">Basse</option>
                             <option value="medium">Moyenne</option>
                             <option value="high">Haute</option>
@@ -605,13 +617,13 @@
                     </div>
                 </div>
                 <div>
-                    <label for="todoCategory" class="block text-sm font-medium text-purple-700 mb-1">Catégorie</label>
-                    <select id="todoCategory" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="todoCategory" class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
+                    <select id="todoCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         </select>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelTodo" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelTodo" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -620,36 +632,36 @@
     <div id="noteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Note</h3>
-                <button id="closeNoteModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Note</h3>
+                <button id="closeNoteModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="noteForm" class="space-y-4">
                 <input type="hidden" id="noteId">
                 <div>
-                    <label for="noteTitle" class="block text-sm font-medium text-purple-700 mb-1">Titre</label>
-                    <input type="text" id="noteTitle" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="noteTitle" class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
+                    <input type="text" id="noteTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="noteContent" class="block text-sm font-medium text-purple-700 mb-1">Contenu</label>
-                    <textarea id="noteContent" rows="5" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                    <label for="noteContent" class="block text-sm font-medium text-gray-700 mb-1">Contenu</label>
+                    <textarea id="noteContent" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                 </div>
                 <div>
-                    <label for="noteColor" class="block text-sm font-medium text-purple-700 mb-1">Couleur</label>
-                    <select id="noteColor" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
-                        <option value="bg-purple-100">Violet</option>
-                        <option value="bg-blue-100">Bleu</option>
-                        <option value="bg-green-100">Vert</option>
-                        <option value="bg-yellow-100">Jaune</option>
-                        <option value="bg-red-100">Rouge</option>
-                        <option value="bg-pink-100">Rose</option>
-                        <option value="bg-gray-100">Gris</option>
+                    <label for="noteColor" class="block text-sm font-medium text-gray-700 mb-1">Couleur</label>
+                    <select id="noteColor" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="bg-blue-100">Bleu Clair</option>
+                        <option value="bg-green-100">Vert Clair</option>
+                        <option value="bg-yellow-100">Jaune Clair</option>
+                        <option value="bg-red-100">Rouge Clair</option>
+                        <option value="bg-purple-100">Violet Clair</option>
+                        <option value="bg-pink-100">Rose Clair</option>
+                        <option value="bg-gray-100">Gris Clair</option>
                     </select>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelNote" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelNote" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -658,40 +670,40 @@
     <div id="listModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Liste</h3>
-                <button id="closeListModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Liste</h3>
+                <button id="closeListModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="listForm" class="space-y-4">
                 <input type="hidden" id="listId">
                 <div>
-                    <label for="listTitle" class="block text-sm font-medium text-purple-700 mb-1">Titre</label>
-                    <input type="text" id="listTitle" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="listTitle" class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
+                    <input type="text" id="listTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="listColor" class="block text-sm font-medium text-purple-700 mb-1">Couleur</label>
-                    <select id="listColor" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
-                        <option value="bg-purple-100">Violet</option>
-                        <option value="bg-blue-100">Bleu</option>
-                        <option value="bg-green-100">Vert</option>
-                        <option value="bg-yellow-100">Jaune</option>
-                        <option value="bg-red-100">Rouge</option>
-                        <option value="bg-pink-100">Rose</option>
-                        <option value="bg-gray-100">Gris</option>
+                    <label for="listColor" class="block text-sm font-medium text-gray-700 mb-1">Couleur</label>
+                    <select id="listColor" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="bg-blue-100">Bleu Clair</option>
+                        <option value="bg-green-100">Vert Clair</option>
+                        <option value="bg-yellow-100">Jaune Clair</option>
+                        <option value="bg-red-100">Rouge Clair</option>
+                        <option value="bg-purple-100">Violet Clair</option>
+                        <option value="bg-pink-100">Rose Clair</option>
+                        <option value="bg-gray-100">Gris Clair</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-purple-700 mb-1">Éléments</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Éléments</label>
                     <div id="listItemsContainer" class="space-y-2 mb-2">
                         </div>
-                    <button type="button" id="addListItem" class="text-sm text-purple-600 hover:text-purple-800 flex items-center">
+                    <button type="button" id="addListItem" class="text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
                         <i class="fas fa-plus mr-1"></i> Ajouter un élément
                     </button>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelList" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelList" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -700,38 +712,38 @@
     <div id="expenseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Dépense</h3>
-                <button id="closeExpenseModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Dépense</h3>
+                <button id="closeExpenseModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="expenseForm" class="space-y-4">
                 <input type="hidden" id="expenseId">
                 <div>
-                    <label for="expenseDate" class="block text-sm font-medium text-purple-700 mb-1">Date</label>
-                    <input type="date" id="expenseDate" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="expenseDate" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                    <input type="date" id="expenseDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="expenseDescription" class="block text-sm font-medium text-purple-700 mb-1">Description</label>
-                    <input type="text" id="expenseDescription" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="expenseDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <input type="text" id="expenseDescription" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="expenseCategory" class="block text-sm font-medium text-purple-700 mb-1">Catégorie</label>
-                    <select id="expenseCategory" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="expenseCategory" class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
+                    <select id="expenseCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         </select>
                 </div>
                 <div>
-                    <label for="expenseOrigin" class="block text-sm font-medium text-purple-700 mb-1">Provenance</label>
-                    <select id="expenseOrigin" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="expenseOrigin" class="block text-sm font-medium text-gray-700 mb-1">Provenance</label>
+                    <select id="expenseOrigin" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         </select>
                 </div>
                 <div>
-                    <label for="expenseAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (FCFA)</label>
-                    <input type="number" step="0.01" id="expenseAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="expenseAmount" class="block text-sm font-medium text-gray-700 mb-1">Montant (FCFA)</label>
+                    <input type="number" step="0.01" id="expenseAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelExpense" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelExpense" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -740,31 +752,31 @@
     <div id="incomeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Ajouter Revenu</h3>
-                <button id="closeIncomeModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Ajouter Revenu</h3>
+                <button id="closeIncomeModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="incomeForm" class="space-y-4">
                 <div>
-                    <label for="incomeDate" class="block text-sm font-medium text-purple-700 mb-1">Date</label>
-                    <input type="date" id="incomeDate" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="incomeDate" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                    <input type="date" id="incomeDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="incomeDescription" class="block text-sm font-medium text-purple-700 mb-1">Description</label>
-                    <input type="text" id="incomeDescription" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="incomeDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <input type="text" id="incomeDescription" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="incomeOrigin" class="block text-sm font-medium text-purple-700 mb-1">Provenance</label>
-                    <select id="incomeOrigin" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="incomeOrigin" class="block text-sm font-medium text-gray-700 mb-1">Provenance</label>
+                    <select id="incomeOrigin" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         </select>
                 </div>
                 <div>
-                    <label for="incomeAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (FCFA)</label>
-                    <input type="number" step="0.01" id="incomeAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="incomeAmount" class="block text-sm font-medium text-gray-700 mb-1">Montant (FCFA)</label>
+                    <input type="number" step="0.01" id="incomeAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelIncome" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
+                    <button type="button" id="cancelIncome" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
                     <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Ajouter</button>
                 </div>
             </form>
@@ -774,20 +786,20 @@
     <div id="wellnessModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Entrée Bien-être</h3>
-                <button id="closeWellnessModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Entrée Bien-être</h3>
+                <button id="closeWellnessModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="wellnessForm" class="space-y-4">
                 <input type="hidden" id="wellnessId">
                 <div>
-                    <label for="wellnessDate" class="block text-sm font-medium text-purple-700 mb-1">Date</label>
-                    <input type="date" id="wellnessDate" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="wellnessDate" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                    <input type="date" id="wellnessDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="wellnessType" class="block text-sm font-medium text-purple-700 mb-1">Type</label>
-                    <select id="wellnessType" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="wellnessType" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                    <select id="wellnessType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         <option value="weight">Poids</option>
                         <option value="mood">Humeur</option>
                         <option value="sleep">Sommeil</option>
@@ -796,37 +808,37 @@
                     </select>
                 </div>
                 <div id="wellnessValueContainer">
-                    <label for="wellnessValue" class="block text-sm font-medium text-purple-700 mb-1">Valeur</label>
-                    <input type="number" id="wellnessValue" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="wellnessValue" class="block text-sm font-medium text-gray-700 mb-1">Valeur</label>
+                    <input type="number" id="wellnessValue" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div id="wellnessMoodContainer" class="hidden">
-                    <label class="block text-sm font-medium text-purple-700 mb-1">Humeur</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Humeur</label>
                     <div class="flex justify-between">
-                        <button type="button" data-mood="1" class="mood-btn p-2 rounded-full hover:bg-purple-50">
+                        <button type="button" data-mood="1" class="mood-btn p-2 rounded-full hover:bg-blue-50">
                             <i class="fas fa-frown text-red-500 text-2xl"></i>
                         </button>
-                        <button type="button" data-mood="2" class="mood-btn p-2 rounded-full hover:bg-purple-50">
+                        <button type="button" data-mood="2" class="mood-btn p-2 rounded-full hover:bg-blue-50">
                             <i class="fas fa-meh text-yellow-500 text-2xl"></i>
                         </button>
-                        <button type="button" data-mood="3" class="mood-btn p-2 rounded-full hover:bg-purple-50">
+                        <button type="button" data-mood="3" class="mood-btn p-2 rounded-full hover:bg-blue-50">
                             <i class="fas fa-smile text-green-500 text-2xl"></i>
                         </button>
-                        <button type="button" data-mood="4" class="mood-btn p-2 rounded-full hover:bg-purple-50">
+                        <button type="button" data-mood="4" class="mood-btn p-2 rounded-full hover:bg-blue-50">
                             <i class="fas fa-laugh text-blue-500 text-2xl"></i>
                         </button>
-                        <button type="button" data-mood="5" class="mood-btn p-2 rounded-full hover:bg-purple-50">
-                            <i class="fas fa-grin-hearts text-purple-500 text-2xl"></i>
+                        <button type="button" data-mood="5" class="mood-btn p-2 rounded-full hover:bg-blue-50">
+                            <i class="fas fa-grin-hearts text-indigo-500 text-2xl"></i>
                         </button>
                     </div>
                     <input type="hidden" id="wellnessMood" required>
                 </div>
                 <div>
-                    <label for="wellnessNotes" class="block text-sm font-medium text-purple-700 mb-1">Notes</label>
-                    <textarea id="wellnessNotes" rows="3" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                    <label for="wellnessNotes" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                    <textarea id="wellnessNotes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelWellness" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelWellness" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -835,24 +847,24 @@
     <div id="categoryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Catégorie</h3>
-                <button id="closeCategoryModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Catégorie</h3>
+                <button id="closeCategoryModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="categoryForm" class="space-y-4">
                 <input type="hidden" id="categoryId">
                 <div>
-                    <label for="categoryName" class="block text-sm font-medium text-purple-700 mb-1">Nom</label>
-                    <input type="text" id="categoryName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="categoryName" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                    <input type="text" id="categoryName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="categoryColor" class="block text-sm font-medium text-purple-700 mb-1">Couleur</label>
-                    <input type="color" id="categoryColor" value="#9333ea" class="w-full h-10 cursor-pointer">
+                    <label for="categoryColor" class="block text-sm font-medium text-gray-700 mb-1">Couleur</label>
+                    <input type="color" id="categoryColor" value="#4F46E5" class="w-full h-10 cursor-pointer">
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelCategory" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelCategory" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -861,24 +873,24 @@
     <div id="originModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Provenance</h3>
-                <button id="closeOriginModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Provenance</h3>
+                <button id="closeOriginModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="originForm" class="space-y-4">
                 <input type="hidden" id="originId">
                 <div>
-                    <label for="originName" class="block text-sm font-medium text-purple-700 mb-1">Nom</label>
-                    <input type="text" id="originName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="originName" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                    <input type="text" id="originName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="originColor" class="block text-sm font-medium text-purple-700 mb-1">Couleur</label>
-                    <input type="color" id="originColor" value="#4CAF50" class="w-full h-10 cursor-pointer">
+                    <label for="originColor" class="block text-sm font-medium text-gray-700 mb-1">Couleur</label>
+                    <input type="color" id="originColor" value="#10B981" class="w-full h-10 cursor-pointer">
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelOrigin" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelOrigin" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -887,32 +899,32 @@
     <div id="loanModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouveau Prêt</h3>
-                <button id="closeLoanModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouveau Prêt</h3>
+                <button id="closeLoanModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="loanForm" class="space-y-4">
                 <input type="hidden" id="loanId">
                 <div>
-                    <label for="loanName" class="block text-sm font-medium text-purple-700 mb-1">Nom du Prêt</label>
-                    <input type="text" id="loanName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="loanName" class="block text-sm font-medium text-gray-700 mb-1">Nom du Prêt</label>
+                    <input type="text" id="loanName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="loanAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant Total du Prêt (FCFA)</label>
-                    <input type="number" step="0.01" id="loanAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="loanAmount" class="block text-sm font-medium text-gray-700 mb-1">Montant Total du Prêt (FCFA)</label>
+                    <input type="number" step="0.01" id="loanAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="loanPaid" class="block text-sm font-medium text-purple-700 mb-1">Montant Déjà Remboursé (FCFA)</label>
-                    <input type="number" step="0.01" id="loanPaid" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" value="0">
+                    <label for="loanPaid" class="block text-sm font-medium text-gray-700 mb-1">Montant Déjà Remboursé (FCFA)</label>
+                    <input type="number" step="0.01" id="loanPaid" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" value="0">
                 </div>
                 <div>
-                    <label for="loanDueDate" class="block text-sm font-medium text-purple-700 mb-1">Date d'échéance</label>
-                    <input type="date" id="loanDueDate" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    <label for="loanDueDate" class="block text-sm font-medium text-gray-700 mb-1">Date d'échéance</label>
+                    <input type="date" id="loanDueDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelLoan" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelLoan" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -921,17 +933,17 @@
     <div id="savingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Mon Épargne</h3>
-                <button id="closeSavingsModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Mon Épargne</h3>
+                <button id="closeSavingsModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="mb-4">
-                <p class="text-sm text-purple-600">Solde actuel de l'épargne:</p>
-                <p id="savingsCurrentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
+                <p class="text-sm text-gray-600">Solde actuel de l'épargne:</p>
+                <p id="savingsCurrentBalance" class="text-2xl font-bold text-indigo-800">0 FCFA</p>
             </div>
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 mb-4">
-                <button id="depositToSavingsBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex-1">
+                <button id="depositToSavingsBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex-1">
                     <i class="fas fa-plus mr-2"></i> Déposer
                 </button>
                 <button id="withdrawFromSavingsBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition flex-1">
@@ -939,7 +951,7 @@
                 </button>
             </div>
 
-            <h4 class="text-lg font-semibold text-purple-800 mb-2">Historique des Transactions</h4>
+            <h4 class="text-lg font-semibold text-indigo-800 mb-2">Historique des Transactions</h4>
             <div id="savingsTransactionsContainer" class="space-y-2 max-h-48 overflow-y-auto">
                 </div>
         </div>
@@ -948,19 +960,19 @@
     <div id="depositSavingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Déposer dans l'épargne</h3>
-                <button id="closeDepositSavingsModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Déposer dans l'épargne</h3>
+                <button id="closeDepositSavingsModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="depositSavingsForm" class="space-y-4">
                 <div>
-                    <label for="depositAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à déposer (FCFA)</label>
-                    <input type="number" step="0.01" id="depositAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="depositAmount" class="block text-sm font-medium text-gray-700 mb-1">Montant à déposer (FCFA)</label>
+                    <input type="number" step="0.01" id="depositAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelDeposit" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Déposer</button>
+                    <button type="button" id="cancelDeposit" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Déposer</button>
                 </div>
             </form>
         </div>
@@ -969,22 +981,22 @@
     <div id="withdrawSavingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Retirer de l'épargne</h3>
-                <button id="closeWithdrawSavingsModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Retirer de l'épargne</h3>
+                <button id="closeWithdrawSavingsModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="withdrawSavingsForm" class="space-y-4">
                 <div>
-                    <label for="withdrawAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à retirer (FCFA)</label>
-                    <input type="number" step="0.01" id="withdrawAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="withdrawAmount" class="block text-sm font-medium text-gray-700 mb-1">Montant à retirer (FCFA)</label>
+                    <input type="number" step="0.01" id="withdrawAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="withdrawDescription" class="block text-sm font-medium text-purple-700 mb-1">Description</label>
-                    <input type="text" id="withdrawDescription" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="withdrawDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <input type="text" id="withdrawDescription" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelWithdraw" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
+                    <button type="button" id="cancelWithdraw" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
                     <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Retirer</button>
                 </div>
             </form>
@@ -994,38 +1006,38 @@
     <div id="salaryForecastModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Prévision Salariale</h3>
-                <button id="closeSalaryForecastModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Prévision Salariale</h3>
+                <button id="closeSalaryForecastModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="salaryForecastForm" class="space-y-4">
                 <input type="hidden" id="salaryForecastId">
                 <div>
-                    <label for="salaryForecastName" class="block text-sm font-medium text-purple-700 mb-1">Nom de la Prévision</label>
-                    <input type="text" id="salaryForecastName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="salaryForecastName" class="block text-sm font-medium text-gray-700 mb-1">Nom de la Prévision</label>
+                    <input type="text" id="salaryForecastName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-purple-700 mb-1">Dépenses Fixes</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Dépenses Fixes</label>
                     <div id="salaryForecastExpensesContainer" class="space-y-2 mb-2">
                         </div>
-                    <button type="button" id="addSalaryForecastExpenseItem" class="text-sm text-purple-600 hover:text-purple-800 flex items-center">
+                    <button type="button" id="addSalaryForecastExpenseItem" class="text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
                         <i class="fas fa-plus mr-1"></i> Ajouter une dépense fixe
                     </button>
                 </div>
-                <div class="mt-4 p-3 bg-purple-50 rounded-lg">
-                    <p class="text-sm font-medium text-purple-700">Total Dépenses Fixes: <span id="salaryForecastTotalExpenses" class="font-bold text-purple-800">0 FCFA</span></p>
+                <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                    <p class="text-sm font-medium text-blue-700">Total Dépenses Fixes: <span id="salaryForecastTotalExpenses" class="font-bold text-blue-800">0 FCFA</span></p>
                 </div>
                 <div class="mt-4">
-                    <label for="salaryForecastAverageSalary" class="block text-sm font-medium text-purple-700 mb-1">Salaire Moyen (FCFA)</label>
-                    <input type="number" step="0.01" id="salaryForecastAverageSalary" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="salaryForecastAverageSalary" class="block text-sm font-medium text-gray-700 mb-1">Salaire Moyen (FCFA)</label>
+                    <input type="number" step="0.01" id="salaryForecastAverageSalary" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
-                <div class="mt-4 p-3 bg-purple-100 rounded-lg">
-                    <p class="text-sm font-medium text-purple-700">Reste après dépenses: <span id="salaryForecastRemainingSalary" class="font-bold text-purple-800">0 FCFA</span></p>
+                <div class="mt-4 p-3 bg-blue-100 rounded-lg">
+                    <p class="text-sm font-medium text-blue-700">Reste après dépenses: <span id="salaryForecastRemainingSalary" class="font-bold text-blue-800">0 FCFA</span></p>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelSalaryForecast" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelSalaryForecast" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -1034,28 +1046,28 @@
     <div id="plannedExpenseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Nouvelle Dépense Planifiée</h3>
-                <button id="closePlannedExpenseModal" class="text-purple-600 hover:text-purple-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Dépense Planifiée</h3>
+                <button id="closePlannedExpenseModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <form id="plannedExpenseForm" class="space-y-4">
                 <input type="hidden" id="plannedExpenseId">
                 <div>
-                    <label for="plannedExpenseName" class="block text-sm font-medium text-purple-700 mb-1">Nom de la Dépense Planifiée</label>
-                    <input type="text" id="plannedExpenseName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <label for="plannedExpenseName" class="block text-sm font-medium text-gray-700 mb-1">Nom de la Dépense Planifiée</label>
+                    <input type="text" id="plannedExpenseName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-purple-700 mb-1">Éléments de Dépense</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Éléments de Dépense</label>
                     <div id="plannedExpenseItemsContainer" class="space-y-2 mb-2">
                         </div>
-                    <button type="button" id="addPlannedExpenseItem" class="text-sm text-purple-600 hover:text-purple-800 flex items-center">
+                    <button type="button" id="addPlannedExpenseItem" class="text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
                         <i class="fas fa-plus mr-1"></i> Ajouter un élément
                     </button>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelPlannedExpense" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
-                    <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Enregistrer</button>
+                    <button type="button" id="cancelPlannedExpense" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -1064,10 +1076,10 @@
     <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md">
             <div class="text-center">
-                <i class="fas fa-exclamation-circle text-4xl text-purple-600 mb-4"></i>
-                <h3 id="confirmMessage" class="text-xl font-bold text-purple-800 mb-4">Êtes-vous sûr de vouloir supprimer cet élément ?</h3>
+                <i class="fas fa-exclamation-circle text-4xl text-indigo-600 mb-4"></i>
+                <h3 id="confirmMessage" class="text-xl font-bold text-indigo-800 mb-4">Êtes-vous sûr de vouloir supprimer cet élément ?</h3>
                 <div class="flex justify-center space-x-4">
-                    <button id="confirmCancel" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
+                    <button id="confirmCancel" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
                     <button id="confirmDelete" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Supprimer</button>
                 </div>
             </div>
@@ -1076,9 +1088,9 @@
 
     <div id="messageModal" class="custom-modal-backdrop hidden">
         <div class="custom-modal">
-            <h3 id="messageModalTitle" class="text-xl font-bold text-purple-800 mb-4"></h3>
+            <h3 id="messageModalTitle" class="text-xl font-bold text-indigo-800 mb-4"></h3>
             <p id="messageModalContent" class="text-gray-700 mb-6"></p>
-            <button id="closeMessageModal" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">OK</button>
+            <button id="closeMessageModal" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">OK</button>
         </div>
     </div>
 
@@ -1091,28 +1103,28 @@
     <script>
         // Structure de données initiale (valeurs par défaut si localStorage est vide)
         const defaultCategories = [
-            { id: 'work', name: 'Travail', color: '#9333ea' },
-            { id: 'personal', name: 'Personnel', color: '#3b82f6' },
-            { id: 'health', name: 'Santé', color: '#10b981' },
-            { id: 'finance', name: 'Finances', color: '#f59e0b' },
-            { id: 'food', name: 'Nourriture', color: '#65a30d' },
-            { id: 'transport', name: 'Transport', color: '#0ea5e9' },
-            { id: 'housing', name: 'Logement', color: '#7c3aed' },
-            { id: 'entertainment', name: 'Loisirs', color: '#f97316' },
-            { id: 'recharge', name: 'Recharge', color: '#8b5cf6' }, // Added Recharge category
-            { id: 'other', name: 'Autre', color: '#64748b' }
+            { id: 'work', name: 'Travail', color: '#4F46E5' }, /* indigo-600 */
+            { id: 'personal', name: 'Personnel', color: '#2563EB' }, /* blue-600 */
+            { id: 'health', name: 'Santé', color: '#059669' }, /* emerald-600 */
+            { id: 'finance', name: 'Finances', color: '#D97706' }, /* amber-600 */
+            { id: 'food', name: 'Nourriture', color: '#65A30D' }, /* lime-600 */
+            { id: 'transport', name: 'Transport', color: '#0EA5E9' }, /* sky-500 */
+            { id: 'housing', name: 'Logement', color: '#7C3AED' }, /* violet-600 */
+            { id: 'entertainment', name: 'Loisirs', color: '#F97316' }, /* orange-500 */
+            { id: 'recharge', name: 'Recharge', color: '#8B5CF6' }, /* violet-500 */
+            { id: 'other', name: 'Autre', color: '#64748B' } /* slate-500 */
         ];
         const defaultOrigins = [
-            { id: 'salary', name: 'Salaire', color: '#4CAF50' },
-            { id: 'gift', name: 'Don', color: '#FFC107' },
-            { id: 'freelance', name: 'Freelance', color: '#2196F3' },
-            { id: 'savings-transfer', name: 'Transfert Épargne', color: '#9C27B0' },
-            { id: 'loan-disbursement', name: 'Décaissement Prêt', color: '#FF5722' },
-            { id: 'other-income', name: 'Autre Revenu', color: '#607D8B' },
-            { id: 'cash', name: 'Espèces', color: '#78716c' },
-            { id: 'bank-card', name: 'Carte Bancaire', color: '#4c1d95' },
-            { id: 'online-payment', name: 'Paiement en ligne', color: '#6d28d9' },
-            { id: 'loan-repayment', name: 'Remboursement Prêt', color: '#FF0000' } // Added for loan repayments
+            { id: 'salary', name: 'Salaire', color: '#10B981' }, /* green-500 */
+            { id: 'gift', name: 'Don', color: '#FCD34D' }, /* yellow-300 */
+            { id: 'freelance', name: 'Freelance', color: '#3B82F6' }, /* blue-500 */
+            { id: 'savings-transfer', name: 'Transfert Épargne', color: '#A855F7' }, /* purple-500 */
+            { id: 'loan-disbursement', name: 'Décaissement Prêt', color: '#F97316' }, /* orange-500 */
+            { id: 'other-income', name: 'Autre Revenu', color: '#607D8B' }, /* blue-gray-500 */
+            { id: 'cash', name: 'Espèces', color: '#78716C' }, /* stone-500 */
+            { id: 'bank-card', name: 'Carte Bancaire', color: '#4C1D95' }, /* deep purple-800 */
+            { id: 'online-payment', name: 'Paiement en ligne', color: '#6D28D9' }, /* violet-700 */
+            { id: 'loan-repayment', name: 'Remboursement Prêt', color: '#EF4444' } /* red-500 */
         ];
 
         let appData = {
@@ -1143,6 +1155,8 @@
         const sectionContents = document.querySelectorAll('.section-content');
         const todoFilterBtns = document.querySelectorAll('.todo-filter-btn');
         const expenseFilterBtns = document.querySelectorAll('.expense-filter-btn');
+        const expenseOverviewFilterBtns = document.querySelectorAll('.expense-overview-filter-btn');
+
 
         // Modales
         const todoModal = document.getElementById('todoModal');
@@ -1263,7 +1277,7 @@
 
             document.getElementById('githubStatus').classList.remove('hidden');
             document.getElementById('githubStatus').classList.remove('bg-red-100', 'text-red-800');
-            document.getElementById('githubStatus').classList.add('bg-purple-100', 'text-purple-800');
+            document.getElementById('githubStatus').classList.add('bg-blue-100', 'text-blue-800');
             document.getElementById('githubStatusMessage').textContent = 'Chargement des données depuis GitHub...';
 
             const url = `https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${GITHUB_DATA_FILE}`;
@@ -1339,7 +1353,7 @@
 
             } catch (error) {
                 console.error("Erreur lors du chargement des données depuis GitHub:", error);
-                document.getElementById('githubStatus').classList.remove('bg-purple-100', 'text-purple-800');
+                document.getElementById('githubStatus').classList.remove('bg-blue-100', 'text-blue-800');
                 document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                 document.getElementById('githubStatusMessage').textContent = `Erreur de chargement GitHub: ${error.message}. Vérifiez votre configuration.`;
                 showMessage('Erreur de chargement', `Impossible de charger les données depuis GitHub: ${error.message}. Veuillez vérifier vos informations de configuration.`);
@@ -1374,7 +1388,7 @@
 
             document.getElementById('githubStatus').classList.remove('hidden');
             document.getElementById('githubStatus').classList.remove('bg-red-100', 'text-red-800');
-            document.getElementById('githubStatus').classList.add('bg-purple-100', 'text-purple-800');
+            document.getElementById('githubStatus').classList.add('bg-blue-100', 'text-blue-800');
             document.getElementById('githubStatusMessage').textContent = 'Sauvegarde des données vers GitHub...';
 
             const url = `https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${GITHUB_DATA_FILE}`;
@@ -1403,7 +1417,7 @@
                 }
             } catch (error) {
                 console.error("Erreur lors de la récupération du SHA:", error);
-                document.getElementById('githubStatus').classList.remove('bg-purple-100', 'text-purple-800');
+                document.getElementById('githubStatus').classList.remove('bg-blue-100', 'text-blue-800');
                 document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                 document.getElementById('githubStatusMessage').textContent = `Erreur lors de la récupération du SHA: ${error.message}`;
                 showMessage('Erreur de sauvegarde', `Impossible de récupérer le SHA du fichier: ${error.message}.`);
@@ -1442,7 +1456,7 @@
                 document.getElementById('githubStatusMessage').textContent = 'Données sauvegardées avec succès sur GitHub.';
             } catch (error) {
                 console.error("Erreur lors de la sauvegarde des données sur GitHub:", error);
-                document.getElementById('githubStatus').classList.remove('bg-purple-100', 'text-purple-800');
+                document.getElementById('githubStatus').classList.remove('bg-blue-100', 'text-blue-800');
                 document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                 document.getElementById('githubStatusMessage').textContent = `Erreur de sauvegarde GitHub: ${error.message}`;
                 showMessage('Erreur de sauvegarde', `Impossible de sauvegarder les données sur GitHub: ${error.message}.`);
@@ -1515,22 +1529,22 @@
             // Update desktop section buttons
             sectionBtns.forEach(btn => {
                 if (btn.dataset.section === section) {
-                    btn.classList.remove('hover:bg-purple-50', 'text-purple-700');
-                    btn.classList.add('bg-purple-100', 'text-purple-800');
+                    btn.classList.remove('hover:bg-blue-50', 'text-blue-700');
+                    btn.classList.add('bg-blue-100', 'text-blue-800');
                 } else {
-                    btn.classList.add('hover:bg-purple-50', 'text-purple-700');
-                    btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    btn.classList.add('hover:bg-blue-50', 'text-blue-700');
+                    btn.classList.remove('bg-blue-100', 'text-blue-800');
                 }
             });
 
             // Update mobile section buttons (if they exist)
             mobileSectionBtns.forEach(btn => {
                 if (btn.dataset.section === section) {
-                    btn.classList.remove('hover:bg-purple-50', 'text-purple-700');
-                    btn.classList.add('bg-purple-100', 'text-purple-800');
+                    btn.classList.remove('hover:bg-blue-50', 'text-blue-700');
+                    btn.classList.add('bg-blue-100', 'text-blue-800');
                 } else {
-                    btn.classList.add('hover:bg-purple-50', 'text-purple-700');
-                    btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    btn.classList.add('hover:bg-blue-50', 'text-blue-700');
+                    btn.classList.remove('bg-blue-100', 'text-blue-800');
                 }
             });
 
@@ -1576,11 +1590,11 @@
             btn.addEventListener('click', () => {
                 todoFilterBtns.forEach(b => {
                     if (b === btn) {
-                        b.classList.remove('bg-purple-100', 'text-purple-800');
-                        b.classList.add('bg-purple-600', 'text-white');
+                        b.classList.remove('bg-blue-100', 'text-blue-800');
+                        b.classList.add('bg-indigo-600', 'text-white');
                     } else {
-                        b.classList.add('bg-purple-100', 'text-purple-800');
-                        b.classList.remove('bg-purple-600', 'text-white');
+                        b.classList.add('bg-blue-100', 'text-blue-800');
+                        b.classList.remove('bg-indigo-600', 'text-white');
                     }
                 });
                 renderTodos(btn.dataset.filter);
@@ -1592,16 +1606,33 @@
             btn.addEventListener('click', () => {
                 expenseFilterBtns.forEach(b => {
                     if (b === btn) {
-                        b.classList.remove('bg-purple-100', 'text-purple-800');
-                        b.classList.add('bg-purple-600', 'text-white');
+                        b.classList.remove('bg-blue-100', 'text-blue-800');
+                        b.classList.add('bg-indigo-600', 'text-white');
                     } else {
-                        b.classList.add('bg-purple-100', 'text-purple-800');
-                        b.classList.remove('bg-purple-600', 'text-white');
+                        b.classList.add('bg-blue-100', 'text-blue-800');
+                        b.classList.remove('bg-indigo-600', 'text-white');
                     }
                 });
                 renderExpenses(btn.dataset.filter);
             });
         });
+
+        // Boutons de filtre de répartition des dépenses (Overview)
+        expenseOverviewFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expenseOverviewFilterBtns.forEach(b => {
+                    if (b === btn) {
+                        b.classList.remove('bg-blue-100', 'text-blue-800');
+                        b.classList.add('bg-indigo-600', 'text-white');
+                    } else {
+                        b.classList.add('bg-blue-100', 'text-blue-800');
+                        b.classList.remove('bg-indigo-600', 'text-white');
+                    }
+                });
+                renderExpenseCategoryChart(btn.dataset.filter);
+            });
+        });
+
 
         // Gestion des modales (ouverture/fermeture)
         document.getElementById('addTodoBtn').addEventListener('click', () => { resetTodoForm(); todoModal.classList.remove('hidden'); });
@@ -1644,12 +1675,12 @@
         function resetNoteForm() {
             noteForm.reset();
             document.getElementById('noteId').value = '';
-            document.getElementById('noteColor').value = 'bg-purple-100';
+            document.getElementById('noteColor').value = 'bg-blue-100';
         }
         function resetListForm() {
             listForm.reset();
             document.getElementById('listId').value = '';
-            document.getElementById('listColor').value = 'bg-purple-100';
+            document.getElementById('listColor').value = 'bg-blue-100';
             document.getElementById('listItemsContainer').innerHTML = ''; // Vider les éléments de liste
         }
         function resetExpenseForm() {
@@ -1673,17 +1704,17 @@
             document.getElementById('wellnessDate').value = new Date().toISOString().split('T')[0];
             document.getElementById('wellnessType').value = 'weight';
             document.getElementById('wellnessMood').value = '';
-            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('bg-purple-100'));
+            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('bg-blue-100'));
         }
         function resetCategoryForm() {
             categoryForm.reset();
             document.getElementById('categoryId').value = '';
-            document.getElementById('categoryColor').value = '#9333ea';
+            document.getElementById('categoryColor').value = '#4F46E5';
         }
         function resetOriginForm() {
             originForm.reset();
             document.getElementById('originId').value = '';
-            document.getElementById('originColor').value = '#4CAF50';
+            document.getElementById('originColor').value = '#10B981';
         }
         function resetLoanForm() {
             loanForm.reset();
@@ -2099,7 +2130,7 @@
             div.className = 'flex items-center space-x-2';
             div.innerHTML = `
                 <input type="checkbox" class="list-item-checkbox" ${isCompleted ? 'checked' : ''}>
-                <input type="text" class="list-item-input flex-1 px-3 py-1 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" value="${initialValue}">
+                <input type="text" class="list-item-input flex-1 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" value="${initialValue}">
                 <button type="button" class="remove-list-item text-red-500 hover:text-red-700">
                     <i class="fas fa-times"></i>
                 </button>
@@ -2118,8 +2149,8 @@
             const div = document.createElement('div');
             div.className = 'flex items-center space-x-2 salary-forecast-expense-item';
             div.innerHTML = `
-                <input type="text" class="expense-description-input flex-1 px-3 py-1 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Description" value="${description}">
-                <input type="number" step="0.01" class="expense-amount-input w-24 px-3 py-1 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Montant" value="${amount}">
+                <input type="text" class="expense-description-input flex-1 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Description" value="${description}">
+                <input type="number" step="0.01" class="expense-amount-input w-24 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Montant" value="${amount}">
                 <button type="button" class="remove-salary-forecast-expense-item text-red-500 hover:text-red-700">
                     <i class="fas fa-times"></i>
                 </button>
@@ -2167,8 +2198,8 @@
             div.className = 'flex items-center space-x-2 planned-expense-item';
             div.innerHTML = `
                 <input type="checkbox" class="item-paid-checkbox" ${paid ? 'checked' : ''}>
-                <input type="text" class="item-description-input flex-1 px-3 py-1 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Description" value="${description}">
-                <input type="number" step="0.01" class="item-amount-input w-24 px-3 py-1 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Montant" value="${amount}">
+                <input type="text" class="item-description-input flex-1 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Description" value="${description}">
+                <input type="number" step="0.01" class="item-amount-input w-24 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Montant" value="${amount}">
                 <button type="button" class="remove-planned-expense-item text-red-500 hover:text-red-700">
                     <i class="fas fa-times"></i>
                 </button>
@@ -2226,9 +2257,9 @@
         document.querySelectorAll('.mood-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.mood-btn').forEach(b => {
-                    b.classList.remove('bg-purple-100');
+                    b.classList.remove('bg-blue-100');
                 });
-                btn.classList.add('bg-purple-100');
+                btn.classList.add('bg-blue-100');
                 document.getElementById('wellnessMood').value = btn.dataset.mood;
             });
         });
@@ -2242,7 +2273,7 @@
             const dataStr = JSON.stringify(appData, null, 2);
             const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
             
-            const exportFileDefaultName = `mon-espace-personnel-${new Date().toISOString().split('T')[0]}.json`;
+            const exportFileDefaultName = `mindflow-${new Date().toISOString().split('T')[0]}.json`;
             
             const linkElement = document.createElement('a');
             linkElement.setAttribute('href', dataUri);
@@ -2306,7 +2337,7 @@
 
             // Add a title to the PDF
             pdf.setFontSize(22);
-            pdf.text('Rapport de Mon Espace Personnel', pageWidth / 2, yPos, { align: 'center' });
+            pdf.text('Rapport MindFlow', pageWidth / 2, yPos, { align: 'center' });
             yPos += 30;
 
             pdf.setFontSize(12);
@@ -2324,7 +2355,7 @@
             // --- Overview Section ---
             checkPageBreak(100);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8'); // purple-800
+            pdf.setTextColor('#4F46E5'); // indigo-600
             pdf.text('Vue d\'ensemble', margin, yPos);
             yPos += 25;
             pdf.setFontSize(12);
@@ -2342,7 +2373,7 @@
             // Add Expense Category Chart to PDF
             checkPageBreak(250); // Estimate space for chart
             pdf.setFontSize(16);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Répartition des Dépenses par Catégorie', margin, yPos);
             yPos += 20;
             const expenseChartCanvas = document.getElementById('expenseCategoryChart');
@@ -2355,36 +2386,36 @@
             }
 
             // --- To-do Section ---
-checkPageBreak(50);
-pdf.setFontSize(18);
-pdf.setTextColor('#6b21a8');
-pdf.text('Mes Tâches', margin, yPos);
-yPos += 25;
-pdf.setTextColor('#333333');
-if (appData.todos.length === 0) { // Still using appData.todos for now
-    pdf.setFontSize(12);
-    pdf.text('Aucune tâche enregistrée.', margin, yPos);
-    yPos += 20;
-} else {
-    appData.todos.forEach(todo => { // Still using appData.todos for now
-        checkPageBreak(40);
-        const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
-        pdf.setFontSize(12);
-        pdf.text(`- ${todo.title} (Priorité: ${todo.priority}, Catégorie: ${category.name}, Échéance: ${todo.dueDate ? new Date(todo.dueDate).toLocaleDateString('fr-FR') : 'N/A'}) ${todo.completed ? '[Terminée]' : ''}`, margin + 10, yPos);
-        yPos += 15;
-        if (todo.description) {
-            pdf.setFontSize(10);
-            pdf.text(`  Description: ${todo.description}`, margin + 20, yPos);
-            yPos += 15;
-        }
-    });
-    yPos += 10;
-}
+            checkPageBreak(50);
+            pdf.setFontSize(18);
+            pdf.setTextColor('#4F46E5');
+            pdf.text('Mes Tâches', margin, yPos);
+            yPos += 25;
+            pdf.setTextColor('#333333');
+            if (appData.todos.length === 0) { // Still using appData.todos for now
+                pdf.setFontSize(12);
+                pdf.text('Aucune tâche enregistrée.', margin, yPos);
+                yPos += 20;
+            } else {
+                appData.todos.forEach(todo => { // Still using appData.todos for now
+                    checkPageBreak(40);
+                    const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
+                    pdf.setFontSize(12);
+                    pdf.text(`- ${todo.title} (Priorité: ${todo.priority}, Catégorie: ${category.name}, Échéance: ${todo.dueDate ? new Date(todo.dueDate).toLocaleDateString('fr-FR') : 'N/A'}) ${todo.completed ? '[Terminée]' : ''}`, margin + 10, yPos);
+                    yPos += 15;
+                    if (todo.description) {
+                        pdf.setFontSize(10);
+                        pdf.text(`  Description: ${todo.description}`, margin + 20, yPos);
+                        yPos += 15;
+                    }
+                });
+                yPos += 10;
+            }
 
             // --- Notes Section ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Mes Notes et Listes', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2421,7 +2452,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             // --- Expenses Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Historique des Dépenses et Revenus', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2448,7 +2479,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     body: data,
                     theme: 'grid',
                     styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
-                    headStyles: { fillColor: '#9333ea', textColor: '#fff', fontStyle: 'bold' },
+                    headStyles: { fillColor: '#4F46E5', textColor: '#fff', fontStyle: 'bold' },
                     columnStyles: {
                         4: { halign: 'right' } // Align amount column to the right
                     },
@@ -2463,7 +2494,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             // --- Loans Section ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Mes Prêts', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2489,7 +2520,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     body: loanData,
                     theme: 'grid',
                     styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
-                    headStyles: { fillColor: '#9333ea', textColor: '#fff', fontStyle: 'bold' },
+                    headStyles: { fillColor: '#4F46E5', textColor: '#fff', fontStyle: 'bold' },
                     columnStyles: {
                         1: { halign: 'right' },
                         2: { halign: 'right' },
@@ -2506,7 +2537,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             // --- Wellness Section (Summary) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Résumé Bien-être', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2548,7 +2579,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             // --- Salary Forecast Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Prévisions Salariales', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2581,7 +2612,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                             body: expenseData,
                             theme: 'grid',
                             styles: { fontSize: 9, cellPadding: 4, textColor: '#333' },
-                            headStyles: { fillColor: '#b8a4e8', textColor: '#fff', fontStyle: 'bold' },
+                            headStyles: { fillColor: '#A78BFA', textColor: '#fff', fontStyle: 'bold' }, /* purple-400 */
                             columnStyles: { 1: { halign: 'right' } },
                             margin: { left: margin + 30, right: margin }, // Indent table
                             didDrawPage: function (data) {
@@ -2605,7 +2636,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             // --- Planned Expenses Section (Table) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Dépenses Planifiées', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
@@ -2641,7 +2672,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                             body: plannedItemData,
                             theme: 'grid',
                             styles: { fontSize: 9, cellPadding: 4, textColor: '#333' },
-                            headStyles: { fillColor: '#b8a4e8', textColor: '#fff', fontStyle: 'bold' },
+                            headStyles: { fillColor: '#A78BFA', textColor: '#fff', fontStyle: 'bold' },
                             columnStyles: { 1: { halign: 'right' } },
                             margin: { left: margin + 30, right: margin }, // Indent table
                             didDrawPage: function (data) {
@@ -2666,7 +2697,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 });
             }
 
-            pdf.save(`mon-espace-personnel-rapport-${new Date().toISOString().split('T')[0]}.pdf`);
+            pdf.save(`mindflow-rapport-${new Date().toISOString().split('T')[0]}.pdf`);
         }
 
         async function exportExpensesPdf() {
@@ -2678,7 +2709,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             const pageWidth = pdf.internal.pageSize.width;
 
             pdf.setFontSize(22);
-            pdf.setTextColor('#6b21a8');
+            pdf.setTextColor('#4F46E5');
             pdf.text('Historique des Dépenses et Revenus', pageWidth / 2, yPos, { align: 'center' });
             yPos += 30;
 
@@ -2710,7 +2741,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     body: data,
                     theme: 'grid',
                     styles: { fontSize: 10, cellPadding: 5, textColor: '#333' },
-                    headStyles: { fillColor: '#9333ea', textColor: '#fff', fontStyle: 'bold' },
+                    headStyles: { fillColor: '#4F46E5', textColor: '#fff', fontStyle: 'bold' },
                     columnStyles: {
                         4: { halign: 'right' }
                     },
@@ -2722,7 +2753,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 yPos = pdf.autoTable.previous.finalY + 10;
             }
 
-            pdf.save(`mon-espace-personnel-depenses-${new Date().toISOString().split('T')[0]}.pdf`);
+            pdf.save(`mindflow-depenses-${new Date().toISOString().split('T')[0]}.pdf`);
         }
 
 
@@ -2824,7 +2855,10 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             document.getElementById('overviewSavingsBalance').textContent = `${appData.savings.balance.toFixed(2)} FCFA`;
             document.getElementById('overviewLoansRemaining').textContent = `${calculateTotalLoansRemaining().toFixed(2)} FCFA`;
 
-            renderExpenseCategoryChart();
+            // Ensure the correct filter is applied when rendering overview chart
+            const currentFilterBtn = document.querySelector('.expense-overview-filter-btn.bg-indigo-600');
+            const currentFilter = currentFilterBtn ? currentFilterBtn.dataset.filter : 'all';
+            renderExpenseCategoryChart(currentFilter);
         }
 
         function renderTodos(filter = 'all') {
@@ -2860,7 +2894,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             
             if (todosToRender.length === 0) {
                 todosContainer.innerHTML = `
-                    <div class="lg:col-span-3 text-center py-8 text-purple-600">
+                    <div class="lg:col-span-3 text-center py-8 text-gray-600">
                         <i class="fas fa-tasks text-4xl mb-2"></i>
                         <p>Aucune tâche à afficher</p>
                     </div>
@@ -2888,26 +2922,26 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     } else if (todo.priority === 'medium' && diffDays <= 3) {
                         cardClass += 'border-yellow-300';
                     } else {
-                        cardClass += 'border-purple-200';
+                        cardClass += 'border-blue-200';
                     }
                 }
                 todoElement.className = cardClass;
                 todoElement.dataset.id = todo.id;
                 todoElement.draggable = true;
                 
-                const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#9333ea' };
+                const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
                 
                 todoElement.innerHTML = `
                     <div class="flex items-start justify-between mb-2">
                         <div class="flex items-center flex-grow">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600 rounded mr-3" ${todo.completed ? 'checked' : ''} onchange="toggleTodoCompletion('${todo.id}')">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600 rounded mr-3" ${todo.completed ? 'checked' : ''} onchange="toggleTodoCompletion('${todo.id}')">
                             <div class="flex-grow">
-                                <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editTodoField('${todo.id}', 'title', this.innerText)">${todo.title}</h3>
+                                <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editTodoField('${todo.id}', 'title', this.innerText)">${todo.title}</h3>
                                 <p class="text-sm text-gray-600" contenteditable="true" onblur="editTodoField('${todo.id}', 'description', this.innerText)">${todo.description || 'Pas de description'}</p>
                             </div>
                         </div>
                         <div class="flex-shrink-0 ml-4">
-                            <button onclick="openTodoModalForEdit('${todo.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                            <button onclick="openTodoModalForEdit('${todo.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDeletion('todo', '${todo.id}')" class="text-red-600 hover:text-red-800">
@@ -2946,7 +2980,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             if (todo) {
                 todo.completed = !todo.completed;
                 await saveData(); // Save changes to GitHub
-                renderTodos(document.querySelector('.todo-filter-btn.bg-purple-600').dataset.filter);
+                renderTodos(document.querySelector('.todo-filter-btn.bg-indigo-600').dataset.filter);
             }
         }
 
@@ -2981,7 +3015,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
             if (allNotesAndLists.length === 0) {
                 notesContainer.innerHTML = `
-                    <div class="lg:col-span-3 text-center py-8 text-purple-600">
+                    <div class="lg:col-span-3 text-center py-8 text-gray-600">
                         <i class="fas fa-sticky-note text-4xl mb-2"></i>
                         <p>Aucune note ou liste à afficher</p>
                     </div>
@@ -2999,9 +3033,9 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 if (item.type === 'note') {
                     itemElement.innerHTML = `
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editNoteField('${item.id}', 'title', this.innerText)">${item.title}</h3>
+                            <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editNoteField('${item.id}', 'title', this.innerText)">${item.title}</h3>
                             <div class="flex-shrink-0 ml-4">
-                                <button onclick="openNoteModalForEdit('${item.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                                <button onclick="openNoteModalForEdit('${item.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </button>
                                 <button onclick="confirmDeletion('note', '${item.id}')" class="text-red-600 hover:text-red-800">
@@ -3014,15 +3048,15 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 } else if (item.type === 'list') {
                     const listItemsHtml = item.items.map((listItem, idx) => `
                         <div class="flex items-center text-sm text-gray-700">
-                            <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${listItem.completed ? 'checked' : ''} onchange="toggleListItemCompletion('${item.id}', ${idx})">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 rounded mr-2" ${listItem.completed ? 'checked' : ''} onchange="toggleListItemCompletion('${item.id}', ${idx})">
                             <span class="${listItem.completed ? 'line-through text-gray-500' : ''}" contenteditable="true" onblur="editListItemText('${item.id}', ${idx}, this.innerText)">${listItem.text}</span>
                         </div>
                     `).join('');
                     itemElement.innerHTML = `
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editListField('${item.id}', 'title', this.innerText)">${item.title}</h3>
+                            <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editListField('${item.id}', 'title', this.innerText)">${item.title}</h3>
                             <div class="flex-shrink-0 ml-4">
-                                <button onclick="openListModalForEdit('${item.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                                <button onclick="openListModalForEdit('${item.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </button>
                                 <button onclick="confirmDeletion('list', '${item.id}')" class="text-red-600 hover:text-red-800">
@@ -3121,7 +3155,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
             if (sortedExpenses.length === 0) {
                 expensesContainer.innerHTML = `
-                    <tr><td colspan="6" class="text-center py-8 text-purple-600">
+                    <tr><td colspan="6" class="text-center py-8 text-gray-600">
                         <i class="fas fa-wallet text-4xl mb-2"></i>
                         <p>Aucune dépense ou revenu à afficher pour ce filtre</p>
                     </td></tr>
@@ -3157,7 +3191,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     </td>
                     <td class="py-3 text-right font-semibold ${expense.amount < 0 ? 'text-red-600' : 'text-green-600'}" contenteditable="true" onblur="editExpenseField('${expense.id}', 'amount', parseFloat(this.innerText))">${expense.amount.toFixed(2)} FCFA</td>
                     <td class="py-3 text-center">
-                        <button onclick="openExpenseModalForEdit('${expense.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                        <button onclick="openExpenseModalForEdit('${expense.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                             <i class="fas fa-edit"></i>
                         </button>
                         <button onclick="confirmDeletion('expense', '${expense.id}')" class="text-red-600 hover:text-red-800">
@@ -3182,7 +3216,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 }
                 expense[field] = newValue;
                 await saveData(); // Save changes to GitHub
-                renderExpenses(document.querySelector('.expense-filter-btn.bg-purple-600').dataset.filter);
+                renderExpenses(document.querySelector('.expense-filter-btn.bg-indigo-600').dataset.filter);
             }
         }
 
@@ -3225,7 +3259,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             loansContainer.innerHTML = '';
             if (appData.loans.length === 0) {
                 loansContainer.innerHTML = `
-                    <div class="text-center py-8 text-purple-600">
+                    <div class="text-center py-8 text-gray-600">
                         <i class="fas fa-hand-holding-usd text-4xl mb-2"></i>
                         <p>Aucun prêt à afficher</p>
                     </div>
@@ -3236,13 +3270,13 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             appData.loans.forEach(loan => {
                 const remainingAmount = (loan.amount - loan.paid).toFixed(2);
                 const loanElement = document.createElement('div');
-                loanElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition`;
+                loanElement.className = `bg-white border border-blue-200 rounded-lg p-4 hover:shadow-md transition`;
                 loanElement.dataset.id = loan.id;
                 loanElement.innerHTML = `
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editLoanField('${loan.id}', 'name', this.innerText)">${loan.name}</h3>
+                        <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editLoanField('${loan.id}', 'name', this.innerText)">${loan.name}</h3>
                         <div class="flex-shrink-0 ml-4">
-                            <button onclick="openLoanModalForEdit('${loan.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                            <button onclick="openLoanModalForEdit('${loan.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDeletion('loan', '${loan.id}')" class="text-red-600 hover:text-red-800">
@@ -3255,10 +3289,10 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     <p class="text-sm text-gray-600">Restant: <span class="font-bold ${remainingAmount > 0 ? 'text-red-600' : 'text-green-600'}">${remainingAmount} FCFA</span></p>
                     <p class="text-sm text-gray-500">Date d'échéance: ${loan.dueDate ? new Date(loan.dueDate).toLocaleDateString('fr-FR') : 'Non spécifiée'}</p>
                     <div class="mt-3">
-                        <label for="repayLoan-${loan.id}" class="block text-sm font-medium text-purple-700 mb-1">Rembourser (FCFA)</label>
+                        <label for="repayLoan-${loan.id}" class="block text-sm font-medium text-gray-700 mb-1">Rembourser (FCFA)</label>
                         <div class="flex">
-                            <input type="number" step="0.01" id="repayLoan-${loan.id}" class="w-full px-3 py-1 border border-purple-300 rounded-l-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
-                            <button onclick="repayLoan('${loan.id}')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-r-lg transition">Payer</button>
+                            <input type="number" step="0.01" id="repayLoan-${loan.id}" class="w-full px-3 py-1 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <button onclick="repayLoan('${loan.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1 rounded-r-lg transition">Payer</button>
                         </div>
                     </div>
                 `;
@@ -3315,7 +3349,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
                 await saveData(); // Save changes to GitHub
                 renderLoans();
-                renderExpenses(document.querySelector('.expense-filter-btn.bg-purple-600').dataset.filter);
+                renderExpenses(document.querySelector('.expense-filter-btn.bg-indigo-600').dataset.filter);
             } else {
                 showMessage('Erreur', 'Veuillez entrer un montant de remboursement valide.');
             }
@@ -3327,7 +3361,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
             if (appData.savings.transactions.length === 0) {
                 savingsTransactionsContainer.innerHTML = `
-                    <div class="text-center py-4 text-purple-600">
+                    <div class="text-center py-4 text-gray-600">
                         <p>Aucune transaction d'épargne enregistrée.</p>
                     </div>
                 `;
@@ -3341,7 +3375,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 const typeClass = transaction.type === 'deposit' ? 'text-green-600' : 'text-red-600';
                 const typeIcon = transaction.type === 'deposit' ? '<i class="fas fa-arrow-down mr-1"></i>' : '<i class="fas fa-arrow-up mr-1"></i>';
                 const description = transaction.description ? ` (${transaction.description})` : '';
-                transactionElement.className = `flex justify-between items-center bg-purple-50 p-2 rounded-lg`;
+                transactionElement.className = `flex justify-between items-center bg-blue-50 p-2 rounded-lg`;
                 transactionElement.innerHTML = `
                     <p class="text-sm text-gray-700">
                         ${typeIcon} ${new Date(transaction.date).toLocaleDateString('fr-FR')} - ${transaction.type === 'deposit' ? 'Dépôt' : 'Retrait'}${description}
@@ -3362,7 +3396,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             
             if (appData.wellness.length === 0) {
                 wellnessContainer.innerHTML = `
-                    <div class="text-center py-8 text-purple-600">
+                    <div class="text-center py-8 text-gray-600">
                         <i class="fas fa-heartbeat text-4xl mb-2"></i>
                         <p>Aucune entrée bien-être à afficher. Ajoutez-en une pour voir les statistiques !</p>
                     </div>
@@ -3371,7 +3405,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                  const sortedWellness = [...appData.wellness].sort((a, b) => new Date(b.date) - new Date(a.date));
                  sortedWellness.slice(0, 5).forEach(entry => {
                     const entryElement = document.createElement('div');
-                    entryElement.className = `bg-white border border-purple-200 rounded-lg p-3 hover:shadow-md transition flex justify-between items-center`;
+                    entryElement.className = `bg-white border border-blue-200 rounded-lg p-3 hover:shadow-md transition flex justify-between items-center`;
                     let valueDisplay = '';
                     let icon = '';
                     switch (entry.type) {
@@ -3387,7 +3421,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     entryElement.innerHTML = `
                         <p class="text-sm text-gray-700">${new Date(entry.date).toLocaleDateString('fr-FR')} - ${entry.type.charAt(0).toUpperCase() + entry.type.slice(1)}: <span class="font-semibold">${valueDisplay}</span></p>
                         <div>
-                            <button onclick="openWellnessModalForEdit('${entry.id}')" class="text-purple-600 hover:text-purple-800 mr-2"><i class="fas fa-edit"></i></button>
+                            <button onclick="openWellnessModalForEdit('${entry.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2"><i class="fas fa-edit"></i></button>
                             <button onclick="confirmDeletion('wellness', '${entry.id}')" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i></button>
                         </div>
                     `;
@@ -3420,9 +3454,9 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     document.getElementById('wellnessMood').value = entry.value;
                     document.querySelectorAll('.mood-btn').forEach(btn => {
                         if (btn.dataset.mood === String(entry.value)) {
-                            btn.classList.add('bg-purple-100');
+                            btn.classList.add('bg-blue-100');
                         } else {
-                            btn.classList.remove('bg-purple-100');
+                            btn.classList.remove('bg-blue-100');
                         }
                     });
                 } else {
@@ -3437,7 +3471,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
             if (appData.salaryForecasts.length === 0) {
                 salaryForecastContainer.innerHTML = `
-                    <div class="text-center py-8 text-purple-600">
+                    <div class="text-center py-8 text-gray-600">
                         <i class="fas fa-money-bill-wave text-4xl mb-2"></i>
                         <p>Aucune prévision salariale enregistrée.</p>
                     </div>
@@ -3461,13 +3495,13 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 const remainingClass = remainingSalary >= 0 ? 'text-green-600' : 'text-red-600';
 
                 const forecastElement = document.createElement('div');
-                forecastElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
+                forecastElement.className = `bg-white border border-blue-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
                 forecastElement.dataset.id = forecast.id;
                 forecastElement.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editSalaryForecastField('${forecast.id}', 'name', this.innerText)">${forecast.name}</h3>
+                        <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editSalaryForecastField('${forecast.id}', 'name', this.innerText)">${forecast.name}</h3>
                         <div class="flex-shrink-0 ml-4">
-                            <button onclick="openSalaryForecastModalForEdit('${forecast.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                            <button onclick="openSalaryForecastModalForEdit('${forecast.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDeletion('salaryForecast', '${forecast.id}')" class="text-red-600 hover:text-red-800">
@@ -3476,7 +3510,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                         </div>
                     </div>
                     <p class="text-sm text-gray-600">Salaire Moyen: <span class="font-medium">${forecast.averageSalary.toFixed(2)} FCFA</span></p>
-                    <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Dépenses Fixes:</h4>
+                    <h4 class="text-md font-semibold text-blue-700 mt-3 mb-1">Dépenses Fixes:</h4>
                     ${forecast.expenses.length > 0 ? `
                         <div class="overflow-x-auto">
                             <table class="data-table text-sm">
@@ -3492,7 +3526,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                             </table>
                         </div>
                     ` : '<p class="text-sm text-gray-500 ml-4">Aucune dépense fixe.</p>'}
-                    <p class="text-md font-bold text-purple-800 mt-3">Total Dépenses: ${totalExpenses.toFixed(2)} FCFA</p>
+                    <p class="text-md font-bold text-indigo-800 mt-3">Total Dépenses: ${totalExpenses.toFixed(2)} FCFA</p>
                     <p class="text-md font-bold mt-1 ${remainingClass}">Reste après dépenses: ${remainingSalary.toFixed(2)} FCFA</p>
                 `;
                 salaryForecastContainer.appendChild(forecastElement);
@@ -3533,7 +3567,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
             if (appData.plannedExpenses.length === 0) {
                 plannedExpensesContainer.innerHTML = `
-                    <div class="text-center py-8 text-purple-600">
+                    <div class="text-center py-8 text-gray-600">
                         <i class="fas fa-clipboard-list text-4xl mb-2"></i>
                         <p>Aucune dépense planifiée enregistrée.</p>
                     </div>
@@ -3551,7 +3585,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                     return `
                         <tr>
                             <td class="py-2 px-4">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
+                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
                                 <span class="${itemClass}">${item.description}</span>
                             </td>
                             <td class="py-2 px-4 text-right">${item.amount.toFixed(2)} FCFA</td>
@@ -3566,13 +3600,13 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 const remainingClass = remainingToPay > 0 ? 'text-red-600' : 'text-green-600';
 
                 const plannedExpenseElement = document.createElement('div');
-                plannedExpenseElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
+                plannedExpenseElement.className = `bg-white border border-blue-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
                 plannedExpenseElement.dataset.id = plannedExpense.id;
                 plannedExpenseElement.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editPlannedExpenseField('${plannedExpense.id}', 'name', this.innerText)">${plannedExpense.name}</h3>
+                        <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editPlannedExpenseField('${plannedExpense.id}', 'name', this.innerText)">${plannedExpense.name}</h3>
                         <div class="flex-shrink-0 ml-4">
-                            <button onclick="openPlannedExpenseModalForEdit('${plannedExpense.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                            <button onclick="openPlannedExpenseModalForEdit('${plannedExpense.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button onclick="confirmDeletion('plannedExpense', '${plannedExpense.id}')" class="text-red-600 hover:text-red-800">
@@ -3580,7 +3614,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                             </button>
                         </div>
                     </div>
-                    <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Éléments:</h4>
+                    <h4 class="text-md font-semibold text-blue-700 mt-3 mb-1">Éléments:</h4>
                     ${plannedExpense.items.length > 0 ? `
                         <div class="overflow-x-auto">
                             <table class="data-table text-sm">
@@ -3597,7 +3631,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                             </table>
                         </div>
                     ` : '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
-                    <p class="text-md font-bold text-purple-800 mt-3">Total Planifié: ${totalAmount.toFixed(2)} FCFA</p>
+                    <p class="text-md font-bold text-indigo-800 mt-3">Total Planifié: ${totalAmount.toFixed(2)} FCFA</p>
                     <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">${totalPaid.toFixed(2)} FCFA</span></p>
                     <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: ${remainingToPay.toFixed(2)} FCFA</p>
                 `;
@@ -3661,7 +3695,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
 
                 await saveData(); // Save changes to GitHub
                 renderPlannedExpenses();
-                renderExpenses(document.querySelector('.expense-filter-btn.bg-purple-600').dataset.filter);
+                renderExpenses(document.querySelector('.expense-filter-btn.bg-indigo-600').dataset.filter);
             }
         }
 
@@ -3701,7 +3735,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             if (weightChartInstance) weightChartInstance.destroy();
             weightChartInstance = new Chart(weightCtx, {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: 'Poids (kg)', data: [], borderColor: '#9333ea', backgroundColor: 'rgba(147, 51, 234, 0.2)', tension: 0.1, fill: true }] },
+                data: { labels: [], datasets: [{ label: 'Poids (kg)', data: [], borderColor: '#4F46E5', backgroundColor: 'rgba(79, 70, 229, 0.2)', tension: 0.1, fill: true }] },
                 options: { ...chartOptions, plugins: { ...chartOptions.plugins, tooltip: { callbacks: { label: function(context) { return `${context.dataset.label}: ${context.raw} kg`; } } } }, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: 'Poids (kg)', color: '#6B7280' } } } }
             });
 
@@ -3709,7 +3743,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             if (moodChartInstance) moodChartInstance.destroy();
             moodChartInstance = new Chart(moodCtx, {
                 type: 'bar',
-                data: { labels: ['1 (Très mauvais)', '2 (Mauvais)', '3 (Neutre)', '4 (Bon)', '5 (Très bon)'], datasets: [{ label: 'Fréquence d\'humeur', data: [0, 0, 0, 0, 0], backgroundColor: ['rgba(239, 68, 68, 0.6)', 'rgba(245, 158, 11, 0.6)', 'rgba(16, 185, 129, 0.6)', 'rgba(59, 130, 246, 0.6)', 'rgba(147, 51, 234, 0.6)'], borderColor: ['rgb(239, 68, 68)', 'rgb(245, 158, 11)', 'rgb(16, 185, 129)', 'rgb(59, 130, 246)', 'rgb(147, 51, 234)'], borderWidth: 1 }] },
+                data: { labels: ['1 (Très mauvais)', '2 (Mauvais)', '3 (Neutre)', '4 (Bon)', '5 (Très bon)'], datasets: [{ label: 'Fréquence d\'humeur', data: [0, 0, 0, 0, 0], backgroundColor: ['rgba(239, 68, 68, 0.6)', 'rgba(245, 158, 11, 0.6)', 'rgba(16, 185, 129, 0.6)', 'rgba(59, 130, 246, 0.6)', 'rgba(79, 70, 229, 0.6)'], borderColor: ['rgb(239, 68, 68)', 'rgb(245, 158, 11)', 'rgb(16, 185, 129)', 'rgb(59, 130, 246)', 'rgb(79, 70, 229)'], borderWidth: 1 }] },
                 options: { ...chartOptions, scales: { x: { title: { display: true, text: 'Niveau d\'humeur', color: '#6B7280' }, ticks: { color: '#6B7280' }, grid: { display: false } }, y: { beginAtZero: true, title: { display: true, text: 'Nombre d\'entrées', color: '#6B7280' }, ticks: { color: '#6B7280', precision: 0 }, grid: { color: 'rgba(107, 114, 128, 0.1)' } } } }
             });
 
@@ -3717,7 +3751,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             if (sleepChartInstance) sleepChartInstance.destroy();
             sleepChartInstance = new Chart(sleepCtx, {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: 'Sommeil (heures)', data: [], borderColor: '#3b82f6', backgroundColor: 'rgba(59, 130, 246, 0.2)', tension: 0.1, fill: true }] },
+                data: { labels: [], datasets: [{ label: 'Sommeil (heures)', data: [], borderColor: '#2563EB', backgroundColor: 'rgba(37, 99, 235, 0.2)', tension: 0.1, fill: true }] },
                 options: { ...chartOptions, plugins: { ...chartOptions.plugins, tooltip: { callbacks: { label: function(context) { return `${context.dataset.label}: ${context.raw} heures`; } } } }, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: 'Heures de sommeil', color: '#6B7280' } } } }
             });
 
@@ -3725,7 +3759,7 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             if (exerciseChartInstance) exerciseChartInstance.destroy();
             exerciseChartInstance = new Chart(exerciseCtx, {
                 type: 'line',
-                data: { labels: [], datasets: [{ label: 'Exercice (minutes)', data: [], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.2)', tension: 0.1, fill: true }] },
+                data: { labels: [], datasets: [{ label: 'Exercice (minutes)', data: [], borderColor: '#059669', backgroundColor: 'rgba(5, 150, 105, 0.2)', tension: 0.1, fill: true }] },
                 options: { ...chartOptions, plugins: { ...chartOptions.plugins, tooltip: { callbacks: { label: function(context) { return `${context.dataset.label}: ${context.raw} minutes`; } } } }, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, title: { display: true, text: 'Minutes d\'exercice', color: '#6B7280' } } } }
             });
 
@@ -3763,16 +3797,31 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             });
         }
 
-        function renderExpenseCategoryChart() {
+        function renderExpenseCategoryChart(filter = 'all') {
+            let filteredExpenses = [...appData.expenses].filter(e => e.amount < 0); // Only consider expenses (negative amounts)
+
+            const today = moment();
+            if (filter === 'thisMonth') {
+                filteredExpenses = filteredExpenses.filter(expense => moment(expense.date).isSame(today, 'month'));
+            } else if (filter === 'thisWeek') {
+                filteredExpenses = filteredExpenses.filter(expense => moment(expense.date).isSame(today, 'week'));
+            } else if (filter === 'thisYear') {
+                filteredExpenses = filteredExpenses.filter(expense => moment(expense.date).isSame(today, 'year'));
+            }
+
             const expenseCategories = {};
-            appData.expenses.filter(e => e.amount < 0).forEach(expense => {
+            let totalFilteredExpenses = 0;
+
+            filteredExpenses.forEach(expense => {
                 const category = appData.categories.find(cat => cat.id === expense.category);
                 const categoryName = category ? category.name : 'Autre';
                 if (!expenseCategories[categoryName]) {
                     expenseCategories[categoryName] = 0;
                 }
                 expenseCategories[categoryName] += Math.abs(expense.amount);
+                totalFilteredExpenses += Math.abs(expense.amount);
             });
+
             const expenseChartLabels = Object.keys(expenseCategories);
             const expenseChartData = Object.values(expenseCategories);
             const expenseChartColors = expenseChartLabels.map(label => {
@@ -3780,10 +3829,24 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
                 return category ? category.color : '#64748b';
             });
 
+            // Update chart data
             expenseCategoryChartInstance.data.labels = expenseChartLabels;
             expenseCategoryChartInstance.data.datasets[0].data = expenseChartData;
             expenseCategoryChartInstance.data.datasets[0].backgroundColor = expenseChartColors;
             expenseCategoryChartInstance.update();
+
+            // Update info below chart
+            document.getElementById('totalFilteredExpenses').textContent = `${totalFilteredExpenses.toFixed(2)} FCFA`;
+
+            let mostSpentCategory = 'N/A';
+            let maxAmount = 0;
+            for (const categoryName in expenseCategories) {
+                if (expenseCategories[categoryName] > maxAmount) {
+                    maxAmount = expenseCategories[categoryName];
+                    mostSpentCategory = categoryName;
+                }
+            }
+            document.getElementById('mostSpentCategory').textContent = mostSpentCategory;
         }
 
         function updateCharts() {
@@ -3838,7 +3901,10 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             waterChartInstance.data.datasets[0].data = waterValues;
             waterChartInstance.update();
 
-            renderExpenseCategoryChart();
+            // Ensure the correct filter is applied when rendering overview chart
+            const currentFilterBtn = document.querySelector('.expense-overview-filter-btn.bg-indigo-600');
+            const currentFilter = currentFilterBtn ? currentFilterBtn.dataset.filter : 'all';
+            renderExpenseCategoryChart(currentFilter);
         }
 
         // Drag and Drop Logic
@@ -4002,13 +4068,13 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             categoriesListDisplayMobile.innerHTML = ''; // For mobile sidebar
             appData.categories.forEach(category => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center justify-between bg-purple-50 p-2 rounded-lg';
+                div.className = 'flex items-center justify-between bg-blue-50 p-2 rounded-lg';
                 div.innerHTML = `
                     <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: ${category.color}; color: white;">
                         ${category.name}
                     </span>
                     <div>
-                        <button onclick="editCategory('${category.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                        <button onclick="editCategory('${category.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                             <i class="fas fa-edit"></i>
                         </button>
                         <button onclick="confirmDeletion('category', '${category.id}')" class="text-red-600 hover:text-red-800">
@@ -4037,13 +4103,13 @@ if (appData.todos.length === 0) { // Still using appData.todos for now
             originsListDisplayMobile.innerHTML = ''; // For mobile sidebar
             appData.origins.forEach(origin => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center justify-between bg-purple-50 p-2 rounded-lg';
+                div.className = 'flex items-center justify-between bg-blue-50 p-2 rounded-lg';
                 div.innerHTML = `
                     <span class="px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: ${origin.color}; color: white;">
                         ${origin.name}
                     </span>
                     <div>
-                        <button onclick="editOrigin('${origin.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
+                        <button onclick="editOrigin('${origin.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
                             <i class="fas fa-edit"></i>
                         </button>
                         <button onclick="confirmDeletion('origin', '${origin.id}')" class="text-red-600 hover:text-red-800">
