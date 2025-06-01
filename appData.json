@@ -37,6 +37,11 @@
       "id": "carburent",
       "name": "Carburent",
       "color": "#9333ea"
+    },
+    {
+      "id": "nourriture",
+      "name": "Nourriture",
+      "color": "#34eae7"
     }
   ],
   "origins": [
