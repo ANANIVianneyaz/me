@@ -17,11 +17,6 @@
       "color": "#9C27B0"
     },
     {
-      "id": "loan-disbursement",
-      "name": "D�caissement Pr�t",
-      "color": "#FF5722"
-    },
-    {
       "id": "other-income",
       "name": "Autre Revenu",
       "color": "#607D8B"
