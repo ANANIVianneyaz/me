@@ -216,8 +216,7 @@
                 </ul>
             </div>
             
-            <details class="mb-6" open>
-                <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
+            <details class="mb-6"> <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
                 <div id="categories-list-display-mobile" class="space-y-2 mb-4 mt-2">
                     </div>
                 <button id="addCategoryBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
@@ -225,8 +224,7 @@
                 </button>
             </details>
 
-            <details class="mb-6" open>
-                <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
+            <details class="mb-6"> <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
                 <div id="origins-list-display-mobile" class="space-y-2 mb-4 mt-2">
                     </div>
                 <button id="addOriginBtnMobile" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
@@ -331,8 +329,7 @@
                     </ul>
                 </div>
                 
-                <details class="mb-6" open>
-                    <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
+                <details class="mb-6"> <summary class="text-xl font-semibold text-purple-800 mb-4">Catégories</summary>
                     <div id="categories-list-display" class="space-y-2 mb-4 mt-2">
                         </div>
                     <button id="addCategoryBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
@@ -340,8 +337,7 @@
                     </button>
                 </details>
 
-                <details class="mb-6" open>
-                    <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
+                <details class="mb-6"> <summary class="text-xl font-semibold text-purple-800 mb-4">Provenances</summary>
                     <div id="origins-list-display" class="space-y-2 mb-4 mt-2">
                         </div>
                     <button id="addOriginBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
@@ -353,8 +349,7 @@
             <div class="lg:col-span-3 space-y-6">
                 <div id="overview-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <h2 class="text-2xl font-bold text-purple-800 mb-6">Vue d'ensemble</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
+                    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"> <div class="bg-purple-100 p-4 rounded-lg text-center">
                             <i class="fas fa-tasks text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Total Tâches Actives</p>
                             <p id="overviewActiveTasks" class="text-2xl font-bold text-purple-800">0</p>
@@ -370,19 +365,19 @@
                             <p id="overviewWellnessIndex" class="text-2xl font-bold text-purple-800">N/A</p>
                         </div>
                         <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="overviewCurrentBalanceCard">
-                            <i class="fas fa-euro-sign text-3xl text-purple-600 mb-2"></i>
+                            <i class="fas fa-money-bill-wave text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Solde Actuel</p>
-                            <p id="overviewCurrentBalance" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="overviewCurrentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                         <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="overviewSavingsBalanceCard">
                             <i class="fas fa-piggy-bank text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Total Épargne</p>
-                            <p id="overviewSavingsBalance" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="overviewSavingsBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                         <div class="bg-purple-100 p-4 rounded-lg text-center">
                             <i class="fas fa-hand-holding-usd text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Total Prêts Restants</p>
-                            <p id="overviewLoansRemaining" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="overviewLoansRemaining" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                     </div>
                     <div class="mt-8">
@@ -436,37 +431,32 @@
                 <div id="expenses-section" class="section-content bg-white rounded-xl shadow-md p-6 hidden fade-in">
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
                         <h2 class="text-2xl font-bold text-purple-800">Mes Dépenses & Finances</h2>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
-                            <button id="addExpenseBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
-                                <i class="fas fa-plus mr-2"></i> Nouvelle Dépense
+                        <div class="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto"> <button id="addExpenseBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm"> <i class="fas fa-plus mr-1"></i> Dépense
                             </button>
-                            <button id="addIncomeBtn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
-                                <i class="fas fa-dollar-sign mr-2"></i> Ajouter Revenu
+                            <button id="addIncomeBtn" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm"> <i class="fas fa-dollar-sign mr-1"></i> Revenu
                             </button>
-                            <button id="addLoanBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
-                                <i class="fas fa-hand-holding-usd mr-2"></i> Nouveau Prêt
+                            <button id="addLoanBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm"> <i class="fas fa-hand-holding-usd mr-1"></i> Prêt
                             </button>
-                            <button id="exportExpensesPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex items-center justify-center flex-1">
-                                <i class="fas fa-file-pdf mr-2"></i> Exporter Dépenses PDF
+                            <button id="exportExpensesPdfBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm"> <i class="fas fa-file-pdf mr-1"></i> PDF Dépenses
                             </button>
                         </div>
                     </div>
                     
                     <div class="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="currentBalanceCard">
-                            <i class="fas fa-euro-sign text-3xl text-purple-600 mb-2"></i>
+                            <i class="fas fa-money-bill-wave text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Solde Actuel</p>
-                            <p id="currentBalance" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="currentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                         <div class="bg-purple-100 p-4 rounded-lg text-center cursor-pointer" id="totalSavingsCard">
                             <i class="fas fa-piggy-bank text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Épargne Totale</p>
-                            <p id="totalSavings" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="totalSavings" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                         <div class="bg-purple-100 p-4 rounded-lg text-center">
                             <i class="fas fa-hand-holding-usd text-3xl text-purple-600 mb-2"></i>
                             <p class="text-sm text-purple-600">Prêts Restants</p>
-                            <p id="totalLoansRemaining" class="text-2xl font-bold text-purple-800">€0.00</p>
+                            <p id="totalLoansRemaining" class="text-2xl font-bold text-purple-800">0 FCFA</p>
                         </div>
                     </div>
 
@@ -509,8 +499,7 @@
                         </button>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-purple-100 p-4 rounded-lg">
+                    <div class="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8"> <div class="bg-purple-100 p-4 rounded-lg">
                             <h3 class="text-lg font-semibold text-purple-800 mb-2">Suivi de Poids</h3>
                             <div class="chart-container">
                                 <canvas id="weightChart"></canvas>
@@ -726,7 +715,7 @@
                         </select>
                 </div>
                 <div>
-                    <label for="expenseAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (€)</label>
+                    <label for="expenseAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (FCFA)</label>
                     <input type="number" step="0.01" id="expenseAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
@@ -760,7 +749,7 @@
                         </select>
                 </div>
                 <div>
-                    <label for="incomeAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (€)</label>
+                    <label for="incomeAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant (FCFA)</label>
                     <input type="number" step="0.01" id="incomeAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
@@ -899,11 +888,11 @@
                     <input type="text" id="loanName" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div>
-                    <label for="loanAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant Total du Prêt (€)</label>
+                    <label for="loanAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant Total du Prêt (FCFA)</label>
                     <input type="number" step="0.01" id="loanAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div>
-                    <label for="loanPaid" class="block text-sm font-medium text-purple-700 mb-1">Montant Déjà Remboursé (€)</label>
+                    <label for="loanPaid" class="block text-sm font-medium text-purple-700 mb-1">Montant Déjà Remboursé (FCFA)</label>
                     <input type="number" step="0.01" id="loanPaid" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" value="0">
                 </div>
                 <div>
@@ -928,7 +917,7 @@
             </div>
             <div class="mb-4">
                 <p class="text-sm text-purple-600">Solde actuel de l'épargne:</p>
-                <p id="savingsCurrentBalance" class="text-2xl font-bold text-purple-800">€0.00</p>
+                <p id="savingsCurrentBalance" class="text-2xl font-bold text-purple-800">0 FCFA</p>
             </div>
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 mb-4">
                 <button id="depositToSavingsBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition flex-1">
@@ -955,7 +944,7 @@
             </div>
             <form id="depositSavingsForm" class="space-y-4">
                 <div>
-                    <label for="depositAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à déposer (€)</label>
+                    <label for="depositAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à déposer (FCFA)</label>
                     <input type="number" step="0.01" id="depositAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
@@ -976,7 +965,7 @@
             </div>
             <form id="withdrawSavingsForm" class="space-y-4">
                 <div>
-                    <label for="withdrawAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à retirer (€)</label>
+                    <label for="withdrawAmount" class="block text-sm font-medium text-purple-700 mb-1">Montant à retirer (FCFA)</label>
                     <input type="number" step="0.01" id="withdrawAmount" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div>
@@ -1014,14 +1003,14 @@
                     </button>
                 </div>
                 <div class="mt-4 p-3 bg-purple-50 rounded-lg">
-                    <p class="text-sm font-medium text-purple-700">Total Dépenses Fixes: <span id="salaryForecastTotalExpenses" class="font-bold text-purple-800">€0.00</span></p>
+                    <p class="text-sm font-medium text-purple-700">Total Dépenses Fixes: <span id="salaryForecastTotalExpenses" class="font-bold text-purple-800">0 FCFA</span></p>
                 </div>
                 <div class="mt-4">
-                    <label for="salaryForecastAverageSalary" class="block text-sm font-medium text-purple-700 mb-1">Salaire Moyen (€)</label>
+                    <label for="salaryForecastAverageSalary" class="block text-sm font-medium text-purple-700 mb-1">Salaire Moyen (FCFA)</label>
                     <input type="number" step="0.01" id="salaryForecastAverageSalary" class="w-full px-4 py-2 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                 </div>
                 <div class="mt-4 p-3 bg-purple-100 rounded-lg">
-                    <p class="text-sm font-medium text-purple-700">Reste après dépenses: <span id="salaryForecastRemainingSalary" class="font-bold text-purple-800">€0.00</span></p>
+                    <p class="text-sm font-medium text-purple-700">Reste après dépenses: <span id="salaryForecastRemainingSalary" class="font-bold text-purple-800">0 FCFA</span></p>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
                     <button type="button" id="cancelSalaryForecast" class="px-4 py-2 border border-purple-300 text-purple-700 rounded-lg hover:bg-purple-50">Annuler</button>
@@ -1115,7 +1104,8 @@
         ];
 
         let appData = {
-            todos: [],
+            todos: [], // This will be deprecated or repurposed for individual tasks within lists
+            todoLists: [], // New structure for managing multiple To-Do Lists
             notes: [],
             lists: [],
             expenses: [],
@@ -1278,7 +1268,7 @@
                     // Fichier non trouvé, initialiser avec les données par défaut
                     showMessage('Initialisation', 'Fichier de données GitHub non trouvé. Création d\'un nouveau fichier lors de la première sauvegarde.');
                     appData = {
-                        todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                        todos: [], todoLists: [], notes: [], lists: [], expenses: [], wellness: [],
                         categories: defaultCategories, origins: defaultOrigins, loans: [],
                         savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                     };
@@ -1297,6 +1287,7 @@
                             
                             // Ensure new properties are initialized if they are missing in loaded data
                             appData.todos = appData.todos || [];
+                            appData.todoLists = appData.todoLists || []; // Initialize new todoLists array
                             appData.notes = appData.notes || [];
                             appData.lists = appData.lists || [];
                             appData.expenses = appData.expenses || [];
@@ -1314,7 +1305,7 @@
                             console.error("Erreur de décodage/parsing des données GitHub:", decodeError);
                             showMessage('Erreur de décodage', `Impossible de décoder ou de parser les données du fichier GitHub: ${decodeError.message}. Le fichier pourrait être corrompu. Réinitialisation des données locales.`);
                             appData = {
-                                todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                                todos: [], todoLists: [], notes: [], lists: [], expenses: [], wellness: [],
                                 categories: defaultCategories, origins: defaultOrigins, loans: [],
                                 savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                             }; // Revert to defaults locally
@@ -1325,7 +1316,7 @@
                         // Content is missing or not a string, treat as empty/corrupted
                         showMessage('Fichier vide/corrompu', 'Le fichier de données GitHub est vide ou invalide. Réinitialisation des données locales.');
                         appData = {
-                            todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                            todos: [], todoLists: [], notes: [], lists: [], expenses: [], wellness: [],
                             categories: defaultCategories, origins: defaultOrigins, loans: [],
                             savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                         };
@@ -1343,7 +1334,7 @@
                 document.getElementById('githubConfigSection').classList.remove('hidden'); // Show config on error
                 // Ensure appData is reset on critical fetch error
                 appData = {
-                    todos: [], notes: [], lists: [], expenses: [], wellness: [],
+                    todos: [], todoLists: [], notes: [], lists: [], expenses: [], wellness: [],
                     categories: defaultCategories, origins: defaultOrigins, loans: [],
                     savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                 };
@@ -2132,11 +2123,11 @@
                     totalExpenses += amt;
                 }
             });
-            document.getElementById('salaryForecastTotalExpenses').textContent = `€${totalExpenses.toFixed(2)}`;
+            document.getElementById('salaryForecastTotalExpenses').textContent = `${totalExpenses.toFixed(2)} FCFA`;
 
             const averageSalary = parseFloat(document.getElementById('salaryForecastAverageSalary').value) || 0;
             const remainingSalary = averageSalary - totalExpenses;
-            document.getElementById('salaryForecastRemainingSalary').textContent = `€${remainingSalary.toFixed(2)}`;
+            document.getElementById('salaryForecastRemainingSalary').textContent = `${remainingSalary.toFixed(2)} FCFA`;
             document.getElementById('salaryForecastRemainingSalary').classList.toggle('text-red-600', remainingSalary < 0);
             document.getElementById('salaryForecastRemainingSalary').classList.toggle('text-green-600', remainingSalary >= 0);
         }
@@ -2246,6 +2237,7 @@
                     
                     // Directly assign imported data, ensure defaults are not re-added if explicitly removed
                     appData.todos = importedData.todos || [];
+                    appData.todoLists = importedData.todoLists || []; // Ensure new todoLists are imported
                     appData.notes = importedData.notes || [];
                     appData.lists = importedData.lists || [];
                     appData.expenses = importedData.expenses || [];
@@ -2313,9 +2305,9 @@
             yPos += 25;
             pdf.setFontSize(12);
             pdf.setTextColor('#333333'); // dark gray
-            pdf.text(`Solde Actuel: €${calculateCurrentBalance().toFixed(2)}`, margin, yPos); yPos += 15;
-            pdf.text(`Épargne Totale: €${appData.savings.balance.toFixed(2)}`, margin, yPos); yPos += 15;
-            pdf.text(`Prêts Restants: €${calculateTotalLoansRemaining().toFixed(2)}`, margin, yPos); yPos += 15;
+            pdf.text(`Solde Actuel: ${calculateCurrentBalance().toFixed(2)} FCFA`, margin, yPos); yPos += 15;
+            pdf.text(`Épargne Totale: ${appData.savings.balance.toFixed(2)} FCFA`, margin, yPos); yPos += 15;
+            pdf.text(`Prêts Restants: ${calculateTotalLoansRemaining().toFixed(2)} FCFA`, margin, yPos); yPos += 15;
             pdf.text(`Tâches Actives: ${appData.todos.filter(todo => !todo.completed).length}`, margin, yPos); yPos += 15;
             pdf.text(`Taux de Complétion Tâches: ${appData.todos.length > 0 ? ((appData.todos.filter(t => t.completed).length / appData.todos.length) * 100).toFixed(0) : 0}%`, margin, yPos); yPos += 15;
             const totalWellnessScore = appData.wellness.filter(entry => entry.type === 'mood' && entry.value).reduce((sum, entry) => sum + parseInt(entry.value), 0);
@@ -2414,7 +2406,7 @@
                 pdf.text('Aucune transaction enregistrée.', margin, yPos);
                 yPos += 20;
             } else {
-                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (€)']];
+                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (FCFA)']];
                 const data = appData.expenses.map(exp => {
                     const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
                     const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
@@ -2456,7 +2448,7 @@
                 pdf.text('Aucun prêt enregistré.', margin, yPos);
                 yPos += 20;
             } else {
-                const loanHeaders = [['Nom du Prêt', 'Total (€)', 'Remboursé (€)', 'Restant (€)', 'Échéance']];
+                const loanHeaders = [['Nom du Prêt', 'Total (FCFA)', 'Remboursé (FCFA)', 'Restant (FCFA)', 'Échéance']];
                 const loanData = appData.loans.map(loan => {
                     const remaining = (loan.amount - loan.paid).toFixed(2);
                     return [
@@ -2550,12 +2542,12 @@
                     pdf.text(`- ${forecast.name}`, margin + 10, yPos);
                     yPos += 15;
                     pdf.setFontSize(10);
-                    pdf.text(`  Salaire Moyen: €${forecast.averageSalary.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Salaire Moyen: ${forecast.averageSalary.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 15;
                     pdf.text(`  Dépenses Fixes:`, margin + 20, yPos);
                     yPos += 10;
 
-                    const expenseHeaders = [['Description', 'Montant (€)']];
+                    const expenseHeaders = [['Description', 'Montant (FCFA)']];
                     const expenseData = forecast.expenses.map(exp => [exp.description, exp.amount.toFixed(2)]);
 
                     if (expenseData.length > 0) {
@@ -2579,9 +2571,9 @@
                     }
                     
                     pdf.setFontSize(10);
-                    pdf.text(`  Total Dépenses Fixes: €${totalExpenses.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Total Dépenses Fixes: ${totalExpenses.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 15;
-                    pdf.text(`  Reste après dépenses: €${remainingSalary.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Reste après dépenses: ${remainingSalary.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 20;
                 });
             }
@@ -2610,7 +2602,7 @@
                     pdf.text(`  Éléments:`, margin + 20, yPos);
                     yPos += 10;
 
-                    const plannedItemHeaders = [['Description', 'Montant (€)', 'Statut']];
+                    const plannedItemHeaders = [['Description', 'Montant (FCFA)', 'Statut']];
                     const plannedItemData = plannedExpense.items.map(item => {
                         totalAmount += item.amount;
                         if (item.paid) totalPaid += item.amount;
@@ -2641,11 +2633,11 @@
                     const remainingToPay = totalAmount - totalPaid;
                     
                     pdf.setFontSize(10);
-                    pdf.text(`  Total Planifié: €${totalAmount.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Total Planifié: ${totalAmount.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 15;
-                    pdf.text(`  Total Payé: €${totalPaid.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Total Payé: ${totalPaid.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 15;
-                    pdf.text(`  Reste à Payer: €${remainingToPay.toFixed(2)}`, margin + 20, yPos);
+                    pdf.text(`  Reste à Payer: ${remainingToPay.toFixed(2)} FCFA`, margin + 20, yPos);
                     yPos += 20;
                 });
             }
@@ -2676,7 +2668,7 @@
                 pdf.text('Aucune transaction enregistrée.', margin, yPos);
                 yPos += 20;
             } else {
-                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (€)']];
+                const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (FCFA)']];
                 const data = appData.expenses.map(exp => {
                     const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
                     const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
@@ -2791,9 +2783,9 @@
             document.getElementById('overviewActiveTasks').textContent = activeTasks;
             document.getElementById('overviewTaskCompletion').textContent = `${taskCompletionRate}%`;
             document.getElementById('overviewWellnessIndex').textContent = wellnessIndex;
-            document.getElementById('overviewCurrentBalance').textContent = `€${calculateCurrentBalance().toFixed(2)}`;
-            document.getElementById('overviewSavingsBalance').textContent = `€${appData.savings.balance.toFixed(2)}`;
-            document.getElementById('overviewLoansRemaining').textContent = `€${calculateTotalLoansRemaining().toFixed(2)}`;
+            document.getElementById('overviewCurrentBalance').textContent = `${calculateCurrentBalance().toFixed(2)} FCFA`;
+            document.getElementById('overviewSavingsBalance').textContent = `${appData.savings.balance.toFixed(2)} FCFA`;
+            document.getElementById('overviewLoansRemaining').textContent = `${calculateTotalLoansRemaining().toFixed(2)} FCFA`;
 
             renderExpenseCategoryChart();
         }
@@ -3126,7 +3118,7 @@
                             ${origin.name}
                         </span>
                     </td>
-                    <td class="py-3 text-right font-semibold ${expense.amount < 0 ? 'text-red-600' : 'text-green-600'}" contenteditable="true" onblur="editExpenseField('${expense.id}', 'amount', parseFloat(this.innerText))">${expense.amount.toFixed(2)} €</td>
+                    <td class="py-3 text-right font-semibold ${expense.amount < 0 ? 'text-red-600' : 'text-green-600'}" contenteditable="true" onblur="editExpenseField('${expense.id}', 'amount', parseFloat(this.innerText))">${expense.amount.toFixed(2)} FCFA</td>
                     <td class="py-3 text-center">
                         <button onclick="openExpenseModalForEdit('${expense.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
                             <i class="fas fa-edit"></i>
@@ -3187,9 +3179,9 @@
         }
 
         function updateFinancialSummary() {
-            document.getElementById('currentBalance').textContent = `€${calculateCurrentBalance().toFixed(2)}`;
-            document.getElementById('totalSavings').textContent = `€${appData.savings.balance.toFixed(2)}`;
-            document.getElementById('totalLoansRemaining').textContent = `€${calculateTotalLoansRemaining().toFixed(2)}`;
+            document.getElementById('currentBalance').textContent = `${calculateCurrentBalance().toFixed(2)} FCFA`;
+            document.getElementById('totalSavings').textContent = `${appData.savings.balance.toFixed(2)} FCFA`;
+            document.getElementById('totalLoansRemaining').textContent = `${calculateTotalLoansRemaining().toFixed(2)} FCFA`;
         }
 
         function renderLoans() {
@@ -3221,12 +3213,12 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-600">Montant Total: <span class="font-medium">€${loan.amount.toFixed(2)}</span></p>
-                    <p class="text-sm text-gray-600">Remboursé: <span class="font-medium">€${loan.paid.toFixed(2)}</span></p>
-                    <p class="text-sm text-gray-600">Restant: <span class="font-bold ${remainingAmount > 0 ? 'text-red-600' : 'text-green-600'}">€${remainingAmount}</span></p>
+                    <p class="text-sm text-gray-600">Montant Total: <span class="font-medium">${loan.amount.toFixed(2)} FCFA</span></p>
+                    <p class="text-sm text-gray-600">Remboursé: <span class="font-medium">${loan.paid.toFixed(2)} FCFA</span></p>
+                    <p class="text-sm text-gray-600">Restant: <span class="font-bold ${remainingAmount > 0 ? 'text-red-600' : 'text-green-600'}">${remainingAmount} FCFA</span></p>
                     <p class="text-sm text-gray-500">Date d'échéance: ${loan.dueDate ? new Date(loan.dueDate).toLocaleDateString('fr-FR') : 'Non spécifiée'}</p>
                     <div class="mt-3">
-                        <label for="repayLoan-${loan.id}" class="block text-sm font-medium text-purple-700 mb-1">Rembourser (€)</label>
+                        <label for="repayLoan-${loan.id}" class="block text-sm font-medium text-purple-700 mb-1">Rembourser (FCFA)</label>
                         <div class="flex">
                             <input type="number" step="0.01" id="repayLoan-${loan.id}" class="w-full px-3 py-1 border border-purple-300 rounded-l-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
                             <button onclick="repayLoan('${loan.id}')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-r-lg transition">Payer</button>
@@ -3269,7 +3261,7 @@
 
             if (loan && !isNaN(repaymentAmount) && repaymentAmount > 0) {
                 if (loan.paid + repaymentAmount > loan.amount) {
-                    showMessage('Erreur', `Le montant du remboursement dépasse le solde restant. Montant restant : €${(loan.amount - loan.paid).toFixed(2)}`);
+                    showMessage('Erreur', `Le montant du remboursement dépasse le solde restant. Montant restant : ${(loan.amount - loan.paid).toFixed(2)} FCFA`);
                     return;
                 }
                 loan.paid += repaymentAmount;
@@ -3293,7 +3285,7 @@
         }
 
         function renderSavingsModal() {
-            document.getElementById('savingsCurrentBalance').textContent = `€${appData.savings.balance.toFixed(2)}`;
+            document.getElementById('savingsCurrentBalance').textContent = `${appData.savings.balance.toFixed(2)} FCFA`;
             savingsTransactionsContainer.innerHTML = '';
 
             if (appData.savings.transactions.length === 0) {
@@ -3317,7 +3309,7 @@
                     <p class="text-sm text-gray-700">
                         ${typeIcon} ${new Date(transaction.date).toLocaleDateString('fr-FR')} - ${transaction.type === 'deposit' ? 'Dépôt' : 'Retrait'}${description}
                     </p>
-                    <span class="font-semibold ${typeClass}">€${transaction.amount.toFixed(2)}</span>
+                    <span class="font-semibold ${typeClass}">${transaction.amount.toFixed(2)} FCFA</span>
                 `;
                 savingsTransactionsContainer.appendChild(transactionElement);
             });
@@ -3418,7 +3410,7 @@
                     return `
                         <tr>
                             <td class="py-2 px-4">${exp.description}</td>
-                            <td class="py-2 px-4 text-right">€${exp.amount.toFixed(2)}</td>
+                            <td class="py-2 px-4 text-right">${exp.amount.toFixed(2)} FCFA</td>
                         </tr>
                     `;
                 }).join('');
@@ -3441,7 +3433,7 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-600">Salaire Moyen: <span class="font-medium">€${forecast.averageSalary.toFixed(2)}</span></p>
+                    <p class="text-sm text-gray-600">Salaire Moyen: <span class="font-medium">${forecast.averageSalary.toFixed(2)} FCFA</span></p>
                     <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Dépenses Fixes:</h4>
                     ${forecast.expenses.length > 0 ? `
                         <div class="overflow-x-auto">
@@ -3449,7 +3441,7 @@
                                 <thead>
                                     <tr>
                                         <th class="py-2 px-4">Description</th>
-                                        <th class="py-2 px-4 text-right">Montant (€)</th>
+                                        <th class="py-2 px-4 text-right">Montant (FCFA)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -3458,8 +3450,8 @@
                             </table>
                         </div>
                     ` : '<p class="text-sm text-gray-500 ml-4">Aucune dépense fixe.</p>'}
-                    <p class="text-md font-bold text-purple-800 mt-3">Total Dépenses: €${totalExpenses.toFixed(2)}</p>
-                    <p class="text-md font-bold mt-1 ${remainingClass}">Reste après dépenses: €${remainingSalary.toFixed(2)}</p>
+                    <p class="text-md font-bold text-purple-800 mt-3">Total Dépenses: ${totalExpenses.toFixed(2)} FCFA</p>
+                    <p class="text-md font-bold mt-1 ${remainingClass}">Reste après dépenses: ${remainingSalary.toFixed(2)} FCFA</p>
                 `;
                 salaryForecastContainer.appendChild(forecastElement);
             });
@@ -3520,7 +3512,7 @@
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
                                 <span class="${itemClass}">${item.description}</span>
                             </td>
-                            <td class="py-2 px-4 text-right">€${item.amount.toFixed(2)}</td>
+                            <td class="py-2 px-4 text-right">${item.amount.toFixed(2)} FCFA</td>
                             <td class="py-2 px-4">
                                 ${item.paid ? '<span class="text-green-600">Payé</span>' : `<button onclick="payPlannedExpenseItem('${plannedExpense.id}', ${idx})" class="bg-green-500 hover:bg-green-600 text-white text-xs px-2 py-1 rounded-full">Payer</button>`}
                             </td>
@@ -3553,7 +3545,7 @@
                                 <thead>
                                     <tr>
                                         <th class="py-2 px-4">Description</th>
-                                        <th class="py-2 px-4 text-right">Montant (€)</th>
+                                        <th class="py-2 px-4 text-right">Montant (FCFA)</th>
                                         <th class="py-2 px-4">Statut</th>
                                     </tr>
                                 </thead>
@@ -3563,9 +3555,9 @@
                             </table>
                         </div>
                     ` : '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
-                    <p class="text-md font-bold text-purple-800 mt-3">Total Planifié: €${totalAmount.toFixed(2)}</p>
-                    <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">€${totalPaid.toFixed(2)}</span></p>
-                    <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: €${remainingToPay.toFixed(2)}</p>
+                    <p class="text-md font-bold text-purple-800 mt-3">Total Planifié: ${totalAmount.toFixed(2)} FCFA</p>
+                    <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">${totalPaid.toFixed(2)} FCFA</span></p>
+                    <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: ${remainingToPay.toFixed(2)} FCFA</p>
                 `;
                 plannedExpensesContainer.appendChild(plannedExpenseElement);
             });
@@ -3720,7 +3712,7 @@
                                     const value = context.raw || 0;
                                     const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
                                     const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                    return `${label}: €${value.toFixed(2)} (${percentage}%)`;
+                                    return `${label}: ${value.toFixed(2)} FCFA (${percentage}%)`;
                                 }
                             }
                         }
