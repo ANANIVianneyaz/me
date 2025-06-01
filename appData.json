@@ -31,16 +31,7 @@
       "createdAt": "2025-06-01T23:35:10.979Z"
     }
   ],
-  "wellness": [
-    {
-      "id": "_ddklg79x4",
-      "date": "2025-06-01",
-      "type": "water",
-      "value": 6,
-      "notes": "nnk",
-      "createdAt": "2025-06-01T23:36:43.829Z"
-    }
-  ],
+  "wellness": [],
   "categories": [
     {
       "id": "carburent",
