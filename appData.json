@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "housing",
-      "name": "Logement",
-      "color": "#7c3aed"
-    },
-    {
       "id": "entertainment",
       "name": "Loisirs",
       "color": "#f97316"
