@@ -46,5 +46,18 @@
       "createdAt": "2025-06-01T20:10:48.652Z"
     }
   ],
-  "plannedExpenses": []
+  "plannedExpenses": [
+    {
+      "id": "_bhroq2iio",
+      "name": "nbhk",
+      "items": [
+        {
+          "description": "hjjh",
+          "amount": 365,
+          "paid": false
+        }
+      ],
+      "createdAt": "2025-06-01T20:11:17.655Z"
+    }
+  ]
 }
