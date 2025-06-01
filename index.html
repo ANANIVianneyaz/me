@@ -1125,60 +1125,46 @@
                 const response = await fetch(url, {
                     headers: {
                         'Authorization': `token ${githubToken}`,
-                        'Accept': 'application/vnd.github.v3.raw' // Demande le contenu brut
+                        'Accept': 'application/vnd.github.v3+json' // Changed to get JSON with SHA
                     }
                 });
 
                 if (response.status === 404) {
-                    // Fichier non trouvé, initialiser avec les données par défaut et créer le fichier
+                    // Fichier non trouvé, initialiser avec les données par défaut et tenter de créer le fichier
                     showMessage('Initialisation', 'Fichier de données GitHub non trouvé. Création d\'un nouveau fichier...');
                     appData = {
                         todos: [], notes: [], lists: [], expenses: [], wellness: [],
                         categories: defaultCategories, origins: defaultOrigins, loans: [],
                         savings: { balance: 0, transactions: [] }, salaryForecasts: [], plannedExpenses: []
                     };
-                    await saveDataToGitHub(true); // Tente de créer le fichier
+                    githubFileSha = ''; // Ensure SHA is empty for new creation
+                    await saveDataToGitHub(true); // Attempt to create the file
                     document.getElementById('githubStatusMessage').textContent = 'Données initialisées et fichier créé sur GitHub.';
                 } else if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Erreur GitHub: ${response.status} - ${errorText}`);
-                }
-
-                const data = await response.json();
-                // Si la réponse est un objet JSON (API content), le contenu est encodé en base64
-                if (data.content) {
-                    const decodedContent = atob(data.content);
-                    appData = JSON.parse(decodedContent);
-                    githubFileSha = data.sha; // Stocker le SHA pour les futures mises à jour
+                    const errorJson = await response.json(); // Parse error response
+                    throw new Error(`Erreur GitHub: ${response.status} - ${errorJson.message || JSON.stringify(errorJson)}`);
                 } else {
-                    // Si la réponse est le contenu brut (grâce à Accept: application/vnd.github.v3.raw)
-                    appData = data;
-                    // Pour obtenir le SHA, nous devons faire une requête HEAD ou GET sans le raw accept header
-                    const headResponse = await fetch(url, {
-                        method: 'HEAD',
-                        headers: { 'Authorization': `token ${githubToken}` }
-                    });
-                    if (headResponse.ok) {
-                        githubFileSha = headResponse.headers.get('ETag').replace(/"/g, ''); // ETag contient souvent le SHA
-                    }
+                    const data = await response.json();
+                    githubFileSha = data.sha; // Store the SHA for future updates
+                    const decodedContent = atob(data.content); // Decode Base64 content
+                    appData = JSON.parse(decodedContent);
+                    
+                    // Ensure new properties are initialized if they are missing in loaded data
+                    appData.todos = appData.todos || [];
+                    appData.notes = appData.notes || [];
+                    appData.lists = appData.lists || [];
+                    appData.expenses = appData.expenses || [];
+                    appData.wellness = appData.wellness || [];
+                    appData.loans = appData.loans || [];
+                    appData.savings = appData.savings || { balance: 0, transactions: [] };
+                    appData.salaryForecasts = appData.salaryForecasts || [];
+                    appData.plannedExpenses = appData.plannedExpenses || [];
+                    appData.categories = appData.categories !== undefined ? appData.categories : defaultCategories;
+                    appData.origins = appData.origins !== undefined ? appData.origins : defaultOrigins;
+
+                    document.getElementById('githubStatusMessage').textContent = 'Données chargées avec succès depuis GitHub.';
+                    document.getElementById('githubConfigSection').classList.add('hidden'); // Hide config if loading successful
                 }
-                
-                // Assurer que les nouvelles propriétés sont initialisées si elles manquent dans les données chargées
-                appData.todos = appData.todos || [];
-                appData.notes = appData.notes || [];
-                appData.lists = appData.lists || [];
-                appData.expenses = appData.expenses || [];
-                appData.wellness = appData.wellness || [];
-                appData.loans = appData.loans || [];
-                appData.savings = appData.savings || { balance: 0, transactions: [] };
-                appData.salaryForecasts = appData.salaryForecasts || [];
-                appData.plannedExpenses = appData.plannedExpenses || [];
-                appData.categories = appData.categories || defaultCategories;
-                appData.origins = appData.origins || defaultOrigins;
-
-
-                document.getElementById('githubStatusMessage').textContent = 'Données chargées avec succès depuis GitHub.';
-                document.getElementById('githubConfigSection').classList.add('hidden'); // Cacher la config si le chargement a réussi
 
             } catch (error) {
                 console.error("Erreur lors du chargement des données depuis GitHub:", error);
@@ -1186,7 +1172,7 @@
                 document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                 document.getElementById('githubStatusMessage').textContent = `Erreur de chargement GitHub: ${error.message}. Vérifiez votre configuration.`;
                 showMessage('Erreur de chargement', `Impossible de charger les données depuis GitHub: ${error.message}. Veuillez vérifier vos informations de configuration.`);
-                document.getElementById('githubConfigSection').classList.remove('hidden'); // Afficher la config en cas d'erreur
+                document.getElementById('githubConfigSection').classList.remove('hidden'); // Show config on error
             } finally {
                 // Initialiser l'interface utilisateur après la tentative de chargement
                 populateCategoryDropdowns();
@@ -1194,8 +1180,7 @@
                 renderCategoriesDisplay();
                 renderOriginsDisplay();
                 initCharts();
-                setActiveSection('overview');
-                renderAllSections();
+                setActiveSection('overview'); // This will trigger renderAllSections etc.
                 updateStats();
                 updateCharts();
                 updateFinancialSummary();
@@ -1218,28 +1203,30 @@
             const url = `https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${GITHUB_DATA_FILE}`;
             const content = btoa(JSON.stringify(appData, null, 2)); // Encoder en Base64
 
-            let currentSha = githubFileSha;
+            let currentSha = githubFileSha; // Start with the last known SHA
 
-            // Si ce n'est pas une création, tenter d'obtenir le SHA actuel du fichier
+            // If it's not a creation, attempt to get the current SHA of the file
+            // This is crucial to avoid 422 errors if the file was modified externally
             if (!isCreation) {
                 try {
                     const response = await fetch(url, {
                         method: 'GET',
                         headers: {
                             'Authorization': `token ${githubToken}`,
-                            'Accept': 'application/vnd.github.v3+json'
+                            'Accept': 'application/vnd.github.v3+json' // Request JSON with SHA
                         }
                     });
                     if (response.ok) {
                         const fileData = await response.json();
                         currentSha = fileData.sha;
                     } else if (response.status === 404) {
-                        // Le fichier n'existe plus sur GitHub, on le recrée
+                        // File no longer exists on GitHub, treat as a new creation
                         isCreation = true;
-                        currentSha = undefined; // Pas de SHA pour une nouvelle création
+                        currentSha = undefined; // No SHA for a new creation
+                        console.warn("Fichier non trouvé sur GitHub lors de la tentative de mise à jour. Il sera recréé.");
                     } else {
-                        const errorText = await response.text();
-                        throw new Error(`Erreur lors de la récupération du SHA: ${response.status} - ${errorText}`);
+                        const errorJson = await response.json();
+                        throw new Error(`Erreur lors de la récupération du SHA: ${response.status} - ${errorJson.message || JSON.stringify(errorJson)}`);
                     }
                 } catch (error) {
                     console.error("Erreur lors de la récupération du SHA:", error);
@@ -1247,7 +1234,7 @@
                     document.getElementById('githubStatus').classList.add('bg-red-100', 'text-red-800');
                     document.getElementById('githubStatusMessage').textContent = `Erreur lors de la récupération du SHA: ${error.message}`;
                     showMessage('Erreur de sauvegarde', `Impossible de récupérer le SHA du fichier: ${error.message}.`);
-                    return;
+                    return; // Stop execution if SHA retrieval fails
                 }
             }
 
@@ -1256,8 +1243,17 @@
             const payload = {
                 message: commitMessage,
                 content: content,
-                sha: currentSha // SHA est requis pour la mise à jour, omis pour la création
+                branch: 'main' // Ensure the branch is specified, 'main' is common
             };
+
+            // Only add SHA if it's an update (not a creation) and a SHA exists
+            if (!isCreation && currentSha) {
+                payload.sha = currentSha;
+            } else if (isCreation) {
+                // For creation, explicitly ensure SHA is not present
+                delete payload.sha;
+            }
+
 
             try {
                 const response = await fetch(url, {
@@ -1270,12 +1266,12 @@
                 });
 
                 if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Erreur GitHub: ${response.status} - ${errorText}`);
+                    const errorJson = await response.json();
+                    throw new Error(`Erreur GitHub: ${response.status} - ${errorJson.message || JSON.stringify(errorJson)}`);
                 }
 
                 const result = await response.json();
-                githubFileSha = result.content.sha; // Mettre à jour le SHA après une sauvegarde réussie
+                githubFileSha = result.content.sha; // Update SHA after successful save
                 document.getElementById('githubStatusMessage').textContent = 'Données sauvegardées avec succès sur GitHub.';
             } catch (error) {
                 console.error("Erreur lors de la sauvegarde des données sur GitHub:", error);
@@ -2350,45 +2346,36 @@
                     checkPageBreak(60 + plannedExpense.items.length * 15);
                     let totalAmount = 0;
                     let totalPaid = 0;
-                    const itemsHtml = plannedExpense.items.map((item, idx) => {
-                        totalAmount += item.amount;
-                        if (item.paid) totalPaid += item.amount;
-                        const itemClass = item.paid ? 'line-through text-gray-500' : '';
-                        return `
-                            <div class="flex items-center text-sm text-gray-700 ml-4">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-purple-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
-                                <span class="${itemClass}">${item.description}: €${item.amount.toFixed(2)}</span>
-                                ${!item.paid ? `<button onclick="payPlannedExpenseItem('${plannedExpense.id}', ${idx})" class="ml-auto bg-green-500 hover:bg-green-600 text-white text-xs px-2 py-1 rounded-full">Payer</button>` : ''}
-                            </div>
-                        `;
-                    }).join('');
+                    
+                    pdf.setFontSize(12);
+                    pdf.text(`- ${plannedExpense.name}:`, margin + 10, yPos);
+                    yPos += 15;
+                    pdf.setFontSize(10);
+                    pdf.text(`  Éléments:`, margin + 20, yPos);
+                    yPos += 15;
+
+                    if (plannedExpense.items.length === 0) {
+                        pdf.text(`    Aucun élément planifié.`, margin + 30, yPos);
+                        yPos += 15;
+                    } else {
+                        plannedExpense.items.forEach(item => {
+                            totalAmount += item.amount;
+                            if (item.paid) totalPaid += item.amount;
+                            const status = item.paid ? '[Payé]' : '[Non payé]';
+                            pdf.text(`    - ${item.description}: €${item.amount.toFixed(2)} ${status}`, margin + 30, yPos);
+                            yPos += 15;
+                        });
+                    }
 
                     const remainingToPay = totalAmount - totalPaid;
-                    const remainingClass = remainingToPay > 0 ? 'text-red-600' : 'text-green-600';
-
-                    const plannedExpenseElement = document.createElement('div');
-                    plannedExpenseElement.className = `bg-white border border-purple-200 rounded-lg p-4 hover:shadow-md transition`;
-                    plannedExpenseElement.dataset.id = plannedExpense.id;
-                    plannedExpenseElement.innerHTML = `
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-semibold text-purple-800" contenteditable="true" onblur="editPlannedExpenseField('${plannedExpense.id}', 'name', this.innerText)">${plannedExpense.name}</h3>
-                            <div class="flex-shrink-0 ml-4">
-                                <button onclick="openPlannedExpenseModalForEdit('${plannedExpense.id}')" class="text-purple-600 hover:text-purple-800 mr-2">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button onclick="confirmDeletion('plannedExpense', '${plannedExpense.id}')" class="text-red-600 hover:text-red-800">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <h4 class="text-md font-semibold text-purple-700 mt-3 mb-1">Éléments:</h4>
-                        ${itemsHtml || '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
-                        <p class="text-md font-bold text-purple-800 mt-3">Total Planifié: €${totalAmount.toFixed(2)}</p>
-                        <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">€${totalPaid.toFixed(2)}</span></p>
-                        <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: €${remainingToPay.toFixed(2)}</p>
-                    `;
-                    plannedExpenseElement.style.breakInside = 'avoid'; // Prevent breaking inside a planned expense item
-                    plannedExpensesContainer.appendChild(plannedExpenseElement);
+                    
+                    pdf.setFontSize(12);
+                    pdf.text(`  Total Planifié: €${totalAmount.toFixed(2)}`, margin + 20, yPos);
+                    yPos += 15;
+                    pdf.text(`  Total Payé: €${totalPaid.toFixed(2)}`, margin + 20, yPos);
+                    yPos += 15;
+                    pdf.text(`  Reste à Payer: €${remainingToPay.toFixed(2)}`, margin + 20, yPos);
+                    yPos += 20;
                 });
             }
 
