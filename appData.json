@@ -23,7 +23,13 @@
     }
   ],
   "wellness": [],
-  "categories": [],
+  "categories": [
+    {
+      "id": "carburent",
+      "name": "Carburent",
+      "color": "#9333ea"
+    }
+  ],
   "origins": [
     {
       "id": "argent-de-poche",
