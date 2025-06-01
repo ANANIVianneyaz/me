@@ -56,7 +56,28 @@
       "id": "_lnuwzk7z7",
       "name": "Si je vie seule sans charge (Femme)",
       "averageSalary": 2000,
-      "expenses": [],
+      "expenses": [
+        {
+          "description": "Wifi",
+          "amount": 15500
+        },
+        {
+          "description": "Lavage moto",
+          "amount": 3000
+        },
+        {
+          "description": "Entretient moto",
+          "amount": 10000
+        },
+        {
+          "description": "Habillage",
+          "amount": 6000
+        },
+        {
+          "description": "Facture",
+          "amount": 10000
+        }
+      ],
       "createdAt": "2025-06-01T19:20:32.585Z"
     }
   ],
