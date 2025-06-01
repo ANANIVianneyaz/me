@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "entertainment",
-      "name": "Loisirs",
-      "color": "#f97316"
-    },
-    {
       "id": "other",
       "name": "Autre",
       "color": "#64748b"
