@@ -5,13 +5,7 @@
   "expenses": [],
   "wellness": [],
   "categories": [],
-  "origins": [
-    {
-      "id": "loan-repayment",
-      "name": "Remboursement Pr�t",
-      "color": "#FF0000"
-    }
-  ],
+  "origins": [],
   "loans": [],
   "savings": {
     "balance": 0,
