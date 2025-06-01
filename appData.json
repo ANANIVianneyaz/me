@@ -6,11 +6,6 @@
   "wellness": [],
   "categories": [
     {
-      "id": "food",
-      "name": "Nourriture",
-      "color": "#65a30d"
-    },
-    {
       "id": "transport",
       "name": "Transport",
       "color": "#0ea5e9"
