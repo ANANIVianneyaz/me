@@ -11,6 +11,47 @@
     "balance": 0,
     "transactions": []
   },
-  "salaryForecasts": [],
+  "salaryForecasts": [
+    {
+      "id": "_1g276ggzk",
+      "name": "Si je vie toujours chez les parents",
+      "averageSalary": 90000,
+      "expenses": [
+        {
+          "description": "Wifi",
+          "amount": 15500
+        },
+        {
+          "description": "Lavage moto (5x7)",
+          "amount": 3000
+        },
+        {
+          "description": "Entretient moto",
+          "amount": 10000
+        },
+        {
+          "description": "Habillement",
+          "amount": 6000
+        },
+        {
+          "description": "Fature",
+          "amount": 6000
+        },
+        {
+          "description": "Epargne",
+          "amount": 20000
+        },
+        {
+          "description": "Poche (500/j)",
+          "amount": 15000
+        },
+        {
+          "description": "Parent (5000*2)",
+          "amount": 10000
+        }
+      ],
+      "createdAt": "2025-06-01T19:17:31.432Z"
+    }
+  ],
   "plannedExpenses": []
 }
