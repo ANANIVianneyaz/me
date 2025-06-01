@@ -24,7 +24,13 @@
   ],
   "wellness": [],
   "categories": [],
-  "origins": [],
+  "origins": [
+    {
+      "id": "argent-de-poche",
+      "name": "Argent de poche",
+      "color": "#4caf50"
+    }
+  ],
   "loans": [],
   "savings": {
     "balance": 0,
@@ -53,7 +59,7 @@
           "amount": 6000
         },
         {
-          "description": "Carburant 1000×30",
+          "description": "Carburant 1000Ã—30",
           "amount": 30000
         },
         {
@@ -61,15 +67,15 @@
           "amount": 6000
         },
         {
-          "description": "Parent (5000×2)",
+          "description": "Parent (5000Ã—2)",
           "amount": 10000
         },
         {
-          "description": "Épargne",
+          "description": "Ã‰pargne",
           "amount": 20000
         },
         {
-          "description": "Poche (500 × 30)",
+          "description": "Poche (500 Ã— 30)",
           "amount": 15000
         }
       ],
