@@ -15,7 +15,7 @@
     {
       "id": "_1g276ggzk",
       "name": "Si je vie toujours chez les parents",
-      "averageSalary": 90000,
+      "averageSalary": 150000,
       "expenses": [
         {
           "description": "Wifi",
@@ -48,6 +48,10 @@
         {
           "description": "Parent (5000*2)",
           "amount": 10000
+        },
+        {
+          "description": "Carburent (800 x 30)",
+          "amount": 24000
         }
       ],
       "createdAt": "2025-06-01T19:17:31.432Z"
