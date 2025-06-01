@@ -1,5 +1,16 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "id": "_l8xys8kib",
+      "title": "vgbgrb",
+      "description": "gbbrgbt",
+      "dueDate": "2025-06-01",
+      "priority": "medium",
+      "category": "",
+      "completed": false,
+      "createdAt": "2025-06-01T19:44:14.945Z"
+    }
+  ],
   "notes": [],
   "lists": [],
   "expenses": [],
@@ -11,95 +22,6 @@
     "balance": 0,
     "transactions": []
   },
-  "salaryForecasts": [
-    {
-      "id": "_1g276ggzk",
-      "name": "Si je vie toujours chez les parents",
-      "averageSalary": 150000,
-      "expenses": [
-        {
-          "description": "Wifi",
-          "amount": 15500
-        },
-        {
-          "description": "Lavage moto (5x7)",
-          "amount": 3000
-        },
-        {
-          "description": "Entretient moto",
-          "amount": 10000
-        },
-        {
-          "description": "Habillement",
-          "amount": 6000
-        },
-        {
-          "description": "Fature",
-          "amount": 6000
-        },
-        {
-          "description": "Epargne",
-          "amount": 20000
-        },
-        {
-          "description": "Poche (500/j)",
-          "amount": 15000
-        },
-        {
-          "description": "Parent (5000*2)",
-          "amount": 10000
-        },
-        {
-          "description": "Carburent (800 x 30)",
-          "amount": 24000
-        }
-      ],
-      "createdAt": "2025-06-01T19:17:31.432Z"
-    },
-    {
-      "id": "_lnuwzk7z7",
-      "name": "Si je vie seule sans charge (Femme)",
-      "averageSalary": 2000,
-      "expenses": [
-        {
-          "description": "Wifi",
-          "amount": 15500
-        },
-        {
-          "description": "Lavage moto",
-          "amount": 3000
-        },
-        {
-          "description": "Entretient moto",
-          "amount": 10000
-        },
-        {
-          "description": "Habillage",
-          "amount": 6000
-        },
-        {
-          "description": "Facture",
-          "amount": 10000
-        },
-        {
-          "description": "carburent (800 x 30)",
-          "amount": 25000
-        },
-        {
-          "description": "Epargne",
-          "amount": 20000
-        },
-        {
-          "description": "Loyer",
-          "amount": 30000
-        },
-        {
-          "description": "Parent (5000 x 2)",
-          "amount": 10000
-        }
-      ],
-      "createdAt": "2025-06-01T19:20:32.585Z"
-    }
-  ],
+  "salaryForecasts": [],
   "plannedExpenses": []
 }
