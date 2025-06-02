@@ -98,5 +98,13 @@
       "createdAt": "2025-06-01T20:11:17.655Z"
     }
   ],
-  "todoLists": []
+  "todoLists": [
+    {
+      "id": "_rnyw7la4w",
+      "title": "bh",
+      "description": "hg",
+      "tasks": [],
+      "createdAt": "2025-06-02T10:37:26.780Z"
+    }
+  ]
 }
