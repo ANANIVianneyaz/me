@@ -2,44 +2,7 @@
   "todos": [],
   "notes": [],
   "lists": [],
-  "expenses": [
-    {
-      "id": "_suktl7a9x",
-      "date": "2025-06-01",
-      "description": "Gestion de semaine",
-      "category": "finance",
-      "origin": "",
-      "amount": 5000,
-      "createdAt": "2025-06-01T21:40:08.801Z"
-    },
-    {
-      "id": "_ltueqhzdt",
-      "date": "2025-06-01",
-      "description": "Gestion de semaine",
-      "category": "finance",
-      "origin": "",
-      "amount": 5000,
-      "createdAt": "2025-06-01T21:40:13.735Z"
-    },
-    {
-      "id": "_4vzhss645",
-      "date": "2025-06-01",
-      "description": "Remboursement de prêt: n jkj",
-      "category": "finance",
-      "origin": "loan-repayment",
-      "amount": -10000,
-      "createdAt": "2025-06-01T23:35:10.979Z"
-    },
-    {
-      "id": "_pl0tct1f8",
-      "date": "2025-06-01",
-      "description": "Argent de semaine",
-      "category": "finance",
-      "origin": "argent-de-poche",
-      "amount": 5000,
-      "createdAt": "2025-06-01T23:41:52.300Z"
-    }
-  ],
+  "expenses": [],
   "wellness": [],
   "categories": [
     {
