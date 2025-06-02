@@ -206,6 +206,13 @@
           "priority": "low",
           "completed": false,
           "createdAt": "2025-06-02T13:55:41.473Z"
+        },
+        {
+          "id": "_tidy2iz0y",
+          "text": "mettre en place la partie Gestion des Administrateurs (envoie de mail, réinitialisation de mot de passe et tout, perte d'accès en cas de désactivation )",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-02T13:57:12.720Z"
         }
       ],
       "createdAt": "2025-06-02T13:49:46.082Z"
