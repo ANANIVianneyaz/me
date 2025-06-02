@@ -121,7 +121,7 @@
           "amount": 6000
         },
         {
-          "description": "Carburant 1000Ã—30",
+          "description": "Carburant 1000 x 30",
           "amount": 30000
         },
         {
@@ -129,7 +129,7 @@
           "amount": 6000
         },
         {
-          "description": "Parent (5000Ã—2)",
+          "description": "Parent (5000 x 2)",
           "amount": 10000
         },
         {
@@ -137,7 +137,7 @@
           "amount": 20000
         },
         {
-          "description": "Poche (500 Ã— 30)",
+          "description": "Poche (500 x 30)",
           "amount": 15000
         }
       ],
