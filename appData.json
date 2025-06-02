@@ -213,6 +213,13 @@
           "priority": "low",
           "completed": false,
           "createdAt": "2025-06-02T13:57:12.720Z"
+        },
+        {
+          "id": "_8ek4pwle3",
+          "text": "Rendre fonctionnel la partie Profil",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-02T13:57:41.844Z"
         }
       ],
       "createdAt": "2025-06-02T13:49:46.082Z"
