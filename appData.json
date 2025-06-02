@@ -38,6 +38,15 @@
       "origin": "argent-de-poche",
       "amount": -425,
       "createdAt": "2025-06-02T11:22:57.978Z"
+    },
+    {
+      "id": "_s3bu3spb8",
+      "date": "2025-06-02",
+      "description": "Lavage moto",
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "amount": -500,
+      "createdAt": "2025-06-02T11:23:34.015Z"
     }
   ],
   "wellness": [],
