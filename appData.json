@@ -66,7 +66,16 @@
       "createdAt": "2025-06-02T11:24:37.137Z"
     }
   ],
-  "wellness": [],
+  "wellness": [
+    {
+      "id": "_tsj0p1fxi",
+      "date": "2025-06-02",
+      "type": "sleep",
+      "value": 6,
+      "notes": "",
+      "createdAt": "2025-06-02T16:19:09.557Z"
+    }
+  ],
   "categories": [
     {
       "id": "carburent",
