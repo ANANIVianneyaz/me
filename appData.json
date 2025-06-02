@@ -11,6 +11,15 @@
       "origin": "argent-de-poche",
       "amount": 5000,
       "createdAt": "2025-06-02T11:21:07.752Z"
+    },
+    {
+      "id": "_6afs6ij79",
+      "date": "2025-06-02",
+      "description": "Caburent",
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "amount": -2625,
+      "createdAt": "2025-06-02T11:21:30.041Z"
     }
   ],
   "wellness": [],
