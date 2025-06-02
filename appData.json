@@ -20,6 +20,15 @@
       "origin": "argent-de-poche",
       "amount": -2625,
       "createdAt": "2025-06-02T11:21:30.041Z"
+    },
+    {
+      "id": "_e2dv2incq",
+      "date": "2025-06-02",
+      "description": "J'ai acheter de l'eau",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -50,
+      "createdAt": "2025-06-02T11:22:32.290Z"
     }
   ],
   "wellness": [],
