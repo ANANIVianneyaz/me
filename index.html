@@ -164,6 +164,13 @@
         .data-table tbody tr:hover {
             background-color: #e0f2fe; /* Even lighter blue on hover */
         }
+
+        /* Specific style for wellness charts on mobile to be single column */
+        @media (max-width: 767px) { /* md breakpoint */
+            #wellness-section .grid.grid-cols-1.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen font-sans">
@@ -254,6 +261,9 @@
             <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
                 <button id="exportPdfBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
                     <i class="fas fa-file-pdf mr-2"></i>Exporter PDF
+                </button>
+                <button id="exportExpensesPdfBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition w-full sm:w-auto">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i>Exporter Dépenses PDF
                 </button>
                 <input type="file" id="fileInput" class="hidden" accept=".json">
             </div>
@@ -408,9 +418,9 @@
 
                 <div id="todos-section" class="section-content bg-white rounded-xl shadow-md p-6 fade-in">
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
-                        <h2 class="text-2xl font-bold text-indigo-800">Mes Tâches</h2>
-                        <button id="addTodoBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center w-full sm:w-auto justify-center">
-                            <i class="fas fa-plus mr-2"></i> Nouvelle Tâche (<span id="tasksProgressText">0/0</span>)
+                        <h2 class="text-2xl font-bold text-indigo-800">Mes Listes de Tâches</h2>
+                        <button id="addTodoListBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition flex items-center w-full sm:w-auto justify-center">
+                            <i class="fas fa-plus mr-2"></i> Nouvelle Liste de Tâches (<span id="tasksProgressText">0/0</span>)
                         </button>
                     </div>
                     
@@ -459,13 +469,13 @@
                             <button id="addLoanBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
                                 <i class="fas fa-hand-holding-usd mr-1"></i> Prêt
                             </button>
-                            <button id="exportExpensesPdfBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
-                                <i class="fas fa-file-pdf mr-1"></i> PDF Dépenses
+                            <button id="resetFinancialDataBtn" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg transition flex items-center justify-center flex-1 text-sm">
+                                <i class="fas fa-redo mr-1"></i> Réinitialiser les Finances
                             </button>
                         </div>
                     </div>
                     
-                    <div class="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="mb-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="bg-blue-100 p-4 rounded-lg text-center cursor-pointer" id="currentBalanceCard">
                             <i class="fas fa-money-bill-wave text-3xl text-blue-600 mb-2"></i>
                             <p class="text-sm text-blue-600">Solde Actuel</p>
@@ -522,7 +532,8 @@
                         </button>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"> <div class="bg-blue-100 p-4 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-blue-100 p-4 rounded-lg">
                             <h3 class="text-lg font-semibold text-blue-800 mb-2">Suivi de Poids</h3>
                             <div class="chart-container">
                                 <canvas id="weightChart"></canvas>
@@ -584,50 +595,67 @@
         </div>
     </div>
 
-    <div id="todoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+    <div id="todoListModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Tâche</h3>
-                <button id="closeTodoModal" class="text-gray-600 hover:text-gray-800">
+                <h3 class="text-xl font-bold text-indigo-800">Nouvelle Liste de Tâches</h3>
+                <button id="closeTodoListModal" class="text-gray-600 hover:text-gray-800">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <form id="todoForm" class="space-y-4">
-                <input type="hidden" id="todoId">
+            <form id="todoListForm" class="space-y-4">
+                <input type="hidden" id="todoListId">
                 <div>
-                    <label for="todoTitle" class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
-                    <input type="text" id="todoTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                    <label for="todoListTitle" class="block text-sm font-medium text-gray-700 mb-1">Titre de la Liste</label>
+                    <input type="text" id="todoListTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div>
-                    <label for="todoDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                    <textarea id="todoDescription" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label for="todoDueDate" class="block text-sm font-medium text-gray-700 mb-1">Date limite</label>
-                        <input type="date" id="todoDueDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label for="todoPriority" class="block text-sm font-medium text-gray-700 mb-1">Priorité</label>
-                        <select id="todoPriority" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                            <option value="low">Basse</option>
-                            <option value="medium">Moyenne</option>
-                            <option value="high">Haute</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label for="todoCategory" class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-                    <select id="todoCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                        </select>
+                    <label for="todoListDescription" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <textarea id="todoListDescription" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
                 </div>
                 <div class="flex justify-end space-x-3 pt-2">
-                    <button type="button" id="cancelTodo" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
+                    <button type="button" id="cancelTodoList" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Annuler</button>
                     <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enregistrer</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <div id="todoListDetailModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="todoListDetailTitle" class="text-xl font-bold text-indigo-800"></h3>
+                <button id="closeTodoListDetailModal" class="text-gray-600 hover:text-gray-800">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p id="todoListDetailDescription" class="text-gray-600 mb-4"></p>
+            
+            <h4 class="text-lg font-semibold text-indigo-700 mb-3">Tâches de la Liste</h4>
+            <div id="tasksInListContainer" class="space-y-3 mb-4">
+                </div>
+
+            <form id="addTaskForm" class="space-y-3 border-t pt-4 mt-4">
+                <input type="hidden" id="currentTodoListId">
+                <div>
+                    <label for="taskText" class="block text-sm font-medium text-gray-700 mb-1">Nouvelle Tâche</label>
+                    <input type="text" id="taskText" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div>
+                    <label for="taskPriority" class="block text-sm font-medium text-gray-700 mb-1">Priorité</label>
+                    <select id="taskPriority" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="low">Basse</option>
+                        <option value="medium">Moyenne</option>
+                        <option value="high">Haute</option>
+                    </select>
+                </div>
+                <div class="flex justify-end pt-2">
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Ajouter Tâche</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <div id="noteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl p-6 w-full max-w-md modal-content-scrollable">
@@ -1128,7 +1156,7 @@
         ];
 
         let appData = {
-            todos: [], // This will be deprecated or repurposed for individual tasks within lists
+            todos: [], // Deprecated, but kept for backward compatibility with old data if needed
             todoLists: [], // New structure for managing multiple To-Do Lists
             notes: [],
             lists: [],
@@ -1159,7 +1187,8 @@
 
 
         // Modales
-        const todoModal = document.getElementById('todoModal');
+        const todoListModal = document.getElementById('todoListModal'); // New modal for todo lists
+        const todoListDetailModal = document.getElementById('todoListDetailModal'); // New modal for tasks within a list
         const noteModal = document.getElementById('noteModal');
         const listModal = document.getElementById('listModal');
         const expenseModal = document.getElementById('expenseModal');
@@ -1177,7 +1206,8 @@
         const messageModal = document.getElementById('messageModal');
 
         // Formulaires
-        const todoForm = document.getElementById('todoForm');
+        const todoListForm = document.getElementById('todoListForm'); // Form for todo lists
+        const addTaskForm = document.getElementById('addTaskForm'); // Form for adding tasks to a list
         const noteForm = document.getElementById('noteForm');
         const listForm = document.getElementById('listForm');
         const expenseForm = document.getElementById('expenseForm');
@@ -1192,7 +1222,8 @@
         const plannedExpenseForm = document.getElementById('plannedExpenseForm');
 
         // Conteneurs
-        const todosContainer = document.getElementById('todos-container');
+        const todosContainer = document.getElementById('todos-container'); // Now holds todo lists
+        const tasksInListContainer = document.getElementById('tasksInListContainer'); // Holds tasks within a list detail modal
         const notesContainer = document.getElementById('notes-container');
         const expensesContainer = document.getElementById('expenses-container');
         const wellnessContainer = document.getElementById('wellness-container');
@@ -1466,7 +1497,7 @@
         // Initialisation de l'application
         document.addEventListener('DOMContentLoaded', async () => {
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('todoDueDate').value = today;
+            // Removed as todo form is replaced
             document.getElementById('expenseDate').value = today;
             document.getElementById('incomeDate').value = today;
             document.getElementById('wellnessDate').value = today;
@@ -1499,7 +1530,7 @@
         // Rend toutes les sections
         function renderAllSections() {
             renderOverview();
-            renderTodos();
+            renderTodos(); // This now renders todoLists
             renderNotes();
             renderExpenses();
             renderWellness();
@@ -1597,7 +1628,7 @@
                         b.classList.remove('bg-indigo-600', 'text-white');
                     }
                 });
-                renderTodos(btn.dataset.filter);
+                renderTodos(btn.dataset.filter); // Now filters tasks across all lists
             });
         });
 
@@ -1635,7 +1666,7 @@
 
 
         // Gestion des modales (ouverture/fermeture)
-        document.getElementById('addTodoBtn').addEventListener('click', () => { resetTodoForm(); todoModal.classList.remove('hidden'); });
+        document.getElementById('addTodoListBtn').addEventListener('click', () => { resetTodoListForm(); todoListModal.classList.remove('hidden'); }); // Changed from addTodoBtn
         document.getElementById('addNoteBtn').addEventListener('click', () => { resetNoteForm(); noteModal.classList.remove('hidden'); });
         document.getElementById('addListBtn').addEventListener('click', () => { resetListForm(); listModal.classList.remove('hidden'); });
         document.getElementById('addExpenseBtn').addEventListener('click', () => { resetExpenseForm(); expenseModal.classList.remove('hidden'); });
@@ -1654,7 +1685,7 @@
         document.getElementById('withdrawFromSavingsBtn').addEventListener('click', () => { resetWithdrawSavingsForm(); withdrawSavingsModal.classList.remove('hidden'); });
         document.getElementById('addSalaryForecastBtn').addEventListener('click', () => { resetSalaryForecastForm(); salaryForecastModal.classList.remove('hidden'); });
         document.getElementById('addPlannedExpenseBtn').addEventListener('click', () => { resetPlannedExpenseForm(); plannedExpenseModal.classList.remove('hidden'); });
-
+        document.getElementById('resetFinancialDataBtn').addEventListener('click', () => { confirmDeletion('resetFinancialData', null); }); // New button for reset
 
         // Ajout des écouteurs d'événements pour les boutons de fermeture et d'annulation
         document.querySelectorAll('.fixed.inset-0 button[id^="close"], .fixed.inset-0 button[id^="cancel"]').forEach(btn => {
@@ -1664,13 +1695,14 @@
         });
 
         // Fonctions de réinitialisation des formulaires
-        function resetTodoForm() {
-            todoForm.reset();
-            document.getElementById('todoId').value = '';
-            document.getElementById('todoDueDate').value = new Date().toISOString().split('T')[0];
-            document.getElementById('todoPriority').value = 'medium';
-            populateCategoryDropdowns();
-            document.getElementById('todoCategory').value = appData.categories[0] ? appData.categories[0].id : '';
+        function resetTodoListForm() { // New reset for todoList
+            todoListForm.reset();
+            document.getElementById('todoListId').value = '';
+        }
+        function resetAddTaskForm() { // New reset for addTask
+            addTaskForm.reset();
+            document.getElementById('taskText').value = '';
+            document.getElementById('taskPriority').value = 'medium';
         }
         function resetNoteForm() {
             noteForm.reset();
@@ -1744,29 +1776,47 @@
         }
 
         // Soumissions de formulaires
-        todoForm.addEventListener('submit', async (e) => {
+        todoListForm.addEventListener('submit', async (e) => { // New submit for todoList
             e.preventDefault();
-            const id = document.getElementById('todoId').value || generateId();
-            const title = document.getElementById('todoTitle').value.trim();
-            const description = document.getElementById('todoDescription').value.trim();
-            const dueDate = document.getElementById('todoDueDate').value;
-            const priority = document.getElementById('todoPriority').value;
-            const category = document.getElementById('todoCategory').value;
+            const id = document.getElementById('todoListId').value || generateId();
+            const title = document.getElementById('todoListTitle').value.trim();
+            const description = document.getElementById('todoListDescription').value.trim();
 
-            if (!title) { showMessage('Erreur', 'Le titre de la tâche est requis.'); return; }
+            if (!title) { showMessage('Erreur', 'Le titre de la liste de tâches est requis.'); return; }
 
-            if (appData.todos.some(todo => todo.id === id)) {
-                appData.todos = appData.todos.map(todo =>
-                    todo.id === id ? { ...todo, title, description, dueDate, priority, category } : todo
+            if (appData.todoLists.some(list => list.id === id)) {
+                appData.todoLists = appData.todoLists.map(list =>
+                    list.id === id ? { ...list, title, description } : list
                 );
             } else {
-                const newTodo = { id, title, description, dueDate, priority, category, completed: false, createdAt: new Date().toISOString() };
-                appData.todos.push(newTodo);
+                const newList = { id, title, description, tasks: [], createdAt: new Date().toISOString() };
+                appData.todoLists.push(newList);
             }
             await saveData();
-            renderTodos();
-            todoModal.classList.add('hidden');
-            resetTodoForm(); // Reset form after submission
+            renderTodos(); // Re-render todo lists
+            todoListModal.classList.add('hidden');
+            resetTodoListForm();
+        });
+
+        addTaskForm.addEventListener('submit', async (e) => { // New submit for tasks within a list
+            e.preventDefault();
+            const listId = document.getElementById('currentTodoListId').value;
+            const taskText = document.getElementById('taskText').value.trim();
+            const taskPriority = document.getElementById('taskPriority').value;
+
+            if (!taskText) { showMessage('Erreur', 'Le texte de la tâche est requis.'); return; }
+
+            const todoList = appData.todoLists.find(list => list.id === listId);
+            if (todoList) {
+                const newTask = { id: generateId(), text: taskText, priority: taskPriority, completed: false, createdAt: new Date().toISOString() };
+                todoList.tasks.push(newTask);
+                await saveData();
+                renderTasksInList(listId); // Re-render tasks in detail modal
+                renderTodos(); // Update overall task count
+                resetAddTaskForm();
+            } else {
+                showMessage('Erreur', 'Liste de tâches introuvable.');
+            }
         });
 
         noteForm.addEventListener('submit', async (e) => {
@@ -1922,7 +1972,12 @@
                 );
                 // Update existing items with new category ID if ID changed
                 if (id !== newCategoryId) {
-                    appData.todos.forEach(todo => { if (todo.category === id) todo.category = newCategoryId; });
+                    appData.todos.forEach(todo => { if (todo.category === id) todo.category = newCategoryId; }); // Old todos
+                    appData.todoLists.forEach(list => { // New todoLists
+                        list.tasks.forEach(task => {
+                            if (task.category === id) task.category = newCategoryId;
+                        });
+                    });
                     appData.expenses.forEach(expense => { if (expense.category === id) expense.category = newCategoryId; });
                 }
             } else {
@@ -2291,7 +2346,7 @@
                     const importedData = JSON.parse(e.target.result);
                     
                     // Directly assign imported data, ensure defaults are not re-added if explicitly removed
-                    appData.todos = importedData.todos || [];
+                    appData.todos = importedData.todos || []; // Keep old todos for compatibility
                     appData.todoLists = importedData.todoLists || []; // Ensure new todoLists are imported
                     appData.notes = importedData.notes || [];
                     appData.lists = importedData.lists || [];
@@ -2363,8 +2418,19 @@
             pdf.text(`Solde Actuel: ${calculateCurrentBalance().toFixed(2)} FCFA`, margin, yPos); yPos += 15;
             pdf.text(`Épargne Totale: ${appData.savings.balance.toFixed(2)} FCFA`, margin, yPos); yPos += 15;
             pdf.text(`Prêts Restants: ${calculateTotalLoansRemaining().toFixed(2)} FCFA`, margin, yPos); yPos += 15;
-            pdf.text(`Tâches Actives: ${appData.todos.filter(todo => !todo.completed).length}`, margin, yPos); yPos += 15;
-            pdf.text(`Taux de Complétion Tâches: ${appData.todos.length > 0 ? ((appData.todos.filter(t => t.completed).length / appData.todos.length) * 100).toFixed(0) : 0}%`, margin, yPos); yPos += 15;
+            
+            // Calculate total tasks and completed tasks across all lists
+            let totalTasks = 0;
+            let completedTasks = 0;
+            appData.todoLists.forEach(list => {
+                totalTasks += list.tasks.length;
+                completedTasks += list.tasks.filter(task => task.completed).length;
+            });
+            const taskCompletionRate = totalTasks > 0 ? ((completedTasks / totalTasks) * 100).toFixed(0) : 0;
+            const activeTasks = totalTasks - completedTasks;
+
+            pdf.text(`Tâches Actives: ${activeTasks}`, margin, yPos); yPos += 15;
+            pdf.text(`Taux de Complétion Tâches: ${taskCompletionRate}%`, margin, yPos); yPos += 15;
             const totalWellnessScore = appData.wellness.filter(entry => entry.type === 'mood' && entry.value).reduce((sum, entry) => sum + parseInt(entry.value), 0);
             const wellnessEntriesCount = appData.wellness.filter(entry => entry.type === 'mood' && entry.value).length;
             const wellnessIndex = wellnessEntriesCount > 0 ? (totalWellnessScore / wellnessEntriesCount).toFixed(1) : 'N/A';
@@ -2385,29 +2451,48 @@
                 yPos += imgHeight + 20;
             }
 
-            // --- To-do Section ---
+            // --- To-do Section (Lists and their tasks) ---
             checkPageBreak(50);
             pdf.setFontSize(18);
             pdf.setTextColor('#4F46E5');
-            pdf.text('Mes Tâches', margin, yPos);
+            pdf.text('Mes Listes de Tâches', margin, yPos);
             yPos += 25;
             pdf.setTextColor('#333333');
-            if (appData.todos.length === 0) { // Still using appData.todos for now
+            if (appData.todoLists.length === 0) {
                 pdf.setFontSize(12);
-                pdf.text('Aucune tâche enregistrée.', margin, yPos);
+                pdf.text('Aucune liste de tâches enregistrée.', margin, yPos);
                 yPos += 20;
             } else {
-                appData.todos.forEach(todo => { // Still using appData.todos for now
+                appData.todoLists.forEach(todoList => {
                     checkPageBreak(40);
-                    const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
-                    pdf.setFontSize(12);
-                    pdf.text(`- ${todo.title} (Priorité: ${todo.priority}, Catégorie: ${category.name}, Échéance: ${todo.dueDate ? new Date(todo.dueDate).toLocaleDateString('fr-FR') : 'N/A'}) ${todo.completed ? '[Terminée]' : ''}`, margin + 10, yPos);
-                    yPos += 15;
-                    if (todo.description) {
+                    pdf.setFontSize(14);
+                    pdf.setTextColor('#1E3A8A'); // Darker blue for list titles
+                    pdf.text(`- Liste: ${todoList.title}`, margin + 10, yPos);
+                    yPos += 18;
+                    if (todoList.description) {
                         pdf.setFontSize(10);
-                        pdf.text(`  Description: ${todo.description}`, margin + 20, yPos);
+                        pdf.setTextColor('#6B7280'); // Gray for descriptions
+                        pdf.text(`  Description: ${todoList.description}`, margin + 20, yPos);
                         yPos += 15;
                     }
+                    if (todoList.tasks && todoList.tasks.length > 0) {
+                        pdf.setFontSize(10);
+                        pdf.setTextColor('#333333');
+                        pdf.text(`  Tâches:`, margin + 20, yPos);
+                        yPos += 10;
+                        todoList.tasks.forEach(task => {
+                            checkPageBreak(15);
+                            const priorityText = task.priority === 'high' ? 'Haute' : task.priority === 'medium' ? 'Moyenne' : 'Basse';
+                            pdf.text(`    - [${task.completed ? 'x' : ' '}] ${task.text} (Priorité: ${priorityText})`, margin + 30, yPos);
+                            yPos += 15;
+                        });
+                    } else {
+                        pdf.setFontSize(10);
+                        pdf.setTextColor('#6B7280');
+                        pdf.text(`  Aucune tâche dans cette liste.`, margin + 20, yPos);
+                        yPos += 15;
+                    }
+                    yPos += 10; // Extra space after each list
                 });
                 yPos += 10;
             }
@@ -2464,7 +2549,7 @@
                 const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (FCFA)']];
                 const data = appData.expenses.map(exp => {
                     const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
-                    const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
+                    const origin = appData.origins.find(org => org.id === exp.origin) || { name: org.origin };
                     return [
                         new Date(exp.date).toLocaleDateString('fr-FR'),
                         exp.description,
@@ -2649,51 +2734,64 @@
                     checkPageBreak(60 + plannedExpense.items.length * 15);
                     let totalAmount = 0;
                     let totalPaid = 0;
-                    
-                    pdf.setFontSize(12);
-                    pdf.text(`- ${plannedExpense.name}`, margin + 10, yPos);
-                    yPos += 15;
-                    pdf.setFontSize(10);
-                    pdf.text(`  Éléments:`, margin + 20, yPos);
-                    yPos += 10;
-
-                    const plannedItemHeaders = [['Description', 'Montant (FCFA)', 'Statut']];
-                    const plannedItemData = plannedExpense.items.map(item => {
+                    const itemsHtml = plannedExpense.items.map((item, idx) => {
                         totalAmount += item.amount;
                         if (item.paid) totalPaid += item.amount;
-                        const status = item.paid ? 'Payé' : 'Non payé';
-                        return [item.description, item.amount.toFixed(2), status];
-                    });
-
-                    if (plannedItemData.length > 0) {
-                        pdf.autoTable({
-                            startY: yPos,
-                            head: plannedItemHeaders,
-                            body: plannedItemData,
-                            theme: 'grid',
-                            styles: { fontSize: 9, cellPadding: 4, textColor: '#333' },
-                            headStyles: { fillColor: '#A78BFA', textColor: '#fff', fontStyle: 'bold' },
-                            columnStyles: { 1: { halign: 'right' } },
-                            margin: { left: margin + 30, right: margin }, // Indent table
-                            didDrawPage: function (data) {
-                                yPos = data.cursor.y + 5;
-                            }
-                        });
-                        yPos = pdf.autoTable.previous.finalY + 10;
-                    } else {
-                        pdf.text(`    Aucun élément planifié.`, margin + 30, yPos);
-                        yPos += 15;
-                    }
+                        const itemClass = item.paid ? 'line-through text-gray-500' : '';
+                        return `
+                            <tr>
+                                <td class="py-2 px-4">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 rounded mr-2" ${item.paid ? 'checked' : ''} onchange="togglePlannedExpenseItemPaid('${plannedExpense.id}', ${idx})">
+                                    <span class="${itemClass}">${item.description}</span>
+                                </td>
+                                <td class="py-2 px-4 text-right">${item.amount.toFixed(2)} FCFA</td>
+                                <td class="py-2 px-4">
+                                    ${item.paid ? '<span class="text-green-600">Payé</span>' : `<button onclick="payPlannedExpenseItem('${plannedExpense.id}', ${idx})" class="bg-green-500 hover:bg-green-600 text-white text-xs px-2 py-1 rounded-full">Payer</button>`}
+                                </td>
+                            </tr>
+                        `;
+                    }).join('');
 
                     const remainingToPay = totalAmount - totalPaid;
-                    
-                    pdf.setFontSize(10);
-                    pdf.text(`  Total Planifié: ${totalAmount.toFixed(2)} FCFA`, margin + 20, yPos);
-                    yPos += 15;
-                    pdf.text(`  Total Payé: ${totalPaid.toFixed(2)} FCFA`, margin + 20, yPos);
-                    yPos += 15;
-                    pdf.text(`  Reste à Payer: ${remainingToPay.toFixed(2)} FCFA`, margin + 20, yPos);
-                    yPos += 20;
+                    const remainingClass = remainingToPay > 0 ? 'text-red-600' : 'text-green-600';
+
+                    const plannedExpenseElement = document.createElement('div');
+                    plannedExpenseElement.className = `bg-white border border-blue-200 rounded-lg p-4 hover:shadow-md transition mb-6`;
+                    plannedExpenseElement.dataset.id = plannedExpense.id;
+                    plannedExpenseElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editPlannedExpenseField('${plannedExpense.id}', 'name', this.innerText)">${plannedExpense.name}</h3>
+                            <div class="flex-shrink-0 ml-4">
+                                <button onclick="openPlannedExpenseModalForEdit('${plannedExpense.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="confirmDeletion('plannedExpense', '${plannedExpense.id}')" class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="text-md font-semibold text-blue-700 mt-3 mb-1">Éléments:</h4>
+                        ${plannedExpense.items.length > 0 ? `
+                            <div class="overflow-x-auto">
+                                <table class="data-table text-sm">
+                                    <thead>
+                                        <tr>
+                                            <th class="py-2 px-4">Description</th>
+                                            <th class="py-2 px-4 text-right">Montant (FCFA)</th>
+                                            <th class="py-2 px-4">Statut</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${itemsHtml}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ` : '<p class="text-sm text-gray-500 ml-4">Aucun élément planifié.</p>'}
+                        <p class="text-md font-bold text-indigo-800 mt-3">Total Planifié: ${totalAmount.toFixed(2)} FCFA</p>
+                        <p class="text-md font-bold mt-1">Total Payé: <span class="text-green-600">${totalPaid.toFixed(2)} FCFA</span></p>
+                        <p class="text-md font-bold mt-1 ${remainingClass}">Reste à Payer: ${remainingToPay.toFixed(2)} FCFA</p>
+                    `;
+                    plannedExpensesContainer.appendChild(plannedExpenseElement);
                 });
             }
 
@@ -2726,7 +2824,7 @@
                 const headers = [['Date', 'Description', 'Catégorie', 'Provenance', 'Montant (FCFA)']];
                 const data = appData.expenses.map(exp => {
                     const category = appData.categories.find(cat => cat.id === exp.category) || { name: exp.category };
-                    const origin = appData.origins.find(org => org.id === exp.origin) || { name: exp.origin };
+                    const origin = appData.origins.find(org => org.id === exp.origin) || { name: org.origin };
                     return [
                         new Date(exp.date).toLocaleDateString('fr-FR'),
                         exp.description,
@@ -2761,11 +2859,17 @@
         document.getElementById('confirmCancel').addEventListener('click', () => confirmModal.classList.add('hidden'));
         document.getElementById('confirmDelete').addEventListener('click', async () => { // Added async here
             if (itemToDelete) {
-                const { type, id } = itemToDelete;
+                const { type, id, listId } = itemToDelete; // Added listId for tasks
                 
                 switch(type) {
-                    case 'todo':
-                        appData.todos = appData.todos.filter(todo => todo.id !== id);
+                    case 'todoList': // New case for todo lists
+                        appData.todoLists = appData.todoLists.filter(list => list.id !== id);
+                        break;
+                    case 'task': // New case for tasks within a list
+                        const parentList = appData.todoLists.find(list => list.id === listId);
+                        if (parentList) {
+                            parentList.tasks = parentList.tasks.filter(task => task.id !== id);
+                        }
                         break;
                     case 'note':
                         appData.notes = appData.notes.filter(note => note.id !== id);
@@ -2782,7 +2886,12 @@
                     case 'category':
                         appData.categories = appData.categories.filter(cat => cat.id !== id);
                         // Reassign items with deleted category to a default or 'other'
-                        appData.todos.forEach(todo => { if (todo.category === id) todo.category = 'other'; });
+                        appData.todos.forEach(todo => { if (todo.category === id) todo.category = 'other'; }); // Old todos
+                        appData.todoLists.forEach(list => { // New todoLists
+                            list.tasks.forEach(task => {
+                                if (task.category === id) task.category = 'other'; // Assign to 'other' category
+                            });
+                        });
                         appData.expenses.forEach(expense => { if (expense.category === id) expense.category = 'other'; });
                         break;
                     case 'origin':
@@ -2810,12 +2919,18 @@
                     case 'plannedExpense':
                         appData.plannedExpenses = appData.plannedExpenses.filter(pe => pe.id !== id);
                         break;
+                    case 'resetFinancialData': // New case for resetting all financial data
+                        appData.expenses = [];
+                        appData.loans = [];
+                        appData.savings = { balance: 0, transactions: [] };
+                        break;
                 }
                 
                 await saveData(); // Save changes to GitHub
                 
                 switch(type) {
-                    case 'todo': renderTodos(); break;
+                    case 'todoList': renderTodos(); break;
+                    case 'task': renderTasksInList(listId); renderTodos(); break; // Re-render tasks and update overall count
                     case 'note': case 'list': renderNotes(); break;
                     case 'expense': renderExpenses(); renderLoans(); break;
                     case 'wellness': renderWellness(); updateCharts(); break;
@@ -2825,6 +2940,7 @@
                     case 'savingsTransaction': renderSavingsModal(); updateFinancialSummary(); renderOverview(); break;
                     case 'salaryForecast': renderSalaryForecasts(); break;
                     case 'plannedExpense': renderPlannedExpenses(); break;
+                    case 'resetFinancialData': renderExpenses(); renderLoans(); renderSavingsModal(); updateFinancialSummary(); renderOverview(); break;
                 }
             }
             
@@ -2834,9 +2950,14 @@
 
         // Fonctions de rendu pour chaque section
         function renderOverview() {
-            const activeTasks = appData.todos.filter(todo => !todo.completed).length;
-            const totalTasks = appData.todos.length;
-            const taskCompletionRate = totalTasks > 0 ? ((appData.todos.filter(t => t.completed).length / totalTasks) * 100).toFixed(0) : 0;
+            let totalTasks = 0;
+            let completedTasks = 0;
+            appData.todoLists.forEach(list => {
+                totalTasks += list.tasks.length;
+                completedTasks += list.tasks.filter(task => task.completed).length;
+            });
+            const activeTasks = totalTasks - completedTasks;
+            const taskCompletionRate = totalTasks > 0 ? ((completedTasks / totalTasks) * 100).toFixed(0) : 0;
 
             let totalWellnessScore = 0;
             let wellnessEntriesCount = 0;
@@ -2861,149 +2982,204 @@
             renderExpenseCategoryChart(currentFilter);
         }
 
-        function renderTodos(filter = 'all') {
+        function renderTodos(filter = 'all') { // This now renders todoLists
             todosContainer.innerHTML = '';
             
-            let todosToRender = [...appData.todos];
+            let allTasks = [];
+            appData.todoLists.forEach(list => {
+                list.tasks.forEach(task => {
+                    allTasks.push({ ...task, listId: list.id, listTitle: list.title });
+                });
+            });
+
+            let tasksToRender = [...allTasks];
             
             if (filter === 'active') {
-                todosToRender = todosToRender.filter(todo => !todo.completed);
+                tasksToRender = tasksToRender.filter(task => !task.completed);
             } else if (filter === 'completed') {
-                todosToRender = todosToRender.filter(todo => todo.completed);
+                tasksToRender = tasksToRender.filter(task => task.completed);
             } else if (filter === 'today') {
                 const today = new Date().toISOString().split('T')[0];
-                todosToRender = todosToRender.filter(todo => todo.dueDate === today);
+                tasksToRender = tasksToRender.filter(task => task.dueDate === today); // Assuming tasks can have dueDate
             } else if (filter === 'thisWeek') {
                 const today = moment();
-                todosToRender = todosToRender.filter(todo => {
-                    const dueDate = moment(todo.dueDate);
-                    return dueDate.isValid() && dueDate.isSame(today, 'week');
+                tasksToRender = tasksToRender.filter(task => {
+                    const taskDate = moment(task.createdAt); // Using createdAt for tasks for now
+                    return taskDate.isValid() && taskDate.isSame(today, 'week');
                 });
-            } else if (filter === 'thisMonth') { // Nouveau filtre
+            } else if (filter === 'thisMonth') {
                 const currentMonth = new Date().toISOString().substring(0, 7);
-                todosToRender = todosToRender.filter(todo => todo.dueDate && todo.dueDate.substring(0, 7) === currentMonth);
+                tasksToRender = tasksToRender.filter(task => task.createdAt && task.createdAt.substring(0, 7) === currentMonth);
             }
             
-            todosToRender.sort((a, b) => {
+            // Sort tasks by priority and then by creation date
+            tasksToRender.sort((a, b) => {
                 const priorityOrder = { high: 1, medium: 2, low: 3 };
                 if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
                     return priorityOrder[a.priority] - priorityOrder[b.priority];
                 }
-                return new Date(a.dueDate) - new Date(b.dueDate);
+                return new Date(a.createdAt) - new Date(b.createdAt);
             });
             
-            if (todosToRender.length === 0) {
+            // Display Todo Lists as cards
+            if (appData.todoLists.length === 0) {
                 todosContainer.innerHTML = `
                     <div class="lg:col-span-3 text-center py-8 text-gray-600">
                         <i class="fas fa-tasks text-4xl mb-2"></i>
-                        <p>Aucune tâche à afficher</p>
+                        <p>Aucune liste de tâches à afficher. Créez votre première liste !</p>
                     </div>
                 `;
-                // Update tasks progress text even if no tasks
-                const completedTodosCount = appData.todos.filter(todo => todo.completed).length;
-                const totalTodosCount = appData.todos.length;
-                document.getElementById('tasksProgressText').textContent = `${completedTodosCount}/${totalTodosCount}`;
-                return;
-            }
-            
-            todosToRender.forEach(todo => {
-                const todoElement = document.createElement('div');
-                let cardClass = `draggable bg-white border rounded-lg p-4 hover:shadow-md transition min-h-48 max-h-64 overflow-y-auto `;
-                if (todo.completed) {
-                    cardClass += 'opacity-70 border-green-300';
-                } else {
-                    const today = new Date();
-                    const dueDate = new Date(todo.dueDate);
-                    const diffTime = dueDate.getTime() - today.getTime();
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            } else {
+                appData.todoLists.forEach(list => {
+                    const listElement = document.createElement('div');
+                    listElement.className = `bg-white border border-blue-200 rounded-lg p-4 hover:shadow-md transition min-h-48 max-h-64 overflow-y-auto`;
+                    listElement.dataset.id = list.id;
+                    listElement.draggable = true; // Make lists draggable
 
-                    if (todo.priority === 'high' && diffDays <= 7) {
-                        cardClass += 'border-red-300';
-                    } else if (todo.priority === 'medium' && diffDays <= 3) {
-                        cardClass += 'border-yellow-300';
-                    } else {
-                        cardClass += 'border-blue-200';
-                    }
-                }
-                todoElement.className = cardClass;
-                todoElement.dataset.id = todo.id;
-                todoElement.draggable = true;
-                
-                const category = appData.categories.find(cat => cat.id === todo.category) || { name: todo.category, color: '#64748b' };
-                
-                todoElement.innerHTML = `
-                    <div class="flex items-start justify-between mb-2">
-                        <div class="flex items-center flex-grow">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600 rounded mr-3" ${todo.completed ? 'checked' : ''} onchange="toggleTodoCompletion('${todo.id}')">
+                    const listTasksCount = list.tasks.length;
+                    const listCompletedTasksCount = list.tasks.filter(task => task.completed).length;
+
+                    listElement.innerHTML = `
+                        <div class="flex items-start justify-between mb-2">
                             <div class="flex-grow">
-                                <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editTodoField('${todo.id}', 'title', this.innerText)">${todo.title}</h3>
-                                <p class="text-sm text-gray-600" contenteditable="true" onblur="editTodoField('${todo.id}', 'description', this.innerText)">${todo.description || 'Pas de description'}</p>
+                                <h3 class="text-lg font-semibold text-indigo-800" contenteditable="true" onblur="editTodoListField('${list.id}', 'title', this.innerText)">${list.title}</h3>
+                                <p class="text-sm text-gray-600" contenteditable="true" onblur="editTodoListField('${list.id}', 'description', this.innerText)">${list.description || 'Pas de description'}</p>
+                            </div>
+                            <div class="flex-shrink-0 ml-4">
+                                <button onclick="openTodoListModalForEdit('${list.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="confirmDeletion('todoList', '${list.id}')" class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </div>
-                        <div class="flex-shrink-0 ml-4">
-                            <button onclick="openTodoModalForEdit('${todo.id}')" class="text-indigo-600 hover:text-indigo-800 mr-2">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button onclick="confirmDeletion('todo', '${todo.id}')" class="text-red-600 hover:text-red-800">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                        <div class="flex items-center justify-between text-sm text-gray-500 mt-2">
+                            <span>Tâches: ${listCompletedTasksCount}/${listTasksCount}</span>
+                            <button onclick="openTodoListDetailModal('${list.id}')" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded-full">Gérer les tâches</button>
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between text-sm text-gray-500 mt-2">
-                        <div class="flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i>
-                            <span>${todo.dueDate ? new Date(todo.dueDate).toLocaleDateString('fr-FR') : 'Pas de date'}</span>
-                            <span class="ml-3 px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: ${category.color}; color: white;">
-                                ${category.name}
-                            </span>
-                        </div>
-                        <span class="px-2 py-0.5 rounded-full text-xs font-medium ${
-                            todo.priority === 'high' ? 'bg-red-100 text-red-800' :
-                            todo.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-green-100 text-green-800'
-                        }">
-                            ${todo.priority === 'high' ? 'Haute' : todo.priority === 'medium' ? 'Moyenne' : 'Basse'}
-                        </span>
+                    `;
+                    todosContainer.appendChild(listElement);
+                });
+                addDragAndDropListeners(todosContainer, 'todoLists');
+            }
+
+            // Update overall tasks progress text
+            const totalTasksCount = allTasks.length;
+            const completedTasksCount = allTasks.filter(task => task.completed).length;
+            document.getElementById('tasksProgressText').textContent = `${completedTasksCount}/${totalTasksCount}`;
+        }
+
+        async function editTodoListField(id, field, newValue) { // New function for editing todo list fields
+            const todoList = appData.todoLists.find(list => list.id === id);
+            if (todoList) {
+                todoList[field] = newValue;
+                await saveData();
+                renderTodos();
+            }
+        }
+
+        function openTodoListModalForEdit(id) { // New function for editing todo list details
+            const todoList = appData.todoLists.find(list => list.id === id);
+            if (todoList) {
+                document.getElementById('todoListId').value = todoList.id;
+                document.getElementById('todoListTitle').value = todoList.title;
+                document.getElementById('todoListDescription').value = todoList.description;
+                todoListModal.classList.remove('hidden');
+            }
+        }
+
+        function openTodoListDetailModal(listId) { // New function to open task detail modal
+            const todoList = appData.todoLists.find(list => list.id === listId);
+            if (todoList) {
+                document.getElementById('todoListDetailTitle').textContent = todoList.title;
+                document.getElementById('todoListDetailDescription').textContent = todoList.description || 'Pas de description.';
+                document.getElementById('currentTodoListId').value = listId; // Set current list ID for task form
+                renderTasksInList(listId);
+                todoListDetailModal.classList.remove('hidden');
+            }
+        }
+
+        async function toggleTaskCompletion(listId, taskId) { // New function for task completion
+            const todoList = appData.todoLists.find(list => list.id === listId);
+            if (todoList) {
+                const task = todoList.tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.completed = !task.completed;
+                    await saveData();
+                    renderTasksInList(listId); // Re-render tasks in detail modal
+                    renderTodos(); // Update overall task count
+                }
+            }
+        }
+
+        async function editTaskText(listId, taskId, newText) { // New function for editing task text
+            const todoList = appData.todoLists.find(list => list.id === listId);
+            if (todoList) {
+                const task = todoList.tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.text = newText;
+                    await saveData();
+                    renderTasksInList(listId); // Re-render tasks in detail modal
+                }
+            }
+        }
+
+        function renderTasksInList(listId) { // New function to render tasks in detail modal
+            tasksInListContainer.innerHTML = '';
+            const todoList = appData.todoLists.find(list => list.id === listId);
+
+            if (!todoList || !todoList.tasks || todoList.tasks.length === 0) {
+                tasksInListContainer.innerHTML = `
+                    <div class="text-center py-4 text-gray-600">
+                        <p>Aucune tâche dans cette liste.</p>
                     </div>
                 `;
-                todosContainer.appendChild(todoElement);
+                return;
+            }
+
+            // Sort tasks by completion status (incomplete first), then by priority, then by creation date
+            const sortedTasks = [...todoList.tasks].sort((a, b) => {
+                // Incomplete tasks first
+                if (a.completed !== b.completed) {
+                    return a.completed ? 1 : -1;
+                }
+                // Then by priority
+                const priorityOrder = { high: 1, medium: 2, low: 3 };
+                if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+                    return priorityOrder[a.priority] - priorityOrder[b.priority];
+                }
+                // Then by creation date
+                return new Date(a.createdAt) - new Date(b.createdAt);
             });
-            addDragAndDropListeners(todosContainer, 'todos');
 
-            const completedTodosCount = appData.todos.filter(todo => todo.completed).length;
-            const totalTodosCount = appData.todos.length;
-            document.getElementById('tasksProgressText').textContent = `${completedTodosCount}/${totalTodosCount}`;
+            sortedTasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.className = `flex items-start justify-between bg-blue-50 p-3 rounded-lg ${task.completed ? 'opacity-70' : ''}`;
+                
+                const priorityClass = task.priority === 'high' ? 'bg-red-100 text-red-800' :
+                                      task.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                                      'bg-green-100 text-green-800';
+                const priorityText = task.priority === 'high' ? 'Haute' : task.priority === 'medium' ? 'Moyenne' : 'Basse';
+
+                taskElement.innerHTML = `
+                    <div class="flex items-start flex-grow">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600 rounded mr-3 mt-1" ${task.completed ? 'checked' : ''} onchange="toggleTaskCompletion('${listId}', '${task.id}')">
+                        <div class="flex-grow">
+                            <p class="text-base text-gray-800 ${task.completed ? 'line-through text-gray-500' : ''}" contenteditable="true" onblur="editTaskText('${listId}', '${task.id}', this.innerText)">${task.text}</p>
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium ${priorityClass} mt-1 inline-block">
+                                ${priorityText}
+                            </span>
+                        </div>
+                    </div>
+                    <button onclick="confirmDeletion('task', '${task.id}', '${listId}')" class="text-red-600 hover:text-red-800 ml-4 text-lg">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                tasksInListContainer.appendChild(taskElement);
+            });
         }
 
-        async function toggleTodoCompletion(id) { // Added async here
-            const todo = appData.todos.find(t => t.id === id);
-            if (todo) {
-                todo.completed = !todo.completed;
-                await saveData(); // Save changes to GitHub
-                renderTodos(document.querySelector('.todo-filter-btn.bg-indigo-600').dataset.filter);
-            }
-        }
-
-        async function editTodoField(id, field, newValue) { // Added async here
-            const todo = appData.todos.find(t => t.id === id);
-            if (todo) {
-                todo[field] = newValue;
-                await saveData(); // Save changes to GitHub
-            }
-        }
-
-        function openTodoModalForEdit(id) {
-            const todo = appData.todos.find(t => t.id === id);
-            if (todo) {
-                document.getElementById('todoId').value = todo.id;
-                document.getElementById('todoTitle').value = todo.title;
-                document.getElementById('todoDescription').value = todo.description;
-                document.getElementById('todoDueDate').value = todo.dueDate;
-                document.getElementById('todoPriority').value = todo.priority;
-                document.getElementById('todoCategory').value = todo.category;
-                todoModal.classList.remove('hidden');
-            }
-        }
 
         function renderNotes() {
             notesContainer.innerHTML = '';
@@ -3165,7 +3341,9 @@
             sortedExpenses.forEach(expense => {
                 const expenseDate = new Date(expense.date).toLocaleDateString('fr-FR');
                 const category = appData.categories.find(cat => cat.id === expense.category) || { name: expense.category, color: '#64748b' };
-                const origin = appData.origins.find(org => org.id === expense.origin) || { name: org.origin, color: '#64748b' };
+                // Fix for the ReferenceError: `org` was not defined in the fallback object
+                const origin = appData.origins.find(o => o.id === expense.origin) || { name: 'Inconnue', color: '#64748b' };
+
 
                 if (expense.date.substring(0, 7) === currentMonth && expense.amount < 0) {
                     totalMonthlyExpenses += Math.abs(expense.amount);
@@ -4016,7 +4194,7 @@
 
             await saveData(); // Save changes to GitHub
             switch (listType) {
-                case 'todos': renderTodos(); break;
+                case 'todoLists': renderTodos(); break; // Changed from todos
                 case 'notesAndLists': renderNotes(); break;
                 case 'expenses': renderExpenses(); break;
             }
@@ -4024,10 +4202,11 @@
 
         // Remplir les dropdowns de catégories (pour les modales)
         function populateCategoryDropdowns() {
-            const todoCategorySelect = document.getElementById('todoCategory');
+            // const todoCategorySelect = document.getElementById('todoCategory'); // Removed as tasks are managed in detail modal
             const expenseCategorySelect = document.getElementById('expenseCategory');
 
-            [todoCategorySelect, expenseCategorySelect].forEach(selectElement => {
+            // [todoCategorySelect, expenseCategorySelect].forEach(selectElement => {
+            [expenseCategorySelect].forEach(selectElement => { // Only for expense category now
                 if (selectElement) {
                     const currentSelectedValue = selectElement.value;
                     selectElement.innerHTML = '';
@@ -4133,9 +4312,15 @@
         }
 
         // Fonction pour confirmer la suppression
-        function confirmDeletion(type, id) {
-            itemToDelete = { type, id };
-            document.getElementById('confirmMessage').textContent = `Êtes-vous sûr de vouloir supprimer cet élément (${type}) ?`;
+        function confirmDeletion(type, id, listId = null) { // Added listId parameter
+            itemToDelete = { type, id, listId }; // Store listId for tasks
+            let message = '';
+            if (type === 'resetFinancialData') {
+                message = 'Êtes-vous sûr de vouloir réinitialiser toutes vos données financières (dépenses, revenus, prêts, épargnes) ? Cette action est irréversible.';
+            } else {
+                message = `Êtes-vous sûr de vouloir supprimer cet élément (${type}) ?`;
+            }
+            document.getElementById('confirmMessage').textContent = message;
             confirmModal.classList.remove('hidden');
         }
 
