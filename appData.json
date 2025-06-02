@@ -29,6 +29,15 @@
       "origin": "argent-de-poche",
       "amount": -50,
       "createdAt": "2025-06-02T11:22:32.290Z"
+    },
+    {
+      "id": "_pjf0xpea3",
+      "date": "2025-06-02",
+      "description": "Thé + paint",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -425,
+      "createdAt": "2025-06-02T11:22:57.978Z"
     }
   ],
   "wellness": [],
