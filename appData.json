@@ -220,6 +220,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-02T13:57:41.844Z"
+        },
+        {
+          "id": "_tpng6n7jg",
+          "text": "Configuré la partie Configuration du Modèle (c'est la ou il a les orientation, genre la configuration du model, le lancement des orientations et tout)",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-02T13:59:15.067Z"
         }
       ],
       "createdAt": "2025-06-02T13:49:46.082Z"
