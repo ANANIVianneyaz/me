@@ -145,35 +145,5 @@
     }
   ],
   "plannedExpenses": [],
-  "todoLists": [
-    {
-      "id": "_rnyw7la4w",
-      "title": "bh",
-      "description": "hg",
-      "tasks": [
-        {
-          "id": "_55226afx9",
-          "text": "tyhyttyh",
-          "priority": "low",
-          "completed": false,
-          "createdAt": "2025-06-02T10:37:41.820Z"
-        },
-        {
-          "id": "_w9se83qyh",
-          "text": "htyhyt",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-02T10:37:47.941Z"
-        },
-        {
-          "id": "_z2ci5vb1g",
-          "text": "hrhyt",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-02T10:37:53.893Z"
-        }
-      ],
-      "createdAt": "2025-06-02T10:37:26.780Z"
-    }
-  ]
+  "todoLists": []
 }
