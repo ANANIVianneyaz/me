@@ -40,7 +40,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(10px); }\
             to { opacity: 1; transform: translateY(0); }
         }
         /* Style pour les éléments glissés-déposés */
@@ -1339,7 +1339,10 @@
 
                     if (data.content && typeof data.content === 'string') {
                         try {
-                            const decodedContent = atob(data.content); // Decode Base64 content
+                            // Decode Base64 content, then decode UTF-8
+                            const decodedBinary = atob(data.content);
+                            const uint8Array = Uint8Array.from(decodedBinary, c => c.charCodeAt(0));
+                            const decodedContent = new TextDecoder().decode(uint8Array);
                             appData = JSON.parse(decodedContent);
                             
                             // Ensure new properties are initialized if they are missing in loaded data
@@ -1423,7 +1426,12 @@
             document.getElementById('githubStatusMessage').textContent = 'Sauvegarde des données vers GitHub...';
 
             const url = `https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${GITHUB_DATA_FILE}`;
-            const content = btoa(JSON.stringify(appData, null, 2)); // Encoder en Base64
+            
+            // Encode UTF-8 string to Base64
+            const textEncoder = new TextEncoder();
+            const encoded = textEncoder.encode(JSON.stringify(appData, null, 2));
+            const binaryString = String.fromCharCode(...encoded);
+            const content = btoa(binaryString);
 
             let currentSha = undefined; // Start with undefined, will try to fetch
 
@@ -1455,7 +1463,7 @@
                 return; // Stop execution if SHA retrieval fails
             }
 
-            const commitMessage = currentSha ? `Mise à jour des données personnelles (${new Date().toLocaleString()})` : `Création de ${GITHUB_DATA_FILE}`;
+            const commitMessage = currentSha ? `Mise à jour des données personnelles (${new Date().toLocaleString('fr-FR')})` : `Création de ${GITHUB_DATA_FILE}`;
 
             const payload = {
                 message: commitMessage,
@@ -1497,7 +1505,6 @@
         // Initialisation de l'application
         document.addEventListener('DOMContentLoaded', async () => {
             const today = new Date().toISOString().split('T')[0];
-            // Removed as todo form is replaced
             document.getElementById('expenseDate').value = today;
             document.getElementById('incomeDate').value = today;
             document.getElementById('wellnessDate').value = today;
@@ -1878,17 +1885,21 @@
             const description = document.getElementById('expenseDescription').value.trim();
             const category = document.getElementById('expenseCategory').value;
             const origin = document.getElementById('expenseOrigin').value;
-            const amount = parseFloat(document.getElementById('expenseAmount').value);
+            let amount = parseFloat(document.getElementById('expenseAmount').value); // Use let for modification
 
             if (!description || isNaN(amount) || amount === 0) { showMessage('Erreur', 'Veuillez entrer une description et un montant valide.'); return; }
-            if (amount > 0) { showMessage('Erreur', 'Veuillez utiliser la section "Ajouter Revenu" pour les montants positifs.'); return; }
+            
+            // Ensure amount is negative for expenses
+            if (amount > 0) {
+                amount = -Math.abs(amount);
+            }
 
             if (appData.expenses.some(expense => expense.id === id)) {
                 appData.expenses = appData.expenses.map(expense =>
                     expense.id === id ? { ...expense, date, description, category, origin, amount } : expense
                 );
             } else {
-                const newExpense = { id, date, description, category, origin, amount: -Math.abs(amount), createdAt: new Date().toISOString() };
+                const newExpense = { id, date, description, category, origin, amount, createdAt: new Date().toISOString() };
                 appData.expenses.push(newExpense);
             }
             await saveData();
@@ -1972,13 +1983,13 @@
                 );
                 // Update existing items with new category ID if ID changed
                 if (id !== newCategoryId) {
-                    appData.todos.forEach(todo => { if (todo.category === id) todo.category = newCategoryId; }); // Old todos
+                    appData.todos.forEach(todo => { if (todo.category === id) todo.category = 'other'; }); // Old todos
                     appData.todoLists.forEach(list => { // New todoLists
                         list.tasks.forEach(task => {
-                            if (task.category === id) task.category = newCategoryId;
+                            if (task.category === id) task.category = 'other'; // Assign to 'other' category
                         });
                     });
-                    appData.expenses.forEach(expense => { if (expense.category === id) expense.category = newCategoryId; });
+                    appData.expenses.forEach(expense => { if (expense.category === id) expense.category = 'other'; });
                 }
             } else {
                 // Add new category
@@ -2017,7 +2028,7 @@
                     org.id === id ? { ...org, id: newOriginId, name, color } : org
                 );
                 if (id !== newOriginId) {
-                    appData.expenses.forEach(expense => { if (expense.origin === id) expense.origin = newOriginId; });
+                    appData.expenses.forEach(expense => { if (expense.origin === id) expense.origin = 'other-income'; });
                 }
             } else {
                 const newOrigin = { id: newOriginId, name, color };
@@ -3342,7 +3353,7 @@
                 const expenseDate = new Date(expense.date).toLocaleDateString('fr-FR');
                 const category = appData.categories.find(cat => cat.id === expense.category) || { name: expense.category, color: '#64748b' };
                 // Fix for the ReferenceError: `org` was not defined in the fallback object
-                const origin = appData.origins.find(o => o.id === expense.origin) || { name: 'Inconnue', color: '#64748b' };
+                const origin = appData.origins.find(o => o.id === expense.origin) || { name: expense.origin, color: '#64748b' };
 
 
                 if (expense.date.substring(0, 7) === currentMonth && expense.amount < 0) {
@@ -3389,8 +3400,12 @@
                 if (field === 'amount') {
                     newValue = parseFloat(newValue);
                     if (isNaN(newValue)) { showMessage('Erreur', 'Montant invalide.'); renderExpenses(); return; }
-                    if (expense.amount < 0 && newValue > 0) newValue = -newValue;
-                    if (expense.amount > 0 && newValue < 0) newValue = Math.abs(newValue);
+                    // Ensure amount is negative for expenses, positive for income
+                    if (expense.amount < 0) { // Was an expense
+                        newValue = -Math.abs(newValue);
+                    } else { // Was an income
+                        newValue = Math.abs(newValue);
+                    }
                 }
                 expense[field] = newValue;
                 await saveData(); // Save changes to GitHub
@@ -3406,7 +3421,7 @@
                 document.getElementById('expenseDescription').value = expense.description;
                 document.getElementById('expenseCategory').value = expense.category;
                 document.getElementById('expenseOrigin').value = expense.origin;
-                document.getElementById('expenseAmount').value = Math.abs(expense.amount);
+                document.getElementById('expenseAmount').value = Math.abs(expense.amount); // Display absolute value for editing
                 expenseModal.classList.remove('hidden');
             }
         }
@@ -4202,10 +4217,8 @@
 
         // Remplir les dropdowns de catégories (pour les modales)
         function populateCategoryDropdowns() {
-            // const todoCategorySelect = document.getElementById('todoCategory'); // Removed as tasks are managed in detail modal
             const expenseCategorySelect = document.getElementById('expenseCategory');
 
-            // [todoCategorySelect, expenseCategorySelect].forEach(selectElement => {
             [expenseCategorySelect].forEach(selectElement => { // Only for expense category now
                 if (selectElement) {
                     const currentSelectedValue = selectElement.value;
