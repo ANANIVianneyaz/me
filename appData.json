@@ -152,6 +152,19 @@
       "createdAt": "2025-06-01T21:37:00.962Z"
     }
   ],
-  "plannedExpenses": [],
+  "plannedExpenses": [
+    {
+      "id": "_naf5vcef8",
+      "name": "Licence",
+      "items": [
+        {
+          "description": "Tirage photocopie",
+          "amount": 7000,
+          "paid": false
+        }
+      ],
+      "createdAt": "2025-06-02T13:48:28.254Z"
+    }
+  ],
   "todoLists": []
 }
