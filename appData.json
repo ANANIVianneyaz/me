@@ -199,6 +199,13 @@
           "priority": "low",
           "completed": false,
           "createdAt": "2025-06-02T13:54:39.664Z"
+        },
+        {
+          "id": "_nhqimzj89",
+          "text": "Terminer la partie Validation Admin (avec la création d'un json de temporalité)",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-02T13:55:41.473Z"
         }
       ],
       "createdAt": "2025-06-02T13:49:46.082Z"
