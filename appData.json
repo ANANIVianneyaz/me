@@ -2,7 +2,17 @@
   "todos": [],
   "notes": [],
   "lists": [],
-  "expenses": [],
+  "expenses": [
+    {
+      "id": "_qazs7ca8y",
+      "date": "2025-06-02",
+      "description": "Argent de semaine",
+      "category": "finance",
+      "origin": "argent-de-poche",
+      "amount": 5000,
+      "createdAt": "2025-06-02T11:21:07.752Z"
+    }
+  ],
   "wellness": [],
   "categories": [
     {
