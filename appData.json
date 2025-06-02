@@ -84,20 +84,7 @@
       "createdAt": "2025-06-01T21:37:00.962Z"
     }
   ],
-  "plannedExpenses": [
-    {
-      "id": "_bhroq2iio",
-      "name": "nbhk",
-      "items": [
-        {
-          "description": "hjjh",
-          "amount": 365,
-          "paid": false
-        }
-      ],
-      "createdAt": "2025-06-01T20:11:17.655Z"
-    }
-  ],
+  "plannedExpenses": [],
   "todoLists": [
     {
       "id": "_rnyw7la4w",
