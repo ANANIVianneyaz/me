@@ -47,6 +47,15 @@
       "origin": "argent-de-poche",
       "amount": -500,
       "createdAt": "2025-06-02T11:23:34.015Z"
+    },
+    {
+      "id": "_zmqo1j86v",
+      "date": "2025-06-02",
+      "description": "Lait",
+      "category": "nourriture",
+      "origin": "argent-de-poche",
+      "amount": -1250,
+      "createdAt": "2025-06-02T11:24:37.137Z"
     }
   ],
   "wellness": [],
