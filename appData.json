@@ -99,6 +99,14 @@
       "value": 4,
       "notes": "1 litre d'eau",
       "createdAt": "2025-06-03T16:15:28.969Z"
+    },
+    {
+      "id": "_hu4bjdqwv",
+      "date": "2025-06-01",
+      "type": "sleep",
+      "value": 4,
+      "notes": "",
+      "createdAt": "2025-06-03T16:15:53.325Z"
     }
   ],
   "categories": [
