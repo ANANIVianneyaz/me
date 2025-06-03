@@ -260,6 +260,13 @@
           "priority": "low",
           "completed": false,
           "createdAt": "2025-06-03T07:55:50.544Z"
+        },
+        {
+          "id": "_ep4a4w0ue",
+          "text": "Géré l'affichage correct des informations sur le Dashboard",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-03T07:56:45.700Z"
         }
       ],
       "createdAt": "2025-06-03T07:42:59.229Z"
