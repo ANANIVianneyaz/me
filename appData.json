@@ -73,15 +73,6 @@
       "origin": "argent-de-poche",
       "amount": -150,
       "createdAt": "2025-06-03T07:36:10.854Z"
-    },
-    {
-      "id": "_wkwcm2cl5",
-      "date": "2025-06-03",
-      "description": "Déjeuner",
-      "category": "nourriture",
-      "origin": "argent-de-poche",
-      "amount": -200,
-      "createdAt": "2025-06-03T16:13:02.449Z"
     }
   ],
   "wellness": [
