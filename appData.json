@@ -91,6 +91,14 @@
       "value": 6,
       "notes": "2 litre d'eau",
       "createdAt": "2025-06-03T16:15:02.824Z"
+    },
+    {
+      "id": "_9j4sdo219",
+      "date": "2025-06-03",
+      "type": "water",
+      "value": 4,
+      "notes": "1 litre d'eau",
+      "createdAt": "2025-06-03T16:15:28.969Z"
     }
   ],
   "categories": [
