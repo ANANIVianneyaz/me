@@ -267,6 +267,13 @@
           "priority": "low",
           "completed": false,
           "createdAt": "2025-06-03T07:56:45.700Z"
+        },
+        {
+          "id": "_xi5qu4laq",
+          "text": "Créé la table administrateur et la connecter a mon interface",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-03T07:57:47.805Z"
         }
       ],
       "createdAt": "2025-06-03T07:42:59.229Z"
