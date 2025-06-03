@@ -119,7 +119,16 @@
       "color": "#4caf50"
     }
   ],
-  "loans": [],
+  "loans": [
+    {
+      "id": "_jh52g9s3h",
+      "name": "Déjeuner (Paté)",
+      "amount": 200,
+      "paid": 0,
+      "dueDate": "2025-06-10",
+      "createdAt": "2025-06-03T16:13:56.496Z"
+    }
+  ],
   "savings": {
     "balance": 0,
     "transactions": []
