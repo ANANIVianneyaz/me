@@ -214,6 +214,10 @@
         {
           "description": "Poche (500 x 30)",
           "amount": 15000
+        },
+        {
+          "description": "Salle de sport",
+          "amount": 10000
         }
       ],
       "createdAt": "2025-06-01T21:37:00.962Z"
