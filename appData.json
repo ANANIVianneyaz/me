@@ -253,7 +253,15 @@
       "id": "_3y742wfhy",
       "title": "Partit admin collecte",
       "description": "Projet de collecte d'information",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_a0lxa65v8",
+          "text": "Connecter la base de donné à la partit administrateur",
+          "priority": "low",
+          "completed": false,
+          "createdAt": "2025-06-03T07:55:50.544Z"
+        }
+      ],
       "createdAt": "2025-06-03T07:42:59.229Z"
     }
   ]
