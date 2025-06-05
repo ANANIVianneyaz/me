@@ -100,6 +100,15 @@
       "origin": "wifi",
       "amount": -500,
       "createdAt": "2025-06-05T23:55:25.254Z"
+    },
+    {
+      "id": "_lpa0vr3me",
+      "date": "2025-06-05",
+      "description": "Dête paté",
+      "category": "wifi",
+      "origin": "wifi",
+      "amount": -500,
+      "createdAt": "2025-06-05T23:56:13.836Z"
     }
   ],
   "wellness": [
