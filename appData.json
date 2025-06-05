@@ -109,6 +109,15 @@
       "origin": "wifi",
       "amount": -500,
       "createdAt": "2025-06-05T23:56:13.836Z"
+    },
+    {
+      "id": "_92vcj4i91",
+      "date": "2025-06-05",
+      "description": "Recharge 001.africa",
+      "category": "imprevue",
+      "origin": "wifi",
+      "amount": -1500,
+      "createdAt": "2025-06-05T23:56:51.999Z"
     }
   ],
   "wellness": [
