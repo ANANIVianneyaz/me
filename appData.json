@@ -191,6 +191,11 @@
       "id": "tirage-licence",
       "name": "Tirage licence",
       "color": "#b332a2"
+    },
+    {
+      "id": "wifi",
+      "name": "WIFI",
+      "color": "#20bc2a"
     }
   ],
   "origins": [
