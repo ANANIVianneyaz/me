@@ -91,6 +91,15 @@
       "origin": "wifi",
       "amount": 10000,
       "createdAt": "2025-06-05T09:41:08.975Z"
+    },
+    {
+      "id": "_zrhtojnwx",
+      "date": "2025-06-05",
+      "description": "Riz chez",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -500,
+      "createdAt": "2025-06-05T09:41:56.696Z"
     }
   ],
   "wellness": [
