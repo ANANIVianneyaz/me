@@ -100,6 +100,15 @@
       "origin": "wifi",
       "amount": -500,
       "createdAt": "2025-06-05T09:41:56.696Z"
+    },
+    {
+      "id": "_lykkzskpz",
+      "date": "2025-06-05",
+      "description": "Paté",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -500,
+      "createdAt": "2025-06-05T09:54:54.605Z"
     }
   ],
   "wellness": [
