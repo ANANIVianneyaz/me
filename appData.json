@@ -91,6 +91,15 @@
       "origin": "cash",
       "amount": -5000,
       "createdAt": "2025-06-05T23:54:47.193Z"
+    },
+    {
+      "id": "_gnvz25uvz",
+      "date": "2025-06-05",
+      "description": "Riz chez maman",
+      "category": "wifi",
+      "origin": "wifi",
+      "amount": -500,
+      "createdAt": "2025-06-05T23:55:25.254Z"
     }
   ],
   "wellness": [
