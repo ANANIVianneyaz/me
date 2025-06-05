@@ -163,8 +163,8 @@
     {
       "id": "_jh52g9s3h",
       "name": "Déjeuner (Paté)",
-      "amount": 400,
-      "paid": 0,
+      "amount": 600,
+      "paid": 600,
       "dueDate": "2025-06-10",
       "createdAt": "2025-06-03T16:13:56.496Z"
     }
