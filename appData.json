@@ -186,6 +186,11 @@
       "id": "moto",
       "name": "Moto",
       "color": "#dd612c"
+    },
+    {
+      "id": "tirage-licence",
+      "name": "Tirage licence",
+      "color": "#b332a2"
     }
   ],
   "origins": [
