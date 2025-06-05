@@ -82,6 +82,15 @@
       "origin": "argent-de-poche",
       "amount": 10000,
       "createdAt": "2025-06-05T23:54:13.727Z"
+    },
+    {
+      "id": "_0duv9oied",
+      "date": "2025-06-05",
+      "description": "Dépense planifiée: Licence - Tirage photocopie",
+      "category": "other",
+      "origin": "cash",
+      "amount": -5000,
+      "createdAt": "2025-06-05T23:54:47.193Z"
     }
   ],
   "wellness": [
@@ -255,7 +264,7 @@
         {
           "description": "Tirage photocopie",
           "amount": 5000,
-          "paid": false
+          "paid": true
         },
         {
           "description": "Tirage photocopie",
