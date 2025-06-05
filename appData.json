@@ -230,7 +230,12 @@
       "items": [
         {
           "description": "Tirage photocopie",
-          "amount": 7700,
+          "amount": 5000,
+          "paid": false
+        },
+        {
+          "description": "Tirage photocopie",
+          "amount": 2700,
           "paid": false
         }
       ],
