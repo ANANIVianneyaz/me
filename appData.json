@@ -166,6 +166,11 @@
       "id": "argent-de-poche",
       "name": "Argent de poche",
       "color": "#4caf50"
+    },
+    {
+      "id": "wifi",
+      "name": "Wifi",
+      "color": "#41e6af"
     }
   ],
   "loans": [
