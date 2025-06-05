@@ -264,7 +264,7 @@
         {
           "description": "Tirage photocopie",
           "amount": 5000,
-          "paid": true
+          "paid": false
         },
         {
           "description": "Tirage photocopie",
