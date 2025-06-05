@@ -82,6 +82,15 @@
       "origin": "cash",
       "amount": -5000,
       "createdAt": "2025-06-05T09:29:35.309Z"
+    },
+    {
+      "id": "_j31gjewg7",
+      "date": "2025-06-05",
+      "description": "Cotisation Wifi",
+      "category": "finance",
+      "origin": "wifi",
+      "amount": 10000,
+      "createdAt": "2025-06-05T09:41:08.975Z"
     }
   ],
   "wellness": [
