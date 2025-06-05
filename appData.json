@@ -118,6 +118,15 @@
       "origin": "wifi",
       "amount": -1500,
       "createdAt": "2025-06-05T23:56:51.999Z"
+    },
+    {
+      "id": "_1sgfsa6pc",
+      "date": "2025-06-05",
+      "description": "Repas du soir",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -900,
+      "createdAt": "2025-06-05T23:57:24.162Z"
     }
   ],
   "wellness": [
