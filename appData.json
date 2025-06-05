@@ -78,8 +78,8 @@
       "id": "_bcz0bqgea",
       "date": "2025-06-05",
       "description": "Dépense planifiée: Licence - Tirage photocopie",
-      "category": "other",
-      "origin": "cash",
+      "category": "tirage-licence",
+      "origin": "wifi",
       "amount": -5000,
       "createdAt": "2025-06-05T09:29:35.309Z"
     },
