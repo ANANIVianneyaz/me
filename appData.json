@@ -145,6 +145,15 @@
       "origin": "wifi",
       "amount": -450,
       "createdAt": "2025-06-07T11:41:50.868Z"
+    },
+    {
+      "id": "_e5q5qgr05",
+      "date": "2025-06-07",
+      "description": "Thé  pain",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -300,
+      "createdAt": "2025-06-07T11:42:40.681Z"
     }
   ],
   "wellness": [
