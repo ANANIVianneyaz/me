@@ -154,6 +154,15 @@
       "origin": "wifi",
       "amount": -300,
       "createdAt": "2025-06-07T11:42:40.681Z"
+    },
+    {
+      "id": "_vty70bslx",
+      "date": "2025-06-07",
+      "description": "Je sais plus",
+      "category": "imprevue",
+      "origin": "wifi",
+      "amount": -100,
+      "createdAt": "2025-06-07T11:43:34.480Z"
     }
   ],
   "wellness": [
