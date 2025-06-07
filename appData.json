@@ -127,6 +127,15 @@
       "origin": "wifi",
       "amount": -900,
       "createdAt": "2025-06-05T23:57:24.162Z"
+    },
+    {
+      "id": "_2p2qnk5j1",
+      "date": "2025-06-06",
+      "description": "Riz chez maman chimeda",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -750,
+      "createdAt": "2025-06-07T11:40:57.634Z"
     }
   ],
   "wellness": [
