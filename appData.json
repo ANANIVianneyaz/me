@@ -250,6 +250,11 @@
       "id": "wifi",
       "name": "WIFI",
       "color": "#20bc2a"
+    },
+    {
+      "id": "ramené-un-truc-à-la-maison",
+      "name": "Ramené un truc à la maison",
+      "color": "#a98219"
     }
   ],
   "origins": [
