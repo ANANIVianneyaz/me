@@ -136,6 +136,15 @@
       "origin": "wifi",
       "amount": -750,
       "createdAt": "2025-06-07T11:40:57.634Z"
+    },
+    {
+      "id": "_79cqlym4d",
+      "date": "2025-06-06",
+      "description": "Pain en venant a la maison",
+      "category": "nourriture",
+      "origin": "wifi",
+      "amount": -450,
+      "createdAt": "2025-06-07T11:41:50.868Z"
     }
   ],
   "wellness": [
