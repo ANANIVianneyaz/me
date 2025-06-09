@@ -217,6 +217,15 @@
       "origin": "argent-de-poche",
       "amount": 2000,
       "createdAt": "2025-06-09T21:00:28.417Z"
+    },
+    {
+      "id": "_fgt5jc3sx",
+      "date": "2025-06-09",
+      "description": "Cotisation wifi",
+      "category": "finance",
+      "origin": "wifi",
+      "amount": 5000,
+      "createdAt": "2025-06-09T21:00:55.657Z"
     }
   ],
   "wellness": [
