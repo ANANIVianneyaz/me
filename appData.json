@@ -172,6 +172,15 @@
       "origin": "wifi",
       "amount": 10000,
       "createdAt": "2025-06-09T20:56:11.444Z"
+    },
+    {
+      "id": "_9wugr43yk",
+      "date": "2025-06-09",
+      "description": "Lait en boite",
+      "category": "gillotages",
+      "origin": "wifi",
+      "amount": -1300,
+      "createdAt": "2025-06-09T20:56:43.798Z"
     }
   ],
   "wellness": [
