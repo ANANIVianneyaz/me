@@ -163,6 +163,15 @@
       "origin": "wifi",
       "amount": -100,
       "createdAt": "2025-06-07T11:43:34.480Z"
+    },
+    {
+      "id": "_l5j1wgwx4",
+      "date": "2025-06-09",
+      "description": "Cotisation wifi",
+      "category": "finance",
+      "origin": "wifi",
+      "amount": 10000,
+      "createdAt": "2025-06-09T20:56:11.444Z"
     }
   ],
   "wellness": [
