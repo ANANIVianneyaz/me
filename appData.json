@@ -190,6 +190,15 @@
       "origin": "wifi",
       "amount": -250,
       "createdAt": "2025-06-09T20:57:47.358Z"
+    },
+    {
+      "id": "_ot3whk659",
+      "date": "2025-06-09",
+      "description": "pain",
+      "category": "gillotages",
+      "origin": "wifi",
+      "amount": -100,
+      "createdAt": "2025-06-09T20:58:32.725Z"
     }
   ],
   "wellness": [
