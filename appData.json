@@ -226,6 +226,15 @@
       "origin": "wifi",
       "amount": 5000,
       "createdAt": "2025-06-09T21:00:55.657Z"
+    },
+    {
+      "id": "_qfolgcorw",
+      "date": "2025-06-09",
+      "description": "Argent de semaine",
+      "category": "finance",
+      "origin": "argent-de-poche",
+      "amount": 5000,
+      "createdAt": "2025-06-09T21:01:38.842Z"
     }
   ],
   "wellness": [
