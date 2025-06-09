@@ -199,6 +199,15 @@
       "origin": "wifi",
       "amount": -100,
       "createdAt": "2025-06-09T20:58:32.725Z"
+    },
+    {
+      "id": "_bd66iemy5",
+      "date": "2025-06-09",
+      "description": "Nourriture",
+      "category": "gillotages",
+      "origin": "wifi",
+      "amount": -350,
+      "createdAt": "2025-06-09T20:59:41.819Z"
     }
   ],
   "wellness": [
