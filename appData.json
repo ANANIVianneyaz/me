@@ -208,6 +208,15 @@
       "origin": "wifi",
       "amount": -350,
       "createdAt": "2025-06-09T20:59:41.819Z"
+    },
+    {
+      "id": "_2v3hovome",
+      "date": "2025-06-09",
+      "description": "Argent supplémentaire",
+      "category": "finance",
+      "origin": "argent-de-poche",
+      "amount": 2000,
+      "createdAt": "2025-06-09T21:00:28.417Z"
     }
   ],
   "wellness": [
