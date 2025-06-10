@@ -253,6 +253,15 @@
       "origin": "argent-de-poche",
       "amount": -200,
       "createdAt": "2025-06-10T12:15:52.526Z"
+    },
+    {
+      "id": "_g5mcftzt2",
+      "date": "2025-06-10",
+      "description": "Forfait wifi",
+      "category": "wifi",
+      "origin": "wifi",
+      "amount": -15000,
+      "createdAt": "2025-06-10T16:56:16.402Z"
     }
   ],
   "wellness": [
