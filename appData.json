@@ -235,6 +235,15 @@
       "origin": "wifi",
       "amount": 10000,
       "createdAt": "2025-06-09T21:04:58.077Z"
+    },
+    {
+      "id": "_gg1uemk60",
+      "date": "2025-06-10",
+      "description": "Dépense planifiée: Licence - Tirage photocopie",
+      "category": "other",
+      "origin": "cash",
+      "amount": -2700,
+      "createdAt": "2025-06-10T09:09:53.395Z"
     }
   ],
   "wellness": [
@@ -418,7 +427,7 @@
         {
           "description": "Tirage photocopie",
           "amount": 2700,
-          "paid": false
+          "paid": true
         }
       ],
       "createdAt": "2025-06-02T13:48:28.254Z"
