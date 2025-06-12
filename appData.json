@@ -271,6 +271,15 @@
       "origin": "argent-de-poche",
       "amount": -200,
       "createdAt": "2025-06-12T15:15:32.834Z"
+    },
+    {
+      "id": "_fnrmmhxib",
+      "date": "2025-06-12",
+      "description": "Carburent",
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "amount": -1100,
+      "createdAt": "2025-06-12T15:16:23.933Z"
     }
   ],
   "wellness": [
