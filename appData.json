@@ -262,6 +262,15 @@
       "origin": "wifi",
       "amount": -15000,
       "createdAt": "2025-06-10T16:56:16.402Z"
+    },
+    {
+      "id": "_3gs9nq8l0",
+      "date": "2025-06-12",
+      "description": "Garde velo",
+      "category": "imprevue",
+      "origin": "argent-de-poche",
+      "amount": -200,
+      "createdAt": "2025-06-12T15:15:32.834Z"
     }
   ],
   "wellness": [
