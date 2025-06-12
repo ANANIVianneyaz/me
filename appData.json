@@ -562,6 +562,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:38:55.506Z"
+        },
+        {
+          "id": "_7cfdtzpv8",
+          "text": "Au niveau des fichiers Faire le triage par commune (Genre les tableaus)",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:40:24.666Z"
         }
       ],
       "createdAt": "2025-06-12T15:37:09.052Z"
