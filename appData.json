@@ -629,6 +629,13 @@
         }
       ],
       "createdAt": "2025-06-12T15:50:46.795Z"
+    },
+    {
+      "id": "_l19uhioad",
+      "title": "Partie admin",
+      "description": "Truc a faire",
+      "tasks": [],
+      "createdAt": "2025-06-12T16:02:13.029Z"
     }
   ]
 }
