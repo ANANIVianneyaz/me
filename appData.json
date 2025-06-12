@@ -519,13 +519,6 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:24:31.335Z"
-        },
-        {
-          "id": "_jlx8drl9a",
-          "text": "Masquer le statut privé public",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-12T15:27:02.566Z"
         }
       ],
       "createdAt": "2025-06-12T15:19:44.958Z"
