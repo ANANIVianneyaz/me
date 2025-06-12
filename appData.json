@@ -605,6 +605,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:54:04.865Z"
+        },
+        {
+          "id": "_7bag7srib",
+          "text": "Quand on sélectionne un département la colonne département devient commune et on n'a les statistique par commune",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:55:51.465Z"
         }
       ],
       "createdAt": "2025-06-12T15:50:46.795Z"
