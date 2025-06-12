@@ -451,35 +451,5 @@
       "createdAt": "2025-06-02T13:48:28.254Z"
     }
   ],
-  "todoLists": [
-    {
-      "id": "_3y742wfhy",
-      "title": "Partit admin collecte",
-      "description": "Projet de collecte d'information",
-      "tasks": [
-        {
-          "id": "_a0lxa65v8",
-          "text": "Connecter la base de donné à la partit administrateur",
-          "priority": "low",
-          "completed": false,
-          "createdAt": "2025-06-03T07:55:50.544Z"
-        },
-        {
-          "id": "_ep4a4w0ue",
-          "text": "Géré l'affichage correct des informations sur le Dashboard",
-          "priority": "low",
-          "completed": false,
-          "createdAt": "2025-06-03T07:56:45.700Z"
-        },
-        {
-          "id": "_xi5qu4laq",
-          "text": "Créé la table administrateur et la connecter a mon interface",
-          "priority": "low",
-          "completed": false,
-          "createdAt": "2025-06-03T07:57:47.805Z"
-        }
-      ],
-      "createdAt": "2025-06-03T07:42:59.229Z"
-    }
-  ]
+  "todoLists": []
 }
