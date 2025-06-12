@@ -533,6 +533,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:28:46.521Z"
+        },
+        {
+          "id": "_9qa7z7iqe",
+          "text": "Rendre le département, la commune, l'arrondissement sous forme de liste sélection",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:34:43.306Z"
         }
       ],
       "createdAt": "2025-06-12T15:19:44.958Z"
