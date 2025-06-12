@@ -619,6 +619,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:57:27.316Z"
+        },
+        {
+          "id": "_ayzafral3",
+          "text": "Quand on clique sur Voir les détails par commune on n'est redirigé vers \"statistiques par commune\" avec le filtre par département",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T16:00:38.936Z"
         }
       ],
       "createdAt": "2025-06-12T15:50:46.795Z"
