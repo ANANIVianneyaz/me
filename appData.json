@@ -9,7 +9,24 @@
       "createdAt": "2025-06-02T13:47:21.417Z"
     }
   ],
-  "lists": [],
+  "lists": [
+    {
+      "id": "_8onmpxgcf",
+      "title": "Portai",
+      "color": "bg-blue-100",
+      "items": [
+        {
+          "text": "Avoir la signature principale du ministere",
+          "completed": false
+        },
+        {
+          "text": "Ajouter la barre du drapeau apres \"Bienvenue au portail du ministère de l'Enseignement Secondaire\"",
+          "completed": false
+        }
+      ],
+      "createdAt": "2025-06-12T14:59:41.837Z"
+    }
+  ],
   "expenses": [
     {
       "id": "_qazs7ca8y",
