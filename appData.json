@@ -634,7 +634,15 @@
       "id": "_l19uhioad",
       "title": "Partie admin",
       "description": "Truc a faire",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_hp0f2fz06",
+          "text": "Voir les établissement qui ont un litiges",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T16:02:47.980Z"
+        }
+      ],
       "createdAt": "2025-06-12T16:02:13.029Z"
     }
   ]
