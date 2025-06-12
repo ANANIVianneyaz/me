@@ -280,6 +280,15 @@
       "origin": "argent-de-poche",
       "amount": -1100,
       "createdAt": "2025-06-12T15:16:23.933Z"
+    },
+    {
+      "id": "_h17u63hyj",
+      "date": "2025-06-12",
+      "description": "Nourriture",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -500,
+      "createdAt": "2025-06-12T15:17:28.189Z"
     }
   ],
   "wellness": [
