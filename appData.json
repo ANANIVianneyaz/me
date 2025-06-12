@@ -612,6 +612,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:55:51.465Z"
+        },
+        {
+          "id": "_2frk128zo",
+          "text": "Modifier \"Voir les statistiques par commune \" par \"Voir les détails par commune\"",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:57:27.316Z"
         }
       ],
       "createdAt": "2025-06-12T15:50:46.795Z"
