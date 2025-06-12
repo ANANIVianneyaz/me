@@ -456,7 +456,15 @@
       "id": "_auxfp6iye",
       "title": "Portail",
       "description": "Truc a faire au niveau du portail",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_l9npykj62",
+          "text": "Avoir la signature du ministère",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-12T15:04:49.422Z"
+        }
+      ],
       "createdAt": "2025-06-12T15:04:07.743Z"
     }
   ]
