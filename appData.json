@@ -641,6 +641,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T16:02:47.980Z"
+        },
+        {
+          "id": "_0vcu7ynsa",
+          "text": "Au niveau de gestion etablissement mettre en place les modale avec toute les informations des établissement",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T16:03:55.006Z"
         }
       ],
       "createdAt": "2025-06-12T16:02:13.029Z"
