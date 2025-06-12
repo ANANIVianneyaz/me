@@ -519,6 +519,13 @@
           "priority": "high",
           "completed": false,
           "createdAt": "2025-06-12T15:24:31.335Z"
+        },
+        {
+          "id": "_a43g217u1",
+          "text": "Masquer le statut privé public",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:27:19.206Z"
         }
       ],
       "createdAt": "2025-06-12T15:19:44.958Z"
