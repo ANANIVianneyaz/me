@@ -512,7 +512,15 @@
       "id": "_7srsdwovv",
       "title": "Fiche de collecte 1",
       "description": "Truc a faire et a amélioré",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_lczqh92xl",
+          "text": "Déplacé l'année de création après nom de l'etablissement car l'année de creation est lié a un etablissement",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:24:31.335Z"
+        }
+      ],
       "createdAt": "2025-06-12T15:19:44.958Z"
     }
   ]
