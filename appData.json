@@ -591,7 +591,15 @@
       "id": "_vuw3kgtv2",
       "title": "Statistique par Departement",
       "description": "Truc a faire",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_f2takstmj",
+          "text": "Mettre un filtre pour le triage ESG, ET, FP",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T15:53:02.645Z"
+        }
+      ],
       "createdAt": "2025-06-12T15:50:46.795Z"
     }
   ]
