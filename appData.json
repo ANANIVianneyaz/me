@@ -574,7 +574,7 @@
           "id": "_cycnn0qha",
           "text": "Inseré une collone domaine entre la colonne établissement et la colonne superficie",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:49:36.806Z"
         },
         {
