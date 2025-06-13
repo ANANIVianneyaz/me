@@ -502,7 +502,7 @@
           "id": "_tuqkz8ohq",
           "text": "Ajouter les menue dans les audio",
           "priority": "low",
-          "completed": true,
+          "completed": false,
           "createdAt": "2025-06-12T15:19:12.643Z"
         }
       ],
