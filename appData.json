@@ -553,7 +553,7 @@
           "id": "_4fgmnttaw",
           "text": "Au niveau du pdf géré les champs vide",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:38:28.918Z"
         },
         {
