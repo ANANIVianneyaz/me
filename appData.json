@@ -610,7 +610,7 @@
           "id": "_7bag7srib",
           "text": "Quand on sélectionne un département la colonne département devient commune et on n'a les statistique par commune",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:55:51.465Z"
         },
         {
