@@ -617,7 +617,7 @@
           "id": "_2frk128zo",
           "text": "Modifier \"Voir les statistiques par commune \" par \"Voir les détails par commune\"",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:57:27.316Z"
         },
         {
