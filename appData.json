@@ -596,7 +596,7 @@
           "id": "_f2takstmj",
           "text": "Mettre un filtre pour le triage ESG, ET, FP",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:53:02.645Z"
         },
         {
