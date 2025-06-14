@@ -581,7 +581,7 @@
           "id": "_4rdjka0cu",
           "text": "Géré le 2eme tableau en fonction des filtre en haut",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:50:11.330Z"
         }
       ],
