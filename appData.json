@@ -603,7 +603,7 @@
           "id": "_l7jzj94rn",
           "text": "Mettre le filtre par département sous forme de liste",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:54:04.865Z"
         },
         {
