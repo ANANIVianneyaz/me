@@ -524,7 +524,7 @@
           "id": "_a43g217u1",
           "text": "Masquer le statut privé public",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:27:19.206Z"
         },
         {
