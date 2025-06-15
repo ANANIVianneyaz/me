@@ -517,7 +517,7 @@
           "id": "_lczqh92xl",
           "text": "Déplacé l'année de création après nom de l'établissement car l'année de création est lié a un établissement pas un domaine. ",
           "priority": "high",
-          "completed": false,
+          "completed": true,
           "createdAt": "2025-06-12T15:24:31.335Z"
         },
         {
