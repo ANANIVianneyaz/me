@@ -316,6 +316,15 @@
       "origin": "argent-de-poche",
       "amount": -550,
       "createdAt": "2025-06-16T10:08:47.334Z"
+    },
+    {
+      "id": "_zk8wilc50",
+      "date": "2025-06-16",
+      "description": "Mangé",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -350,
+      "createdAt": "2025-06-16T15:07:52.359Z"
     }
   ],
   "wellness": [
