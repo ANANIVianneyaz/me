@@ -298,6 +298,15 @@
       "origin": "argent-de-poche",
       "amount": -300,
       "createdAt": "2025-06-16T02:24:25.909Z"
+    },
+    {
+      "id": "_m4y7pqw08",
+      "date": "2025-06-16",
+      "description": "Argent de semaine",
+      "category": "finance",
+      "origin": "argent-de-poche",
+      "amount": 5000,
+      "createdAt": "2025-06-16T02:24:58.293Z"
     }
   ],
   "wellness": [
