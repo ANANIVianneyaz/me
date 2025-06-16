@@ -325,6 +325,15 @@
       "origin": "argent-de-poche",
       "amount": -350,
       "createdAt": "2025-06-16T15:07:52.359Z"
+    },
+    {
+      "id": "_tnao9c991",
+      "date": "2025-06-16",
+      "description": "Caburent",
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "amount": -1100,
+      "createdAt": "2025-06-16T20:33:48.838Z"
     }
   ],
   "wellness": [
