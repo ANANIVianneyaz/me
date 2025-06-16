@@ -289,6 +289,15 @@
       "origin": "argent-de-poche",
       "amount": -500,
       "createdAt": "2025-06-12T15:17:28.189Z"
+    },
+    {
+      "id": "_9kcjfzv27",
+      "date": "2025-06-16",
+      "description": "J'ai oublié",
+      "category": "imprevue",
+      "origin": "argent-de-poche",
+      "amount": -300,
+      "createdAt": "2025-06-16T02:24:25.909Z"
     }
   ],
   "wellness": [
