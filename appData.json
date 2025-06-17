@@ -585,6 +585,13 @@
           "priority": "high",
           "completed": true,
           "createdAt": "2025-06-12T15:34:43.306Z"
+        },
+        {
+          "id": "_m1uvj8s6u",
+          "text": "Nombre de domaines pour cette structure : devient Nombre de domaines pour cet établissement",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-17T14:57:49.581Z"
         }
       ],
       "createdAt": "2025-06-12T15:19:44.958Z"
