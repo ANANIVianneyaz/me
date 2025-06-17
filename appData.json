@@ -592,6 +592,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-17T14:57:49.581Z"
+        },
+        {
+          "id": "_f57nb68e6",
+          "text": "Quand un etablissement est sélectionné et qu'il a déjà insérée des informations on affiche les informations actuelle dans la base de donnée en plus du message",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-17T15:24:04.831Z"
         }
       ],
       "createdAt": "2025-06-12T15:19:44.958Z"
