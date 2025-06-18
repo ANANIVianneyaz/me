@@ -361,6 +361,15 @@
       "origin": "argent-de-poche",
       "amount": -500,
       "createdAt": "2025-06-18T14:38:34.684Z"
+    },
+    {
+      "id": "_h07t18aw8",
+      "date": "2025-06-18",
+      "description": "Piece pour moto (achat pour reparation)",
+      "category": "moto",
+      "origin": "argent-de-poche",
+      "amount": -3500,
+      "createdAt": "2025-06-18T14:39:47.410Z"
     }
   ],
   "wellness": [
