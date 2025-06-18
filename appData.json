@@ -352,6 +352,15 @@
       "origin": "argent-de-poche",
       "amount": 4000,
       "createdAt": "2025-06-17T22:43:03.371Z"
+    },
+    {
+      "id": "_yrl9lpr4n",
+      "date": "2025-06-18",
+      "description": "Nourriture",
+      "category": "nourriture",
+      "origin": "argent-de-poche",
+      "amount": -500,
+      "createdAt": "2025-06-18T14:38:34.684Z"
     }
   ],
   "wellness": [
