@@ -462,6 +462,11 @@
       "id": "ramené-un-truc-à-la-maison",
       "name": "Ramené un truc à la maison",
       "color": "#a98219"
+    },
+    {
+      "id": "offrande",
+      "name": "Offrande",
+      "color": "#8e1546"
     }
   ],
   "origins": [
