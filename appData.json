@@ -370,6 +370,15 @@
       "origin": "argent-de-poche",
       "amount": -3500,
       "createdAt": "2025-06-18T14:39:47.410Z"
+    },
+    {
+      "id": "_wjqfr09b9",
+      "date": "2025-06-18",
+      "description": "Biscuit au jumeau et à maman",
+      "category": "offrande",
+      "origin": "argent-de-poche",
+      "amount": -800,
+      "createdAt": "2025-06-18T15:34:04.395Z"
     }
   ],
   "wellness": [
