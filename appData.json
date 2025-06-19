@@ -397,6 +397,15 @@
       "origin": "manipulation-de-marché",
       "amount": 15000,
       "createdAt": "2025-06-19T15:37:17.076Z"
+    },
+    {
+      "id": "_7aakdb431",
+      "date": "2025-06-19",
+      "description": "Ecouteur",
+      "category": "imprevue",
+      "origin": "argent-de-poche",
+      "amount": -500,
+      "createdAt": "2025-06-19T20:59:56.004Z"
     }
   ],
   "wellness": [
