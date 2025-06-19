@@ -497,6 +497,11 @@
       "id": "wifi",
       "name": "Wifi",
       "color": "#41e6af"
+    },
+    {
+      "id": "manipulation-de-marché",
+      "name": "Manipulation de marché",
+      "color": "#93b710"
     }
   ],
   "loans": [
