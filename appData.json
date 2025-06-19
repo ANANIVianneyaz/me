@@ -379,6 +379,15 @@
       "origin": "argent-de-poche",
       "amount": -800,
       "createdAt": "2025-06-18T15:34:04.395Z"
+    },
+    {
+      "id": "_qr76ogg7t",
+      "date": "2025-06-19",
+      "description": "Gaspillage",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -1200,
+      "createdAt": "2025-06-19T15:35:18.070Z"
     }
   ],
   "wellness": [
