@@ -388,6 +388,15 @@
       "origin": "argent-de-poche",
       "amount": -1200,
       "createdAt": "2025-06-19T15:35:18.070Z"
+    },
+    {
+      "id": "_m2u56de68",
+      "date": "2025-06-19",
+      "description": "Manipulation de marché",
+      "category": "finance",
+      "origin": "manipulation-de-marché",
+      "amount": 15000,
+      "createdAt": "2025-06-19T15:37:17.076Z"
     }
   ],
   "wellness": [
