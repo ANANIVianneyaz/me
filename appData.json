@@ -862,6 +862,20 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T09:29:25.621Z"
+        },
+        {
+          "id": "_3z8jmxf2r",
+          "text": "Ajouter un bouton précèdent pour fiche 1",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:29:32.529Z"
+        },
+        {
+          "id": "_jkephjyyc",
+          "text": "pour le téléchargement on va mettre (nom document_CEG)",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:33:13.637Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
