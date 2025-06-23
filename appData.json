@@ -855,6 +855,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T09:28:29.703Z"
+        },
+        {
+          "id": "_qia098z4x",
+          "text": "Ajouter un bouton précèdent pour fiche 1",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:29:25.621Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
