@@ -876,6 +876,20 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T09:33:13.637Z"
+        },
+        {
+          "id": "_la8ynbtxu",
+          "text": "Corriger l'exportation PDF l'écriture des donné dans le tableau",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:36:38.996Z"
+        },
+        {
+          "id": "_44w28l342",
+          "text": "Corriger l'export excel pour les stat commune",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:56:54.719Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
