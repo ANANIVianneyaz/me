@@ -827,7 +827,15 @@
       "id": "_lpiorln2k",
       "title": "Nouveau truc",
       "description": "",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_qejzfk6w8",
+          "text": "Changer le mot de passe par défaut",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-23T09:00:03.024Z"
+        }
+      ],
       "createdAt": "2025-06-23T08:59:18.593Z"
     }
   ]
