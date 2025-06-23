@@ -890,6 +890,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T09:56:54.719Z"
+        },
+        {
+          "id": "_hnvmh3p7i",
+          "text": "Gérer l'affichage des communes d'un departement pour les stat communes",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T10:29:03.410Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
