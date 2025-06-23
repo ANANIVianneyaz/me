@@ -897,6 +897,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T10:29:03.410Z"
+        },
+        {
+          "id": "_0ojdjo8rh",
+          "text": "mettre le copiwrite",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T11:01:19.252Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
