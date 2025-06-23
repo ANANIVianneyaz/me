@@ -848,6 +848,13 @@
           "priority": "medium",
           "completed": false,
           "createdAt": "2025-06-23T09:16:29.774Z"
+        },
+        {
+          "id": "_xsxfjf2m5",
+          "text": "Rendre le type de certificat obligatoire",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:28:29.703Z"
         }
       ],
       "createdAt": "2025-06-23T08:59:18.593Z"
