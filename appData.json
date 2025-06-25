@@ -442,6 +442,15 @@
       "origin": "savings-transfer",
       "amount": -5000,
       "createdAt": "2025-06-25T22:52:49.168Z"
+    },
+    {
+      "id": "_sm8kwjn56",
+      "date": "2025-06-25",
+      "description": "Cafetariat",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -2000,
+      "createdAt": "2025-06-25T22:53:22.016Z"
     }
   ],
   "wellness": [
