@@ -460,6 +460,15 @@
       "origin": "argent-de-poche",
       "amount": -2500,
       "createdAt": "2025-06-25T22:53:58.933Z"
+    },
+    {
+      "id": "_mh05o2a09",
+      "date": "2025-06-25",
+      "description": "J'ai oublier",
+      "category": "imprevue",
+      "origin": "argent-de-poche",
+      "amount": -500,
+      "createdAt": "2025-06-25T22:54:26.400Z"
     }
   ],
   "wellness": [
