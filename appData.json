@@ -451,6 +451,15 @@
       "origin": "argent-de-poche",
       "amount": -2000,
       "createdAt": "2025-06-25T22:53:22.016Z"
+    },
+    {
+      "id": "_sfcqkoegw",
+      "date": "2025-06-25",
+      "description": "Partage zab",
+      "category": "imprevue",
+      "origin": "argent-de-poche",
+      "amount": -2500,
+      "createdAt": "2025-06-25T22:53:58.933Z"
     }
   ],
   "wellness": [
