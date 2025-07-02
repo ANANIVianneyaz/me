@@ -487,6 +487,15 @@
       "origin": "wifi",
       "amount": -15000,
       "createdAt": "2025-07-02T23:55:17.211Z"
+    },
+    {
+      "id": "_lg5k4a93m",
+      "date": "2025-07-02",
+      "description": "Gillotage",
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "amount": -600,
+      "createdAt": "2025-07-02T23:55:42.041Z"
     }
   ],
   "wellness": [
