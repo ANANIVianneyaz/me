@@ -469,6 +469,15 @@
       "origin": "argent-de-poche",
       "amount": -500,
       "createdAt": "2025-06-25T22:54:26.400Z"
+    },
+    {
+      "id": "_9j4bm4nyw",
+      "date": "2025-07-02",
+      "description": "J'ai pris des sous au boulot",
+      "category": "finance",
+      "origin": "wifi",
+      "amount": 20000,
+      "createdAt": "2025-07-02T23:54:46.726Z"
     }
   ],
   "wellness": [
