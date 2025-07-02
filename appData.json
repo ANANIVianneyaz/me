@@ -505,6 +505,15 @@
       "origin": "savings-transfer",
       "amount": -4500,
       "createdAt": "2025-07-02T23:56:19.657Z"
+    },
+    {
+      "id": "_faccpat2z",
+      "date": "2025-07-02",
+      "description": "Déjeuner de la semaine",
+      "category": "finance",
+      "origin": "argent-de-poche",
+      "amount": 1000,
+      "createdAt": "2025-07-02T23:57:00.247Z"
     }
   ],
   "wellness": [
