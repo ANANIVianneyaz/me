@@ -514,6 +514,15 @@
       "origin": "argent-de-poche",
       "amount": 1000,
       "createdAt": "2025-07-02T23:57:00.247Z"
+    },
+    {
+      "id": "_agp4ko9xa",
+      "date": "2025-06-30",
+      "description": "Riz",
+      "category": "nourriture",
+      "origin": "argent-de-poche",
+      "amount": -600,
+      "createdAt": "2025-07-02T23:57:35.024Z"
     }
   ],
   "wellness": [
