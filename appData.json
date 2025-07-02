@@ -496,6 +496,15 @@
       "origin": "argent-de-poche",
       "amount": -600,
       "createdAt": "2025-07-02T23:55:42.041Z"
+    },
+    {
+      "id": "_m9oxy35x6",
+      "date": "2025-07-02",
+      "description": "Dépôt vers épargne",
+      "category": "finance",
+      "origin": "savings-transfer",
+      "amount": -4500,
+      "createdAt": "2025-07-02T23:56:19.657Z"
     }
   ],
   "wellness": [
@@ -623,7 +632,7 @@
     }
   ],
   "savings": {
-    "balance": 19000,
+    "balance": 23500,
     "transactions": [
       {
         "id": "_vv99sw3dw",
@@ -636,6 +645,12 @@
         "date": "2025-06-25",
         "type": "deposit",
         "amount": 5000
+      },
+      {
+        "id": "_p20okhaqn",
+        "date": "2025-07-02",
+        "type": "deposit",
+        "amount": 4500
       }
     ]
   },
