@@ -478,6 +478,15 @@
       "origin": "wifi",
       "amount": 20000,
       "createdAt": "2025-07-02T23:54:46.726Z"
+    },
+    {
+      "id": "_wzyfbdtav",
+      "date": "2025-07-02",
+      "description": "Achat de credit moov",
+      "category": "wifi",
+      "origin": "wifi",
+      "amount": -15000,
+      "createdAt": "2025-07-02T23:55:17.211Z"
     }
   ],
   "wellness": [
