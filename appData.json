@@ -1,116 +1,11 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T19:41:19.163Z",
+    "updatedAt": "2026-08-16T19:41:38.028Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
-  "todoLists": [
-    {
-      "id": "_lpiorln2k",
-      "title": "Nouveau truc",
-      "description": "",
-      "tasks": [
-        {
-          "id": "_qejzfk6w8",
-          "text": "Changer le mot de passe par défaut",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-23T09:00:03.024Z",
-          "tags": []
-        },
-        {
-          "id": "_td6erc54n",
-          "text": "Ajouter un lien pour allez a l'accueil",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-23T09:00:29.656Z",
-          "tags": []
-        },
-        {
-          "id": "_47hlqiob5",
-          "text": "Envoyer le email",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:16:29.774Z",
-          "tags": []
-        },
-        {
-          "id": "_xsxfjf2m5",
-          "text": "Rendre le type de certificat obligatoire",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:28:29.703Z",
-          "tags": []
-        },
-        {
-          "id": "_qia098z4x",
-          "text": "Ajouter un bouton précèdent pour fiche 1",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:29:25.621Z",
-          "tags": []
-        },
-        {
-          "id": "_3z8jmxf2r",
-          "text": "Ajouter un bouton précèdent pour fiche 1",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:29:32.529Z",
-          "tags": []
-        },
-        {
-          "id": "_jkephjyyc",
-          "text": "pour le téléchargement on va mettre (nom document_CEG)",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:33:13.637Z",
-          "tags": []
-        },
-        {
-          "id": "_la8ynbtxu",
-          "text": "Corriger l'exportation PDF l'écriture des donné dans le tableau",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:36:38.996Z",
-          "tags": []
-        },
-        {
-          "id": "_44w28l342",
-          "text": "Corriger l'export excel pour les stat commune",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:56:54.719Z",
-          "tags": []
-        },
-        {
-          "id": "_hnvmh3p7i",
-          "text": "Gérer l'affichage des communes d'un departement pour les stat communes",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T10:29:03.410Z",
-          "tags": []
-        },
-        {
-          "id": "_0ojdjo8rh",
-          "text": "mettre le copiwrite",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T11:01:19.252Z",
-          "tags": []
-        },
-        {
-          "id": "_37gyh2w4b",
-          "text": "corriger la redirection pour denonciation",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T11:02:38.125Z",
-          "tags": []
-        }
-      ],
-      "createdAt": "2025-06-23T08:59:18.593Z"
-    }
-  ],
+  "todoLists": [],
   "notes": [],
   "lists": [],
   "expenses": [],
