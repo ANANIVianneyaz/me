@@ -1,59 +1,11 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T19:41:05.291Z",
+    "updatedAt": "2026-08-16T19:41:10.020Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
   "todoLists": [
-    {
-      "id": "_i8nfnklwo",
-      "title": "Statistique par Commune",
-      "description": "Truc a faire",
-      "tasks": [
-        {
-          "id": "_4fgmnttaw",
-          "text": "Au niveau du pdf géré les champs vide",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:38:28.918Z",
-          "tags": []
-        },
-        {
-          "id": "_n6ho1ld2w",
-          "text": "Ajouter un filtre departement",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:38:55.506Z",
-          "tags": []
-        },
-        {
-          "id": "_7cfdtzpv8",
-          "text": "Au niveau des fichiers Faire le triage par commune. (Tableau de chaque commune de façon séparé)",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:40:24.666Z",
-          "tags": []
-        },
-        {
-          "id": "_cycnn0qha",
-          "text": "Inseré une collone domaine entre la colonne établissement et la colonne superficie",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:49:36.806Z",
-          "tags": []
-        },
-        {
-          "id": "_4rdjka0cu",
-          "text": "Géré le 2eme tableau en fonction des filtre en haut",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:50:11.330Z",
-          "tags": []
-        }
-      ],
-      "createdAt": "2025-06-12T15:37:09.052Z"
-    },
     {
       "id": "_vuw3kgtv2",
       "title": "Statistique par Departement",
