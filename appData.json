@@ -1,5 +1,348 @@
 {
+  "version": 2,
+  "meta": {
+    "updatedAt": "2026-08-16T19:34:05.172Z",
+    "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
+  },
   "todos": [],
+  "todoLists": [
+    {
+      "id": "_auxfp6iye",
+      "title": "Portail",
+      "description": "Truc a faire au niveau du portail",
+      "tasks": [
+        {
+          "id": "_l9npykj62",
+          "text": "Avoir la signature du ministère",
+          "priority": "medium",
+          "completed": true,
+          "createdAt": "2025-06-12T15:04:49.422Z",
+          "tags": []
+        },
+        {
+          "id": "_84ysc313j",
+          "text": "Ajouté la barre du drapeau et tout",
+          "priority": "medium",
+          "completed": true,
+          "createdAt": "2025-06-12T15:10:25.981Z",
+          "tags": []
+        },
+        {
+          "id": "_tuqkz8ohq",
+          "text": "Ajouter les menue dans les audio",
+          "priority": "low",
+          "completed": true,
+          "createdAt": "2025-06-12T15:19:12.643Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-12T15:04:07.743Z"
+    },
+    {
+      "id": "_7srsdwovv",
+      "title": "Fiche de collecte 1",
+      "description": "Truc a faire et a amélioré",
+      "tasks": [
+        {
+          "id": "_lczqh92xl",
+          "text": "Déplacé l'année de création après nom de l'établissement car l'année de création est lié a un établissement pas un domaine. ",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:24:31.335Z",
+          "tags": []
+        },
+        {
+          "id": "_a43g217u1",
+          "text": "Masquer le statut privé public",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:27:19.206Z",
+          "tags": []
+        },
+        {
+          "id": "_s7fnhqzbs",
+          "text": "La couleur du message de sucées après qu'on est enregistré les informations d'un document",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:28:46.521Z",
+          "tags": []
+        },
+        {
+          "id": "_9qa7z7iqe",
+          "text": "Rendre le département, la commune, l'arrondissement sous forme de liste sélection",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:34:43.306Z",
+          "tags": []
+        },
+        {
+          "id": "_m1uvj8s6u",
+          "text": "Nombre de domaines pour cette structure : devient Nombre de domaines pour cet établissement",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-17T14:57:49.581Z",
+          "tags": []
+        },
+        {
+          "id": "_f57nb68e6",
+          "text": "Quand un etablissement est sélectionné et qu'il a déjà insérée des informations on affiche les informations actuelle dans la base de donnée en plus du message",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-17T15:24:04.831Z",
+          "tags": []
+        },
+        {
+          "id": "_voj18djeo",
+          "text": "Quand on entre un établissement qui n'existe pas on doit avoir une erreur",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-17T16:33:05.214Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-12T15:19:44.958Z"
+    },
+    {
+      "id": "_i8nfnklwo",
+      "title": "Statistique par Commune",
+      "description": "Truc a faire",
+      "tasks": [
+        {
+          "id": "_4fgmnttaw",
+          "text": "Au niveau du pdf géré les champs vide",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:38:28.918Z",
+          "tags": []
+        },
+        {
+          "id": "_n6ho1ld2w",
+          "text": "Ajouter un filtre departement",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:38:55.506Z",
+          "tags": []
+        },
+        {
+          "id": "_7cfdtzpv8",
+          "text": "Au niveau des fichiers Faire le triage par commune. (Tableau de chaque commune de façon séparé)",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:40:24.666Z",
+          "tags": []
+        },
+        {
+          "id": "_cycnn0qha",
+          "text": "Inseré une collone domaine entre la colonne établissement et la colonne superficie",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:49:36.806Z",
+          "tags": []
+        },
+        {
+          "id": "_4rdjka0cu",
+          "text": "Géré le 2eme tableau en fonction des filtre en haut",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:50:11.330Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-12T15:37:09.052Z"
+    },
+    {
+      "id": "_vuw3kgtv2",
+      "title": "Statistique par Departement",
+      "description": "Truc a faire",
+      "tasks": [
+        {
+          "id": "_f2takstmj",
+          "text": "Mettre un filtre pour le triage ESG, ET, FP",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:53:02.645Z",
+          "tags": []
+        },
+        {
+          "id": "_l7jzj94rn",
+          "text": "Mettre le filtre par département sous forme de liste",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:54:04.865Z",
+          "tags": []
+        },
+        {
+          "id": "_7bag7srib",
+          "text": "Quand on sélectionne un département la colonne département devient commune et on n'a les statistique par commune",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:55:51.465Z",
+          "tags": []
+        },
+        {
+          "id": "_2frk128zo",
+          "text": "Modifier \"Voir les statistiques par commune \" par \"Voir les détails par commune\"",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T15:57:27.316Z",
+          "tags": []
+        },
+        {
+          "id": "_ayzafral3",
+          "text": "Quand on clique sur Voir les détails par commune on n'est redirigé vers \"statistiques par commune\" avec le filtre par département",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T16:00:38.936Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-12T15:50:46.795Z"
+    },
+    {
+      "id": "_l19uhioad",
+      "title": "Partie admin",
+      "description": "Truc a faire",
+      "tasks": [
+        {
+          "id": "_hp0f2fz06",
+          "text": "Voir les établissement qui ont un litiges",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T16:02:47.980Z",
+          "tags": []
+        },
+        {
+          "id": "_0vcu7ynsa",
+          "text": "Au niveau de gestion etablissement mettre en place les modale avec toute les informations des établissement",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T16:03:55.006Z",
+          "tags": []
+        },
+        {
+          "id": "_zf73owyjd",
+          "text": "Au niveau de donnée par établissement le point de départ doit quitté la table collecte",
+          "priority": "high",
+          "completed": true,
+          "createdAt": "2025-06-12T16:04:59.727Z",
+          "tags": []
+        },
+        {
+          "id": "_luijr2ahr",
+          "text": "Rendre fonctionnel la partie Etablissement Info",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-12T16:06:25.290Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-12T16:02:13.029Z"
+    },
+    {
+      "id": "_lpiorln2k",
+      "title": "Nouveau truc",
+      "description": "",
+      "tasks": [
+        {
+          "id": "_qejzfk6w8",
+          "text": "Changer le mot de passe par défaut",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-23T09:00:03.024Z",
+          "tags": []
+        },
+        {
+          "id": "_td6erc54n",
+          "text": "Ajouter un lien pour allez a l'accueil",
+          "priority": "high",
+          "completed": false,
+          "createdAt": "2025-06-23T09:00:29.656Z",
+          "tags": []
+        },
+        {
+          "id": "_47hlqiob5",
+          "text": "Envoyer le email",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:16:29.774Z",
+          "tags": []
+        },
+        {
+          "id": "_xsxfjf2m5",
+          "text": "Rendre le type de certificat obligatoire",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:28:29.703Z",
+          "tags": []
+        },
+        {
+          "id": "_qia098z4x",
+          "text": "Ajouter un bouton précèdent pour fiche 1",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:29:25.621Z",
+          "tags": []
+        },
+        {
+          "id": "_3z8jmxf2r",
+          "text": "Ajouter un bouton précèdent pour fiche 1",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:29:32.529Z",
+          "tags": []
+        },
+        {
+          "id": "_jkephjyyc",
+          "text": "pour le téléchargement on va mettre (nom document_CEG)",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:33:13.637Z",
+          "tags": []
+        },
+        {
+          "id": "_la8ynbtxu",
+          "text": "Corriger l'exportation PDF l'écriture des donné dans le tableau",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:36:38.996Z",
+          "tags": []
+        },
+        {
+          "id": "_44w28l342",
+          "text": "Corriger l'export excel pour les stat commune",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T09:56:54.719Z",
+          "tags": []
+        },
+        {
+          "id": "_hnvmh3p7i",
+          "text": "Gérer l'affichage des communes d'un departement pour les stat communes",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T10:29:03.410Z",
+          "tags": []
+        },
+        {
+          "id": "_0ojdjo8rh",
+          "text": "mettre le copiwrite",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T11:01:19.252Z",
+          "tags": []
+        },
+        {
+          "id": "_37gyh2w4b",
+          "text": "corriger la redirection pour denonciation",
+          "priority": "medium",
+          "completed": false,
+          "createdAt": "2025-06-23T11:02:38.125Z",
+          "tags": []
+        }
+      ],
+      "createdAt": "2025-06-23T08:59:18.593Z"
+    }
+  ],
   "notes": [],
   "lists": [],
   "expenses": [],
@@ -191,306 +534,19 @@
       "createdAt": "2025-06-02T13:48:28.254Z"
     }
   ],
-  "todoLists": [
-    {
-      "id": "_auxfp6iye",
-      "title": "Portail",
-      "description": "Truc a faire au niveau du portail",
-      "tasks": [
-        {
-          "id": "_l9npykj62",
-          "text": "Avoir la signature du ministère",
-          "priority": "medium",
-          "completed": true,
-          "createdAt": "2025-06-12T15:04:49.422Z"
-        },
-        {
-          "id": "_84ysc313j",
-          "text": "Ajouté la barre du drapeau et tout",
-          "priority": "medium",
-          "completed": true,
-          "createdAt": "2025-06-12T15:10:25.981Z"
-        },
-        {
-          "id": "_tuqkz8ohq",
-          "text": "Ajouter les menue dans les audio",
-          "priority": "low",
-          "completed": true,
-          "createdAt": "2025-06-12T15:19:12.643Z"
-        }
-      ],
-      "createdAt": "2025-06-12T15:04:07.743Z"
-    },
-    {
-      "id": "_7srsdwovv",
-      "title": "Fiche de collecte 1",
-      "description": "Truc a faire et a amélioré",
-      "tasks": [
-        {
-          "id": "_lczqh92xl",
-          "text": "Déplacé l'année de création après nom de l'établissement car l'année de création est lié a un établissement pas un domaine. ",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:24:31.335Z"
-        },
-        {
-          "id": "_a43g217u1",
-          "text": "Masquer le statut privé public",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:27:19.206Z"
-        },
-        {
-          "id": "_s7fnhqzbs",
-          "text": "La couleur du message de sucées après qu'on est enregistré les informations d'un document",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:28:46.521Z"
-        },
-        {
-          "id": "_9qa7z7iqe",
-          "text": "Rendre le département, la commune, l'arrondissement sous forme de liste sélection",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:34:43.306Z"
-        },
-        {
-          "id": "_m1uvj8s6u",
-          "text": "Nombre de domaines pour cette structure : devient Nombre de domaines pour cet établissement",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-17T14:57:49.581Z"
-        },
-        {
-          "id": "_f57nb68e6",
-          "text": "Quand un etablissement est sélectionné et qu'il a déjà insérée des informations on affiche les informations actuelle dans la base de donnée en plus du message",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-17T15:24:04.831Z"
-        },
-        {
-          "id": "_voj18djeo",
-          "text": "Quand on entre un établissement qui n'existe pas on doit avoir une erreur",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-17T16:33:05.214Z"
-        }
-      ],
-      "createdAt": "2025-06-12T15:19:44.958Z"
-    },
-    {
-      "id": "_i8nfnklwo",
-      "title": "Statistique par Commune",
-      "description": "Truc a faire",
-      "tasks": [
-        {
-          "id": "_4fgmnttaw",
-          "text": "Au niveau du pdf géré les champs vide",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:38:28.918Z"
-        },
-        {
-          "id": "_n6ho1ld2w",
-          "text": "Ajouter un filtre departement",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:38:55.506Z"
-        },
-        {
-          "id": "_7cfdtzpv8",
-          "text": "Au niveau des fichiers Faire le triage par commune. (Tableau de chaque commune de façon séparé)",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:40:24.666Z"
-        },
-        {
-          "id": "_cycnn0qha",
-          "text": "Inseré une collone domaine entre la colonne établissement et la colonne superficie",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:49:36.806Z"
-        },
-        {
-          "id": "_4rdjka0cu",
-          "text": "Géré le 2eme tableau en fonction des filtre en haut",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:50:11.330Z"
-        }
-      ],
-      "createdAt": "2025-06-12T15:37:09.052Z"
-    },
-    {
-      "id": "_vuw3kgtv2",
-      "title": "Statistique par Departement",
-      "description": "Truc a faire",
-      "tasks": [
-        {
-          "id": "_f2takstmj",
-          "text": "Mettre un filtre pour le triage ESG, ET, FP",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:53:02.645Z"
-        },
-        {
-          "id": "_l7jzj94rn",
-          "text": "Mettre le filtre par département sous forme de liste",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:54:04.865Z"
-        },
-        {
-          "id": "_7bag7srib",
-          "text": "Quand on sélectionne un département la colonne département devient commune et on n'a les statistique par commune",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:55:51.465Z"
-        },
-        {
-          "id": "_2frk128zo",
-          "text": "Modifier \"Voir les statistiques par commune \" par \"Voir les détails par commune\"",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:57:27.316Z"
-        },
-        {
-          "id": "_ayzafral3",
-          "text": "Quand on clique sur Voir les détails par commune on n'est redirigé vers \"statistiques par commune\" avec le filtre par département",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:00:38.936Z"
-        }
-      ],
-      "createdAt": "2025-06-12T15:50:46.795Z"
-    },
-    {
-      "id": "_l19uhioad",
-      "title": "Partie admin",
-      "description": "Truc a faire",
-      "tasks": [
-        {
-          "id": "_hp0f2fz06",
-          "text": "Voir les établissement qui ont un litiges",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:02:47.980Z"
-        },
-        {
-          "id": "_0vcu7ynsa",
-          "text": "Au niveau de gestion etablissement mettre en place les modale avec toute les informations des établissement",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-12T16:03:55.006Z"
-        },
-        {
-          "id": "_zf73owyjd",
-          "text": "Au niveau de donnée par établissement le point de départ doit quitté la table collecte",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:04:59.727Z"
-        },
-        {
-          "id": "_luijr2ahr",
-          "text": "Rendre fonctionnel la partie Etablissement Info",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-12T16:06:25.290Z"
-        }
-      ],
-      "createdAt": "2025-06-12T16:02:13.029Z"
-    },
-    {
-      "id": "_lpiorln2k",
-      "title": "Nouveau truc",
-      "description": "",
-      "tasks": [
-        {
-          "id": "_qejzfk6w8",
-          "text": "Changer le mot de passe par défaut",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-23T09:00:03.024Z"
-        },
-        {
-          "id": "_td6erc54n",
-          "text": "Ajouter un lien pour allez a l'accueil",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-23T09:00:29.656Z"
-        },
-        {
-          "id": "_47hlqiob5",
-          "text": "Envoyer le email",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:16:29.774Z"
-        },
-        {
-          "id": "_xsxfjf2m5",
-          "text": "Rendre le type de certificat obligatoire",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:28:29.703Z"
-        },
-        {
-          "id": "_qia098z4x",
-          "text": "Ajouter un bouton précèdent pour fiche 1",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:29:25.621Z"
-        },
-        {
-          "id": "_3z8jmxf2r",
-          "text": "Ajouter un bouton précèdent pour fiche 1",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:29:32.529Z"
-        },
-        {
-          "id": "_jkephjyyc",
-          "text": "pour le téléchargement on va mettre (nom document_CEG)",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:33:13.637Z"
-        },
-        {
-          "id": "_la8ynbtxu",
-          "text": "Corriger l'exportation PDF l'écriture des donné dans le tableau",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:36:38.996Z"
-        },
-        {
-          "id": "_44w28l342",
-          "text": "Corriger l'export excel pour les stat commune",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T09:56:54.719Z"
-        },
-        {
-          "id": "_hnvmh3p7i",
-          "text": "Gérer l'affichage des communes d'un departement pour les stat communes",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T10:29:03.410Z"
-        },
-        {
-          "id": "_0ojdjo8rh",
-          "text": "mettre le copiwrite",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T11:01:19.252Z"
-        },
-        {
-          "id": "_37gyh2w4b",
-          "text": "corriger la redirection pour denonciation",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-23T11:02:38.125Z"
-        }
-      ],
-      "createdAt": "2025-06-23T08:59:18.593Z"
+  "habits": [],
+  "goals": [],
+  "budgets": [],
+  "recurring": [],
+  "settings": {
+    "theme": "light",
+    "currency": "FCFA",
+    "start": "dashboard",
+    "targets": {
+      "sleep": 7,
+      "water": 8,
+      "exercise": 30,
+      "weightGoal": null
     }
-  ]
+  }
 }
