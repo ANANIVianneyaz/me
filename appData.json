@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T20:25:34.192Z",
+    "updatedAt": "2026-08-16T20:31:08.923Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -194,7 +194,7 @@
   "budgets": [],
   "recurring": [],
   "settings": {
-    "theme": "dark",
+    "theme": "violet",
     "currency": "FCFA",
     "start": "dashboard",
     "targets": {
