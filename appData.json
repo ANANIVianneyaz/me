@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T19:36:17.829Z",
+    "updatedAt": "2026-08-16T19:38:43.191Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -515,25 +515,7 @@
       "createdAt": "2025-06-01T21:37:00.962Z"
     }
   ],
-  "plannedExpenses": [
-    {
-      "id": "_naf5vcef8",
-      "name": "Licence",
-      "items": [
-        {
-          "description": "Tirage photocopie",
-          "amount": 5000,
-          "paid": true
-        },
-        {
-          "description": "Tirage photocopie",
-          "amount": 2700,
-          "paid": true
-        }
-      ],
-      "createdAt": "2025-06-02T13:48:28.254Z"
-    }
-  ],
+  "plannedExpenses": [],
   "habits": [],
   "goals": [],
   "budgets": [],
