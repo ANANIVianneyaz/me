@@ -1,53 +1,11 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T19:41:14.171Z",
+    "updatedAt": "2026-08-16T19:41:19.163Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
   "todoLists": [
-    {
-      "id": "_l19uhioad",
-      "title": "Partie admin",
-      "description": "Truc a faire",
-      "tasks": [
-        {
-          "id": "_hp0f2fz06",
-          "text": "Voir les établissement qui ont un litiges",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:02:47.980Z",
-          "tags": []
-        },
-        {
-          "id": "_0vcu7ynsa",
-          "text": "Au niveau de gestion etablissement mettre en place les modale avec toute les informations des établissement",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:03:55.006Z",
-          "tags": [],
-          "completedAt": "2026-08-16T19:40:51.739Z"
-        },
-        {
-          "id": "_zf73owyjd",
-          "text": "Au niveau de donnée par établissement le point de départ doit quitté la table collecte",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:04:59.727Z",
-          "tags": []
-        },
-        {
-          "id": "_luijr2ahr",
-          "text": "Rendre fonctionnel la partie Etablissement Info",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T16:06:25.290Z",
-          "tags": [],
-          "completedAt": "2026-08-16T19:40:54.011Z"
-        }
-      ],
-      "createdAt": "2025-06-12T16:02:13.029Z"
-    },
     {
       "id": "_lpiorln2k",
       "title": "Nouveau truc",
