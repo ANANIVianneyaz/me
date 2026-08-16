@@ -1,75 +1,11 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T19:41:00.547Z",
+    "updatedAt": "2026-08-16T19:41:05.291Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
   "todoLists": [
-    {
-      "id": "_7srsdwovv",
-      "title": "Fiche de collecte 1",
-      "description": "Truc a faire et a amélioré",
-      "tasks": [
-        {
-          "id": "_lczqh92xl",
-          "text": "Déplacé l'année de création après nom de l'établissement car l'année de création est lié a un établissement pas un domaine. ",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:24:31.335Z",
-          "tags": []
-        },
-        {
-          "id": "_a43g217u1",
-          "text": "Masquer le statut privé public",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:27:19.206Z",
-          "tags": []
-        },
-        {
-          "id": "_s7fnhqzbs",
-          "text": "La couleur du message de sucées après qu'on est enregistré les informations d'un document",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:28:46.521Z",
-          "tags": []
-        },
-        {
-          "id": "_9qa7z7iqe",
-          "text": "Rendre le département, la commune, l'arrondissement sous forme de liste sélection",
-          "priority": "high",
-          "completed": true,
-          "createdAt": "2025-06-12T15:34:43.306Z",
-          "tags": []
-        },
-        {
-          "id": "_m1uvj8s6u",
-          "text": "Nombre de domaines pour cette structure : devient Nombre de domaines pour cet établissement",
-          "priority": "medium",
-          "completed": false,
-          "createdAt": "2025-06-17T14:57:49.581Z",
-          "tags": []
-        },
-        {
-          "id": "_f57nb68e6",
-          "text": "Quand un etablissement est sélectionné et qu'il a déjà insérée des informations on affiche les informations actuelle dans la base de donnée en plus du message",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-17T15:24:04.831Z",
-          "tags": []
-        },
-        {
-          "id": "_voj18djeo",
-          "text": "Quand on entre un établissement qui n'existe pas on doit avoir une erreur",
-          "priority": "high",
-          "completed": false,
-          "createdAt": "2025-06-17T16:33:05.214Z",
-          "tags": []
-        }
-      ],
-      "createdAt": "2025-06-12T15:19:44.958Z"
-    },
     {
       "id": "_i8nfnklwo",
       "title": "Statistique par Commune",
