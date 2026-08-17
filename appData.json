@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-16T20:31:08.923Z",
+    "updatedAt": "2026-08-17T07:50:01.939Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -17,6 +17,15 @@
       "origin": "argent-de-poche",
       "amount": 10000,
       "createdAt": "2026-08-16T20:25:34.192Z"
+    },
+    {
+      "id": "mswxogr7vcv58",
+      "date": "2026-08-17",
+      "description": "Carburent",
+      "amount": -1500,
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "createdAt": "2026-08-17T07:50:01.939Z"
     }
   ],
   "wellness": [
