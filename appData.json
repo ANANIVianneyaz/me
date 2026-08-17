@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T07:51:55.629Z",
+    "updatedAt": "2026-08-17T07:52:11.768Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -159,6 +159,14 @@
       "paid": 0,
       "dueDate": "",
       "createdAt": "2026-08-17T07:51:55.629Z"
+    },
+    {
+      "id": "mswxr8xkopmv6",
+      "name": "Zabulon",
+      "amount": 1500,
+      "paid": 0,
+      "dueDate": "",
+      "createdAt": "2026-08-17T07:52:11.768Z"
     }
   ],
   "savings": {
