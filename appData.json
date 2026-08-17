@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T17:22:50.828Z",
+    "updatedAt": "2026-08-17T18:32:06.572Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -88,6 +88,15 @@
       "category": "nourriture",
       "origin": "argent-de-poche",
       "createdAt": "2026-08-17T15:20:00.433Z"
+    },
+    {
+      "id": "msxkm6jwnjky3",
+      "date": "2026-08-17",
+      "description": "Remboursement — Osée",
+      "category": "finance",
+      "origin": "loan-repayment",
+      "amount": -600,
+      "createdAt": "2026-08-17T18:32:06.572Z"
     }
   ],
   "wellness": [
@@ -209,7 +218,7 @@
       "id": "mswxqwh9shww2",
       "name": "Osée",
       "amount": 650,
-      "paid": 0,
+      "paid": 600,
       "dueDate": "",
       "createdAt": "2026-08-17T07:51:55.629Z"
     },
