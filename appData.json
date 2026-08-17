@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T07:51:14.278Z",
+    "updatedAt": "2026-08-17T07:51:55.629Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -151,7 +151,16 @@
       "color": "#93b710"
     }
   ],
-  "loans": [],
+  "loans": [
+    {
+      "id": "mswxqwh9shww2",
+      "name": "Osée",
+      "amount": 650,
+      "paid": 0,
+      "dueDate": "",
+      "createdAt": "2026-08-17T07:51:55.629Z"
+    }
+  ],
   "savings": {
     "balance": 0,
     "transactions": []
