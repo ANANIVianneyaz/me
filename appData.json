@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T08:15:00.220Z",
+    "updatedAt": "2026-08-17T08:15:28.803Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -10,7 +10,16 @@
       "id": "mswykku4g4zut",
       "title": "17/08/2026",
       "description": "Taches de la journé",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "mswyl6w28dcda",
+          "text": "Terminé le module 1 du cours de la methode agiles sur cours sera",
+          "priority": "medium",
+          "completed": false,
+          "tags": [],
+          "createdAt": "2026-08-17T08:15:28.802Z"
+        }
+      ],
       "createdAt": "2026-08-17T08:15:00.220Z"
     }
   ],
