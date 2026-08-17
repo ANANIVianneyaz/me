@@ -212,7 +212,7 @@ label.lbl{display:block;font-size:.72rem;font-weight:500;color:var(--c-muted);ma
 /* ═══════════════════════════════════════════════════════════════
    1. ÉTAT & SCHÉMA
    ═══════════════════════════════════════════════════════════════ */
-const VIEW_IDS = ['dashboard','tasks','notes','finance','settings'];
+const VIEW_IDS = ['dashboard','tasks','notes','finance','forecast','planned','settings'];
 const LS_DATA = 'mindflow.data.v2';
 const LS_CFG  = 'githubConfig';
 const LS_UI   = 'mindflow.ui';
@@ -646,6 +646,8 @@ const VIEWS = [
   { id:'tasks',     label:'Tâches',          icon:'list-check', tab:true },
   { id:'notes',     label:'Notes',           icon:'note-sticky', tab:true },
   { id:'finance',   label:'Finances',        icon:'wallet', tab:true },
+  { id:'forecast',  label:'Prévisions',      icon:'money-bill-trend-up' },
+  { id:'planned',   label:'Dépenses prévues',icon:'clipboard-list' },
   { id:'settings',  label:'Réglages',        icon:'sliders' },
 ];
 
@@ -685,7 +687,8 @@ function paintNavState(){
     else { b.style.color = on?'var(--c-signal)':'var(--c-faint)'; }
   });
   $('#topSubtitle').textContent = (VIEWS.find(v=>v.id===UI.view)||{}).label.toLowerCase();
-  const badges={ tasks:openTasks().length, notes:D.notes.length+D.lists.length };
+  const badges={ tasks:openTasks().length, notes:D.notes.length+D.lists.length,
+                 planned:D.plannedExpenses.length, forecast:D.salaryForecasts.length };
   $$('[data-badge]').forEach(el=>{ const n=badges[el.dataset.badge]; el.textContent = n?String(n):''; });
 }
 
@@ -756,24 +759,6 @@ function monthlySeries(n=6){
   }
   return out;
 }
-function budgetStatus(){
-  const spend={}; outflows().filter(e=>inRange(e,'thisMonth')).forEach(e=>spend[e.category]=(spend[e.category]||0)+Math.abs(e.amount));
-  return D.budgets.map(b=>({ ...b, spent:spend[b.categoryId]||0, cat:cat(b.categoryId),
-                             ratio: b.amount>0 ? (spend[b.categoryId]||0)/b.amount : 0 }))
-                  .sort((a,b)=>b.ratio-a.ratio);
-}
-function upcoming(){
-  const items=[];
-  overdueTasks().forEach(t=>items.push({when:t.dueDate,kind:'task',label:t.text,meta:t.listTitle,late:true}));
-  dueTodayTasks().forEach(t=>items.push({when:t.dueDate,kind:'task',label:t.text,meta:t.listTitle}));
-  openTasks().filter(t=>t.dueDate&&t.dueDate>today()&&t.dueDate<=addDays(today(),7))
-    .forEach(t=>items.push({when:t.dueDate,kind:'task',label:t.text,meta:t.listTitle}));
-  D.loans.filter(l=>(l.amount-l.paid)>0&&l.dueDate).forEach(l=>{
-    if(l.dueDate<=addDays(today(),30)) items.push({when:l.dueDate,kind:'loan',label:l.name,
-      meta:money(l.amount-l.paid)+' restants',late:l.dueDate<today()}); });
-  return items.sort((a,b)=>a.when<b.when?-1:1).slice(0,8);
-}
-
 /* ═══════════════════════════════════════════════════════════════
    7. RENDU GLOBAL
    ═══════════════════════════════════════════════════════════════ */
@@ -811,12 +796,11 @@ const AFTER={};
 function renderRailSummary(){
   const el=$('#railSummary'); if(!el) return;
   const od=overdueTasks().length, dt=dueTodayTasks().length;
-  const b=budgetStatus(), worst=b.length?Math.round(b[0].ratio*100):null;
   el.innerHTML=`
     <div class="text-[11px] flex justify-between"><span class="text-muted">Tâches du jour</span><b class="num">${dt}</b></div>
     <div class="text-[11px] flex justify-between"><span class="text-muted">En retard</span><b class="num" style="color:${od?'var(--c-bad)':'inherit'}">${od}</b></div>
     <div class="text-[11px] flex justify-between"><span class="text-muted">Solde</span><b class="num">${money(balance(),{compact:true})}</b></div>
-    <div class="text-[11px] flex justify-between"><span class="text-muted">Budget max</span><b class="num" style="color:${worst>=100?'var(--c-bad)':'inherit'}">${worst==null?'—':worst+'%'}</b></div>`;
+    <div class="text-[11px] flex justify-between"><span class="text-muted">Épargne</span><b class="num">${money(D.savings.balance||0,{compact:true})}</b></div>`;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -827,8 +811,6 @@ RENDERERS.dashboard = ()=>{
   const mIn=incomes(D.expenses.filter(e=>inRange(e,'thisMonth'))).reduce((s,e)=>s+e.amount,0);
   const mOut=outflows(D.expenses.filter(e=>inRange(e,'thisMonth'))).reduce((s,e)=>s+Math.abs(e.amount),0);
   const done=allTasks().filter(t=>t.completed).length, total=allTasks().length;
-  const up=upcoming();
-  const alerts=budgetStatus().filter(b=>b.ratio>=0.8);
   const cs=spentByCategory('thisMonth');
   const hour=new Date().getHours();
   const hello = hour<5?'Bonne nuit' : hour<12?'Bonjour' : hour<18?'Bon après-midi' : 'Bonsoir';
@@ -893,20 +875,7 @@ RENDERERS.dashboard = ()=>{
     </div>
   </div>
 
-  ${alerts.length?`<div class="card card-pad mb-4" style="border-left:3px solid var(--c-bad)">
-    <div class="eyebrow mb-3">Budgets sous tension</div>
-    <div class="grid sm:grid-cols-2 gap-3">${alerts.map(b=>`
-      <div>
-        <div class="flex justify-between text-[12px] mb-1.5">
-          <span class="flex items-center gap-1.5">${dot(b.cat.color)}${esc(b.cat.name)}</span>
-          <span class="num" style="color:${b.ratio>=1?'var(--c-bad)':'var(--c-ink)'}">${Math.round(b.ratio*100)}%</span>
-        </div>
-        <div class="bar"><span style="width:${clamp(b.ratio*100,0,100)}%;background:${b.ratio>=1?'var(--c-bad)':'var(--c-signal)'}"></span></div>
-        <div class="text-[10px] text-faint mt-1 num">${money(b.spent,{compact:true})} / ${money(b.amount,{compact:true})}</div>
-      </div>`).join('')}</div></div>`:''}
-
-  <div class="grid lg:grid-cols-3 gap-4">
-    <div class="card card-pad lg:col-span-2">
+  <div class="card card-pad">
       <div class="flex items-center gap-2 mb-1">
         <span class="eyebrow">Flux des 6 derniers mois</span>
         <span class="ml-auto flex items-center gap-3 text-[10px] num">
@@ -914,20 +883,6 @@ RENDERERS.dashboard = ()=>{
           <span class="flex items-center gap-1.5">${dot('var(--c-bad)',7)}sorties</span></span>
       </div>
       <div style="height:190px"><canvas id="chartFlow"></canvas></div>
-    </div>
-    <div class="card card-pad">
-      <div class="eyebrow mb-4">Prochaines échéances</div>
-      ${up.length?`<div class="space-y-2.5">${up.map(u=>`
-        <div class="flex items-start gap-2.5">
-          <span class="num text-[10px] w-12 shrink-0 pt-0.5" style="color:${u.late?'var(--c-bad)':'var(--c-faint)'}">${fmtDate(u.when)}</span>
-          <div class="min-w-0 flex-1">
-            <div class="text-[12px] truncate">${esc(u.label)}</div>
-            <div class="eyebrow !text-[9px] mt-0.5">${esc(u.meta||'')}</div>
-          </div>
-          <i class="fas fa-${u.kind==='task'?'list-check':'hand-holding-dollar'} text-[10px] text-faint mt-1"></i>
-        </div>`).join('')}</div>`
-        :`<p class="text-[12px] text-muted py-6 text-center">Aucune échéance dans les 30 jours.</p>`}
-    </div>
   </div>`;
 };
 
@@ -1079,7 +1034,6 @@ AFTER.notes=[()=>{
    12. VUE — FINANCES (opérations, budgets, prêts, prévisions)
    ═══════════════════════════════════════════════════════════════ */
 UI.filters.fin={ range:'thisMonth', type:'all', cat:'', q:'' };
-UI.filters.finTab='ops';
 function finFiltered(){
   const f=UI.filters.fin;
   return D.expenses.filter(e=>inRange(e,f.range))
@@ -1088,15 +1042,15 @@ function finFiltered(){
     .filter(e=> !f.q || (e.description||'').toLowerCase().includes(f.q.toLowerCase()))
     .sort((a,b)=> (b.date||'').localeCompare(a.date||'') || (b.createdAt||'').localeCompare(a.createdAt||''));
 }
-const FIN_TABS=[['ops','Opérations'],['budgets','Budgets'],['loans','Prêts & épargne'],['forecast','Prévisions'],['planned','Dépenses prévues']];
-
 RENDERERS.finance = ()=>{
-  const tab=UI.filters.finTab||'ops';
+  const f=UI.filters.fin, rows=finFiltered();
   const bal=balance();
   const mIn=incomes(D.expenses.filter(e=>inRange(e,'thisMonth'))).reduce((s,e)=>s+e.amount,0);
   const mOut=outflows(D.expenses.filter(e=>inRange(e,'thisMonth'))).reduce((s,e)=>s+Math.abs(e.amount),0);
-  const panes={ops:opsPane,budgets:budgetsPane,loans:loansPane,forecast:forecastPane,planned:plannedPane};
+  const tin=incomes(rows).reduce((s,e)=>s+e.amount,0), tout=outflows(rows).reduce((s,e)=>s+Math.abs(e.amount),0);
+  const ranges=[['thisWeek','Semaine'],['thisMonth','Ce mois'],['lastMonth','Mois dernier'],['thisYear','Année'],['all','Tout']];
   return pageHead('Finances', `${money(bal)} disponible`,[
+      {label:'Prêt',icon:'hand-holding-dollar',act:'newLoan'},
       {label:'Revenu',icon:'arrow-down',act:'newIncome'},
       {label:'Dépense',icon:'plus',act:'newExpense',kind:'btn-primary'}])
    + `<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
@@ -1105,25 +1059,15 @@ RENDERERS.finance = ()=>{
       ${readout('Sorties du mois',money(mOut,{compact:true}),{icon:'arrow-up',color:'var(--c-bad)',tone:'var(--c-bad)'})}
       ${readout('Épargne',money(D.savings.balance||0,{compact:true}),{icon:'piggy-bank',color:'var(--c-teal)',sub:'gérer les mouvements',act:'openSavings'})}
     </div>
-    <div class="flex gap-1.5 scroll-x pb-3 mb-4 border-b hair">${FIN_TABS.map(([v,l])=>
-      `<button class="chip" data-on="${tab===v?1:0}" data-act="finTab" data-v="${v}">${l}</button>`).join('')}</div>`
-   + panes[tab]();
-};
 
-function opsPane(){
-  const f=UI.filters.fin, rows=finFiltered();
-  const tin=incomes(rows).reduce((s,e)=>s+e.amount,0), tout=outflows(rows).reduce((s,e)=>s+Math.abs(e.amount),0);
-  const ranges=[['thisWeek','Semaine'],['thisMonth','Ce mois'],['lastMonth','Mois dernier'],['thisYear','Année'],['all','Tout']];
-  const cs=spentByCategory(f.range);
-  return `<div class="grid lg:grid-cols-3 gap-4">
-    <div class="card card-pad lg:col-span-2">
+    <div class="card card-pad mb-4">
       <div class="flex flex-wrap items-center gap-2 mb-3">
         <div class="flex gap-1.5 scroll-x">${ranges.map(([v,l])=>`<button class="chip" data-on="${f.range===v?1:0}" data-act="finRange" data-v="${v}">${l}</button>`).join('')}</div>
         <div class="flex gap-1.5 ml-auto">
           ${[['all','Tout'],['in','Entrées'],['out','Sorties']].map(([v,l])=>`<button class="chip" data-on="${f.type===v?1:0}" data-act="finType" data-v="${v}">${l}</button>`).join('')}
         </div>
       </div>
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2 mb-3">
         <input id="finSearch" class="field flex-1 min-w-[180px] !py-1.5 !text-[12px]" placeholder="Chercher une opération…" value="${esc(f.q)}">
         <select id="finCat" class="field !py-1.5 !text-[12px] w-auto">
           <option value="">Toutes catégories</option>
@@ -1132,6 +1076,13 @@ function opsPane(){
         <button class="btn btn-ghost !py-1.5" data-act="exportCsv"><i class="fas fa-file-csv text-[11px]"></i>CSV</button>
         <button class="btn btn-ghost !py-1.5" data-act="exportFinPdf"><i class="fas fa-file-pdf text-[11px]"></i>PDF</button>
       </div>
+      <div class="flex flex-wrap gap-4 mb-4 pb-3 border-b hair">
+        <span class="text-[12px] text-muted">Période affichée</span>
+        <span class="num text-[12px]" style="color:var(--c-good)">+${money(tin,{compact:true})}</span>
+        <span class="num text-[12px]" style="color:var(--c-bad)">−${money(tout,{compact:true})}</span>
+        <span class="num text-[12px] font-bold ml-auto" style="color:${(tin-tout)<0?'var(--c-bad)':'var(--c-good)'}">${money(tin-tout,{sign:true,compact:true})}</span>
+      </div>
+
       ${rows.length?`<div class="overflow-x-auto -mx-1"><table class="tbl">
         <thead><tr><th>Date</th><th>Description</th><th class="hidden sm:table-cell">Catégorie</th><th class="hidden md:table-cell">Provenance</th><th class="text-right">Montant</th><th></th></tr></thead>
         <tbody>${rows.slice(0,300).map(e=>`<tr>
@@ -1149,86 +1100,33 @@ function opsPane(){
       : empty('receipt','Aucune opération',"Change de période ou enregistre une première dépense.",'Nouvelle dépense','newExpense')}
     </div>
 
-    <div class="card card-pad h-fit">
-      <div class="eyebrow mb-2">Répartition de la période</div>
-      <div class="relative" style="height:200px">
-        <canvas id="chartFinCats"></canvas>
-        <div class="absolute inset-0 grid place-items-center pointer-events-none">
-          <div class="text-center"><div class="eyebrow">sorties</div>
-          <div class="num text-[15px] font-bold">${money(tout,{compact:true})}</div></div>
-        </div>
-      </div>
-      <div class="mt-3 space-y-1.5">${cs.slice(0,7).map(c=>`
-        <div class="flex items-center gap-2 text-[11px]">${dot(c.color)}<span class="flex-1 truncate text-muted">${esc(c.name)}</span>
-        <span class="num">${money(c.value,{compact:true})}</span></div>`).join('')||'<p class="text-[11px] text-muted">Rien à répartir sur cette période.</p>'}</div>
-      <div class="mt-4 pt-3 border-t hair flex justify-between text-[12px]">
-        <span class="text-muted">Solde de la période</span>
-        <span class="num font-bold" style="color:${(tin-tout)<0?'var(--c-bad)':'var(--c-good)'}">${money(tin-tout,{sign:true,compact:true})}</span>
-      </div>
-    </div>
-  </div>`;
-}
+    <div class="card card-pad">
+      <div class="flex items-center mb-4"><span class="eyebrow">Prêts & dettes · ${money(loansLeft())} restants</span>
+        <button class="ml-auto btn btn-ghost !py-1 !px-2 !text-[11px]" data-act="newLoan">Ajouter</button></div>
+      ${D.loans.length?`<div class="grid md:grid-cols-2 gap-3">${D.loans.map(l=>{
+        const left=Math.max(0,l.amount-l.paid), p=pct(l.paid,l.amount), late=l.dueDate&&l.dueDate<today()&&left>0;
+        return `<div class="rounded-xl border hair p-3.5 bg-raised">
+          <div class="flex items-start gap-2 mb-2">
+            <div class="min-w-0 flex-1"><h4 class="font-display font-semibold text-[13px] truncate">${esc(l.name)}</h4>
+              <div class="eyebrow mt-0.5">${l.dueDate?`échéance ${fmtDate(l.dueDate)} · ${relDay(l.dueDate)}`:'sans échéance'}</div></div>
+            <button class="text-faint hover:text-ink px-1" data-act="editLoan" data-id="${l.id}"><i class="fas fa-ellipsis text-xs"></i></button>
+          </div>
+          <div class="bar mb-2"><span style="width:${p}%;background:${left===0?'var(--c-good)':late?'var(--c-bad)':'var(--c-signal)'}"></span></div>
+          <div class="flex items-center justify-between">
+            <span class="num text-[11px] text-muted">${money(l.paid,{compact:true})} / ${money(l.amount,{compact:true})}</span>
+            ${left>0?`<button class="btn btn-ghost !py-1 !px-2 !text-[11px]" data-act="repayLoan" data-id="${l.id}">Rembourser</button>`
+                    :`<span class="num text-[11px]" style="color:var(--c-good)">soldé</span>`}
+          </div></div>`;}).join('')}</div>`
+      :`<p class="text-[12px] text-muted py-4 text-center">Aucun prêt suivi.</p>`}
+    </div>`;
+};
 
-function budgetsPane(){
-  const bs=budgetStatus();
-  const totalB=bs.reduce((s,b)=>s+b.amount,0), totalS=bs.reduce((s,b)=>s+b.spent,0);
-  const dayOfMonth=new Date().getDate();
-  const daysInMonth=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
-  const paceRatio=dayOfMonth/daysInMonth;
-  return `<div class="flex items-center gap-2 mb-4">
-      <span class="eyebrow">${MONTHS[new Date().getMonth()]} ${new Date().getFullYear()} · jour ${dayOfMonth}/${daysInMonth}</span>
-      <button class="ml-auto btn btn-primary !py-1.5" data-act="newBudget"><i class="fas fa-plus text-[11px]"></i>Définir un budget</button>
-    </div>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-      ${readout('Enveloppe totale',money(totalB,{compact:true}),{icon:'chart-pie',color:'var(--c-signal)'})}
-      ${readout('Dépensé',money(totalS,{compact:true}),{icon:'arrow-up',color:'var(--c-bad)',tone:totalB&&totalS>totalB?'var(--c-bad)':'inherit'})}
-      ${readout('Restant',money(totalB-totalS,{compact:true}),{icon:'wallet',color:'var(--c-good)',tone:(totalB-totalS)<0?'var(--c-bad)':'var(--c-good)'})}
-      ${readout('Consommé',totalB?Math.round(totalS/totalB*100)+'%':'—',{icon:'gauge',color:'var(--c-teal)',sub:`référence ${Math.round(paceRatio*100)}% du mois écoulé`})}
-    </div>`
-   + (bs.length?`<div class="space-y-2.5">${bs.map(b=>{
-      const over=b.ratio>1, ahead=b.ratio>paceRatio+.15;
-      const col=over?'var(--c-bad)':ahead?'var(--c-signal)':'var(--c-good)';
-      return `<div class="card card-pad !py-3.5">
-        <div class="flex items-center gap-2.5 mb-2.5">
-          ${dot(b.cat.color,10)}
-          <span class="text-[13px] font-medium flex-1 truncate">${esc(b.cat.name)}</span>
-          <span class="num text-[12px]" style="color:${col}">${money(b.spent,{compact:true})} <span class="text-faint">/ ${money(b.amount,{compact:true})}</span></span>
-          <button class="text-faint hover:text-ink px-1" data-act="editBudget" data-id="${b.id}"><i class="fas fa-ellipsis text-xs"></i></button>
-        </div>
-        <div class="bar relative"><span style="width:${clamp(b.ratio*100,0,100)}%;background:${col}"></span>
-          <i class="absolute inset-y-0 w-px" style="left:${paceRatio*100}%;background:var(--c-base);opacity:.9"></i></div>
-        <div class="flex justify-between mt-1.5">
-          <span class="eyebrow">${over?`dépassé de ${money(b.spent-b.amount,{compact:true})}`:`reste ${money(b.amount-b.spent,{compact:true})}`}</span>
-          <span class="eyebrow">${Math.round(b.ratio*100)}%</span>
-        </div></div>`;}).join('')}</div>`
-    : empty('chart-pie','Aucun budget défini',"Fixe une enveloppe mensuelle par catégorie : MindFlow la compare automatiquement à tes dépenses réelles.",'Définir un budget','newBudget'));
-}
-
-function loansPane(){
-  return `<div class="flex items-center gap-2 mb-4"><span class="eyebrow">Dettes en cours : ${money(loansLeft())}</span>
-      <button class="ml-auto btn btn-ghost !py-1.5" data-act="openSavings"><i class="fas fa-piggy-bank text-[11px]"></i>Épargne</button>
-      <button class="btn btn-primary !py-1.5" data-act="newLoan"><i class="fas fa-plus text-[11px]"></i>Nouveau prêt</button></div>`
-   + (D.loans.length?`<div class="grid md:grid-cols-2 gap-3">${D.loans.map(l=>{
-      const left=Math.max(0,l.amount-l.paid), p=pct(l.paid,l.amount), late=l.dueDate&&l.dueDate<today()&&left>0;
-      return `<div class="card card-pad">
-        <div class="flex items-start gap-2 mb-2">
-          <div class="min-w-0 flex-1"><h4 class="font-display font-semibold text-[13px] truncate">${esc(l.name)}</h4>
-            <div class="eyebrow mt-0.5">${l.dueDate?`échéance ${fmtDate(l.dueDate)} · ${relDay(l.dueDate)}`:'sans échéance'}</div></div>
-          <button class="text-faint hover:text-ink px-1" data-act="editLoan" data-id="${l.id}"><i class="fas fa-ellipsis text-xs"></i></button>
-        </div>
-        <div class="bar mb-2"><span style="width:${p}%;background:${left===0?'var(--c-good)':late?'var(--c-bad)':'var(--c-signal)'}"></span></div>
-        <div class="flex items-center justify-between">
-          <span class="num text-[11px] text-muted">${money(l.paid,{compact:true})} / ${money(l.amount,{compact:true})}</span>
-          ${left>0?`<button class="btn btn-ghost !py-1 !px-2 !text-[11px]" data-act="repayLoan" data-id="${l.id}">Rembourser</button>`
-                  :`<span class="num text-[11px]" style="color:var(--c-good)">soldé</span>`}
-        </div></div>`;}).join('')}</div>`
-    : empty('hand-holding-dollar','Aucun prêt suivi',"Enregistre un prêt pour voir ce qu'il te reste à rembourser et son échéance.",'Ajouter un prêt','newLoan'));
-}
-
-function forecastPane(){
+/* ═══════════════════════════════════════════════════════════════
+   13. VUE — PRÉVISIONS SALARIALES
+   ═══════════════════════════════════════════════════════════════ */
+RENDERERS.forecast = ()=>{
   const fs=D.salaryForecasts;
-  return `<div class="flex items-center gap-2 mb-4"><span class="eyebrow">ce qu'il reste une fois le fixe payé</span>
-      <button class="ml-auto btn btn-primary !py-1.5" data-act="newForecast"><i class="fas fa-plus text-[11px]"></i>Nouvelle prévision</button></div>`
+  return pageHead('Prévisions',"ce qu'il reste une fois le fixe payé",[{label:'Nouvelle prévision',icon:'plus',act:'newForecast',kind:'btn-primary'}])
    + (fs.length?`<div class="grid md:grid-cols-2 gap-3">${fs.map(f=>{
       const tot=(f.expenses||[]).reduce((s,e)=>s+(e.amount||0),0);
       const left=(f.averageSalary||0)-tot, r=pct(tot,f.averageSalary||0);
@@ -1248,12 +1146,14 @@ function forecastPane(){
           ||'<p class="text-[11px] text-muted">Aucune charge listée.</p>'}</div>
       </div>`;}).join('')}</div>`
     : empty('money-bill-trend-up','Aucune prévision',"Liste tes charges fixes une bonne fois : loyer, data, transport… et vois ton reste à vivre.",'Créer une prévision','newForecast'));
-}
+};
 
-function plannedPane(){
+/* ═══════════════════════════════════════════════════════════════
+   14. VUE — DÉPENSES PLANIFIÉES
+   ═══════════════════════════════════════════════════════════════ */
+RENDERERS.planned = ()=>{
   const ps=D.plannedExpenses;
-  return `<div class="flex items-center gap-2 mb-4"><span class="eyebrow">les achats à venir, poste par poste</span>
-      <button class="ml-auto btn btn-primary !py-1.5" data-act="newPlanned"><i class="fas fa-plus text-[11px]"></i>Nouveau plan</button></div>`
+  return pageHead('Dépenses prévues','les achats à venir, poste par poste',[{label:'Nouveau plan',icon:'plus',act:'newPlanned',kind:'btn-primary'}])
    + (ps.length?`<div class="grid md:grid-cols-2 gap-3">${ps.map(p=>{
       const tot=(p.items||[]).reduce((s,i)=>s+(i.amount||0),0);
       const paid=(p.items||[]).filter(i=>i.paid).reduce((s,i)=>s+(i.amount||0),0);
@@ -1274,14 +1174,13 @@ function plannedPane(){
           </div>`).join('')||'<p class="text-[11px] text-muted">Aucun poste.</p>'}</div>
       </div>`;}).join('')}</div>`
     : empty('clipboard-list','Rien de planifié',"Rentrée scolaire, matériel, voyage : découpe la dépense en postes et coche au fur et à mesure.",'Planifier une dépense','newPlanned'));
-}
+};
 
 AFTER.finance=[()=>{
   const s=document.getElementById('finSearch');
   if(s) s.addEventListener('input',()=>{ UI.filters.fin.q=s.value;
     clearTimeout(s._t); s._t=setTimeout(()=>{ render(); const n=document.getElementById('finSearch'); if(n){ n.focus(); n.setSelectionRange(n.value.length,n.value.length); } },300); });
   const c=document.getElementById('finCat'); if(c) c.addEventListener('change',()=>{ UI.filters.fin.cat=c.value; render(); });
-  if(document.getElementById('chartFinCats')) doughnut('chartFinCats',spentByCategory(UI.filters.fin.range));
 }];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1397,7 +1296,6 @@ const ACTIONS = {
     const it=l.items[Number(d.ix)]; it.completed=!it.completed; commit({render:false}); },
 
   /* ── finances ── */
-  finTab:  d=>{ UI.filters.finTab=d.v; render(); },
   finRange:d=>{ UI.filters.fin.range=d.v; render(); },
   finType: d=>{ UI.filters.fin.type=d.v; render(); },
   newExpense:()=>openExpenseForm(null),
@@ -1427,10 +1325,6 @@ const ACTIONS = {
           category:'finance',origin:'loan-repayment',amount:-amt,createdAt:new Date().toISOString()});
         commit(); toast(l.paid>=l.amount?'Prêt soldé.':'Remboursement enregistré.','ok'); }}); },
   openSavings:()=>openSavingsPanel(),
-
-  /* ── budgets ── */
-  newBudget:()=>openBudgetForm(null),
-  editBudget:d=>openBudgetForm(D.budgets.find(b=>b.id===d.id)),
 
   /* ── prévisions & planifié ── */
   newForecast:()=>openForecastForm(null),
@@ -1564,17 +1458,6 @@ function openLoanForm(l){
     onSubmit:v=>{ if(v.paid>v.amount){ toast('Le remboursé dépasse le total du prêt.','warn'); return; }
       if(isNew) D.loans.push({id:uid(),...v,createdAt:new Date().toISOString()}); else Object.assign(l,v); commit(); }});
 }
-function openBudgetForm(b){
-  const isNew=!b;
-  openForm({ title:isNew?'Nouveau budget':'Modifier le budget', subtitle:'enveloppe mensuelle par catégorie',
-    values:b||{},
-    fields:[{key:'categoryId',label:'Catégorie',type:'select',options:catOptions,required:true},
-            {key:'amount',label:`Enveloppe mensuelle (${D.settings.currency})`,type:'number',required:true,min:0}],
-    onDelete:isNew?null:()=>{ D.budgets=D.budgets.filter(x=>x.id!==b.id); commit(); },
-    onSubmit:v=>{ const dup=D.budgets.find(x=>x.categoryId===v.categoryId&&(!b||x.id!==b.id));
-      if(dup){ toast('Cette catégorie a déjà un budget.','warn'); return; }
-      if(isNew) D.budgets.push({id:uid(),...v,period:'monthly'}); else Object.assign(b,v); commit(); }});
-}
 function openForecastForm(f){
   const isNew=!f;
   openForm({ title:isNew?'Nouvelle prévision':'Modifier la prévision', values:f||{},
@@ -1603,7 +1486,7 @@ function openTermForm(kind,item){
                                        : D.expenses.filter(e=>e.origin===item.id).length;
       confirmAction(used?`${used} opération(s) utilisent cette ${label}. Elles basculeront sur « Autre ».`:`Supprimer cette ${label} ?`,
         {onOk:()=>{ if(kind==='categories'){ D.expenses.forEach(e=>{ if(e.category===item.id) e.category='other'; });
-            D.budgets=D.budgets.filter(b=>b.categoryId!==item.id); D.categories=D.categories.filter(c=>c.id!==item.id); }
+            D.categories=D.categories.filter(c=>c.id!==item.id); }
           else { D.expenses.forEach(e=>{ if(e.origin===item.id) e.origin='other-income'; }); D.origins=D.origins.filter(o=>o.id!==item.id); }
           commit(); }}); },
     onSubmit:v=>{ const arr=D[kind]; const newId=v.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
@@ -1611,8 +1494,7 @@ function openTermForm(kind,item){
         arr.push({id:newId,name:v.name,color:v.color}); }
       else { const old=item.id;
         if(old!==newId){ if(arr.some(x=>x.id===newId)){ toast('Ce nom existe déjà.','warn'); return; }
-          if(kind==='categories'){ D.expenses.forEach(e=>{ if(e.category===old) e.category=newId; });
-            D.budgets.forEach(b=>{ if(b.categoryId===old) b.categoryId=newId; }); }
+          if(kind==='categories') D.expenses.forEach(e=>{ if(e.category===old) e.category=newId; });
           else D.expenses.forEach(e=>{ if(e.origin===old) e.origin=newId; });
         }
         Object.assign(item,{id:newId,name:v.name,color:v.color}); }
@@ -1719,9 +1601,6 @@ function exportFullPdf(){
   const t=allTasks().filter(x=>!x.completed);
   if(t.length) doc.autoTable({ ...TBL_STYLE, startY:y+10, head:[['Tâche','Liste','Priorité','Échéance']],
     body:t.map(x=>[x.text,x.listTitle,(PRIO[x.priority]||PRIO.medium).label,x.dueDate?fmtDate(x.dueDate,true):'—']) });
-  const bs=budgetStatus();
-  if(bs.length) doc.autoTable({ ...TBL_STYLE, startY:(doc.lastAutoTable?.finalY||y)+18,
-    head:[['Budget','Dépensé','Enveloppe','%']], body:bs.map(b=>[b.cat.name,money(b.spent),money(b.amount),Math.round(b.ratio*100)+'%']) });
   doc.save(`mindflow-rapport-${today()}.pdf`);
   toast('Rapport PDF généré.','ok');
 }
@@ -1735,7 +1614,6 @@ const COMMANDS=[
   {label:'Nouvelle tâche',icon:'list-check',run:()=>openTaskForm(null,D.todoLists[0]?.id)},
   {label:'Nouvelle note',icon:'note-sticky',run:()=>ACTIONS.newNote()},
   {label:'Gérer l’épargne',icon:'piggy-bank',run:()=>ACTIONS.openSavings()},
-  {label:'Nouveau budget',icon:'chart-pie',run:()=>ACTIONS.newBudget({})},
   {label:'Nouveau prêt',icon:'hand-holding-dollar',run:()=>ACTIONS.newLoan({})},
   {label:'Exporter le rapport PDF',icon:'file-pdf',run:()=>exportFullPdf()},
   {label:'Synchroniser maintenant',icon:'cloud-arrow-up',run:()=>ACTIONS.pushGh()},
@@ -1787,8 +1665,8 @@ mq('(prefers-color-scheme: dark)').addEventListener('change',()=>{ if(D.settings
 
 function quickAddMenu(){
   const opts=[['Dépense','plus','newExpense'],['Revenu','arrow-down','newIncome'],['Tâche','list-check','__task'],
-    ['Note','note-sticky','newNote'],['Liste','list-ul','newCheckList'],['Budget','chart-pie','newBudget'],
-    ['Prêt','hand-holding-dollar','newLoan'],['Dépense prévue','clipboard-list','newPlanned']];
+    ['Note','note-sticky','newNote'],['Liste','list-ul','newCheckList'],['Prêt','hand-holding-dollar','newLoan'],
+    ['Prévision','money-bill-trend-up','newForecast'],['Dépense prévue','clipboard-list','newPlanned']];
   openModal(modalShell('Ajouter','<div class="grid grid-cols-2 gap-2">'+opts.map(([l,i,a])=>
     `<button class="btn btn-ghost !justify-start !py-3" data-qa="${a}"><i class="fas fa-${i} text-[11px]"></i>${l}</button>`).join('')+'</div>'),
     {onMount(box){ box.querySelectorAll('[data-qa]').forEach(b=>b.onclick=()=>{ const a=b.dataset.qa; closeModal();
