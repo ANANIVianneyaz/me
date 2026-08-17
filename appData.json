@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T08:14:00.514Z",
+    "updatedAt": "2026-08-17T08:14:12.013Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -10,7 +10,16 @@
       "id": "mswyjarmxf64k",
       "title": "Methode Agiles",
       "description": "",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "mswyjjn0jtzl8",
+          "text": "Terminé module 1",
+          "priority": "medium",
+          "completed": false,
+          "tags": [],
+          "createdAt": "2026-08-17T08:14:12.013Z"
+        }
+      ],
       "createdAt": "2026-08-17T08:14:00.514Z"
     }
   ],
