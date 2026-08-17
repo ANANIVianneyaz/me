@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T12:04:22.279Z",
+    "updatedAt": "2026-08-17T15:20:00.433Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -79,6 +79,15 @@
       "category": "nourriture",
       "origin": "argent-de-poche",
       "createdAt": "2026-08-17T12:04:22.279Z"
+    },
+    {
+      "id": "msxdr4xdoluhr",
+      "date": "2026-08-17",
+      "description": "Bouffe",
+      "amount": -300,
+      "category": "nourriture",
+      "origin": "argent-de-poche",
+      "createdAt": "2026-08-17T15:20:00.433Z"
     }
   ],
   "wellness": [
