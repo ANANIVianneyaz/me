@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-17T08:17:11.309Z",
+    "updatedAt": "2026-08-17T08:17:45.681Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -28,6 +28,14 @@
           "completed": false,
           "tags": [],
           "createdAt": "2026-08-17T08:17:11.308Z"
+        },
+        {
+          "id": "mswyo4i8i014u",
+          "text": "Faire les recherches pour le produit digitaux discuté avec zab",
+          "priority": "medium",
+          "completed": false,
+          "tags": [],
+          "createdAt": "2026-08-17T08:17:45.680Z"
         }
       ],
       "createdAt": "2026-08-17T08:15:00.220Z"
