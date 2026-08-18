@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-18T07:40:31.140Z",
+    "updatedAt": "2026-08-18T07:40:54.879Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -207,7 +207,7 @@
     {
       "id": "deepseek",
       "name": "Deepseek",
-      "color": "#64748b"
+      "color": "#e5a50a"
     }
   ],
   "origins": [
