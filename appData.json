@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:29:10.947Z",
+    "updatedAt": "2026-08-21T10:30:23.743Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -160,6 +160,15 @@
       "origin": "wifi",
       "amount": 15000,
       "createdAt": "2026-08-21T10:29:10.947Z"
+    },
+    {
+      "id": "mt2t63njy02u5",
+      "date": "2026-08-21",
+      "description": "Riz + poisson a IFRI",
+      "amount": -1000,
+      "category": "gillotages",
+      "origin": "stage",
+      "createdAt": "2026-08-21T10:30:23.743Z"
     }
   ],
   "wellness": [
