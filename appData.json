@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-18T11:06:09.067Z",
+    "updatedAt": "2026-08-21T10:24:45.683Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -115,6 +115,15 @@
       "category": "nourriture",
       "origin": "argent-de-poche",
       "createdAt": "2026-08-18T11:06:09.067Z"
+    },
+    {
+      "id": "mt2syuszkabdb",
+      "date": "2026-08-19",
+      "description": "Lait + pain",
+      "amount": -1300,
+      "category": "gillotages",
+      "origin": "argent-de-poche",
+      "createdAt": "2026-08-21T10:24:45.683Z"
     }
   ],
   "wellness": [
