@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:27:00.115Z",
+    "updatedAt": "2026-08-21T10:27:56.480Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -142,6 +142,15 @@
       "category": "carburent",
       "origin": "argent-de-poche",
       "createdAt": "2026-08-21T10:25:45.903Z"
+    },
+    {
+      "id": "mt2t2y0wyaxps",
+      "date": "2026-08-20",
+      "description": "Donné au stage par mr Maxime",
+      "category": "finance",
+      "origin": "stage",
+      "amount": 5000,
+      "createdAt": "2026-08-21T10:27:56.480Z"
     }
   ],
   "wellness": [
