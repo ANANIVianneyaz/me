@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:42:45.877Z",
+    "updatedAt": "2026-08-21T10:43:03.409Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -187,6 +187,15 @@
       "category": "oublie",
       "origin": "stage",
       "createdAt": "2026-08-21T10:42:45.877Z"
+    },
+    {
+      "id": "mt2tmdtd3znfs",
+      "date": "2026-08-21",
+      "description": "Remboursement — Osée",
+      "category": "finance",
+      "origin": "loan-repayment",
+      "amount": -50,
+      "createdAt": "2026-08-21T10:43:03.409Z"
     }
   ],
   "wellness": [
@@ -323,7 +332,7 @@
       "id": "mswxqwh9shww2",
       "name": "Osée",
       "amount": 650,
-      "paid": 600,
+      "paid": 650,
       "dueDate": "",
       "createdAt": "2026-08-17T07:51:55.629Z"
     },
