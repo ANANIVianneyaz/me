@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:33:52.128Z",
+    "updatedAt": "2026-08-21T10:35:51.552Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -280,6 +280,11 @@
       "id": "deepseek",
       "name": "Deepseek",
       "color": "#e5a50a"
+    },
+    {
+      "id": "oublie",
+      "name": "Oublie",
+      "color": "#64748b"
     }
   ],
   "origins": [
