@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:24:57.134Z",
+    "updatedAt": "2026-08-21T10:25:45.903Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -133,6 +133,15 @@
       "origin": "loan-repayment",
       "amount": -1500,
       "createdAt": "2026-08-21T10:24:57.134Z"
+    },
+    {
+      "id": "mt2t059r2ifyr",
+      "date": "2026-08-20",
+      "description": "Essance",
+      "amount": -700,
+      "category": "carburent",
+      "origin": "argent-de-poche",
+      "createdAt": "2026-08-21T10:25:45.903Z"
     }
   ],
   "wellness": [
