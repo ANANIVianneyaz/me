@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:35:51.552Z",
+    "updatedAt": "2026-08-21T10:36:04.054Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -284,7 +284,7 @@
     {
       "id": "oublie",
       "name": "Oublie",
-      "color": "#64748b"
+      "color": "#000000"
     }
   ],
   "origins": [
