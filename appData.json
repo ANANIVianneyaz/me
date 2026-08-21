@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:36:04.054Z",
+    "updatedAt": "2026-08-21T10:42:45.877Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -178,6 +178,15 @@
       "category": "imprevue",
       "origin": "stage",
       "createdAt": "2026-08-21T10:31:45.402Z"
+    },
+    {
+      "id": "mt2tm0adcdd8a",
+      "date": "2026-08-21",
+      "description": "J'ai oublier de noté",
+      "amount": -1500,
+      "category": "oublie",
+      "origin": "stage",
+      "createdAt": "2026-08-21T10:42:45.877Z"
     }
   ],
   "wellness": [
