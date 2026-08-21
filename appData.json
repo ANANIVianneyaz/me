@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:31:45.402Z",
+    "updatedAt": "2026-08-21T10:33:52.128Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -174,7 +174,7 @@
       "id": "mt2t7unuwut15",
       "date": "2026-08-21",
       "description": "Leslie",
-      "amount": -3500,
+      "amount": -3550,
       "category": "imprevue",
       "origin": "stage",
       "createdAt": "2026-08-21T10:31:45.402Z"
