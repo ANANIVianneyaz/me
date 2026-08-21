@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:25:45.903Z",
+    "updatedAt": "2026-08-21T10:26:24.375Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -261,6 +261,11 @@
       "id": "manipulation-de-marché",
       "name": "Manipulation de marché",
       "color": "#93b710"
+    },
+    {
+      "id": "stage",
+      "name": "Stage",
+      "color": "#64748b"
     }
   ],
   "loans": [
