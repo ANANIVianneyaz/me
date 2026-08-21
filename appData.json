@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:27:56.480Z",
+    "updatedAt": "2026-08-21T10:29:10.947Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -151,6 +151,15 @@
       "origin": "stage",
       "amount": 5000,
       "createdAt": "2026-08-21T10:27:56.480Z"
+    },
+    {
+      "id": "mt2t4jhfpb40f",
+      "date": "2026-08-21",
+      "description": "Cash pour activé wifi",
+      "category": "finance",
+      "origin": "wifi",
+      "amount": 15000,
+      "createdAt": "2026-08-21T10:29:10.947Z"
     }
   ],
   "wellness": [
