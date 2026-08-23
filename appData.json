@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-23T09:52:21.494Z",
+    "updatedAt": "2026-08-23T09:55:42.173Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -330,6 +330,11 @@
       "id": "oublie",
       "name": "Oublie",
       "color": "#000000"
+    },
+    {
+      "id": "opencode-go",
+      "name": "Opencode go",
+      "color": "#9a9996"
     }
   ],
   "origins": [
