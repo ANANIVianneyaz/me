@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-21T10:43:12.201Z",
+    "updatedAt": "2026-08-23T09:50:19.952Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -196,6 +196,15 @@
       "origin": "loan-repayment",
       "amount": -50,
       "createdAt": "2026-08-21T10:43:03.409Z"
+    },
+    {
+      "id": "mt5mma7kjop1r",
+      "date": "2026-08-22",
+      "description": "Ataxie",
+      "amount": -400,
+      "category": "nourriture",
+      "origin": "wifi",
+      "createdAt": "2026-08-23T09:50:19.952Z"
     }
   ],
   "wellness": [
