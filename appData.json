@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-23T09:50:19.952Z",
+    "updatedAt": "2026-08-23T09:51:04.678Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -205,6 +205,15 @@
       "category": "nourriture",
       "origin": "wifi",
       "createdAt": "2026-08-23T09:50:19.952Z"
+    },
+    {
+      "id": "mt5mn8py0aatu",
+      "date": "2026-08-22",
+      "description": "Riz le soir",
+      "amount": -600,
+      "category": "gillotages",
+      "origin": "wifi",
+      "createdAt": "2026-08-23T09:51:04.678Z"
     }
   ],
   "wellness": [
