@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-23T13:32:17.481Z",
+    "updatedAt": "2026-08-23T13:32:57.736Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -41,7 +41,17 @@
       "createdAt": "2026-08-17T08:15:00.220Z"
     }
   ],
-  "notes": [],
+  "notes": [
+    {
+      "id": "mt5ukl54997fe",
+      "title": "efr",
+      "content": "400 a prendre chez osé pour la bouffe",
+      "tags": [],
+      "color": "#8b5cf6",
+      "pinned": false,
+      "createdAt": "2026-08-23T13:32:57.736Z"
+    }
+  ],
   "lists": [],
   "expenses": [
     {
