@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-23T09:56:13.231Z",
+    "updatedAt": "2026-08-23T13:32:17.481Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -220,7 +220,7 @@
       "date": "2026-08-06",
       "description": "Opencode",
       "amount": -3000,
-      "category": "opencode-go",
+      "category": "deepseek",
       "origin": "wifi",
       "createdAt": "2026-08-23T09:52:21.494Z"
     }
