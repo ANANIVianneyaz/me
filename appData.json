@@ -1,7 +1,7 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-24T09:08:16.407Z",
+    "updatedAt": "2026-08-24T09:09:16.031Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
@@ -251,6 +251,15 @@
       "category": "gillotages",
       "origin": "wifi",
       "createdAt": "2026-08-24T09:07:48.907Z"
+    },
+    {
+      "id": "mt70lbpbyiles",
+      "date": "2026-08-24",
+      "description": "J'ai oublier de noté",
+      "amount": -1000,
+      "category": "oublie",
+      "origin": "wifi",
+      "createdAt": "2026-08-24T09:09:16.031Z"
     }
   ],
   "wellness": [
