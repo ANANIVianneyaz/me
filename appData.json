@@ -1,497 +1,125 @@
 {
   "version": 2,
   "meta": {
-    "updatedAt": "2026-08-24T09:09:16.031Z",
+    "updatedAt": "2026-08-28T07:50:00.205Z",
     "device": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:153.0) Gecko/2010"
   },
   "todos": [],
-  "todoLists": [
-    {
-      "id": "mswykku4g4zut",
-      "title": "17/08/2026",
-      "description": "Taches de la journé",
-      "tasks": [
-        {
-          "id": "mswyl6w28dcda",
-          "text": "Terminé le module 1 du cours de la methode agiles sur courssera",
-          "priority": "high",
-          "completed": false,
-          "tags": [],
-          "createdAt": "2026-08-17T08:15:28.802Z",
-          "dueDate": null,
-          "recurrence": null
-        },
-        {
-          "id": "mswyndzg9f4jw",
-          "text": "Faire faire des recherches sur la plateforme a connecté a claude pour qu'il me crée les site wab et page produit",
-          "priority": "medium",
-          "completed": false,
-          "tags": [],
-          "createdAt": "2026-08-17T08:17:11.308Z"
-        },
-        {
-          "id": "mswyo4i8i014u",
-          "text": "Faire les recherches pour le produit digitaux discuté avec zab",
-          "priority": "medium",
-          "completed": false,
-          "tags": [],
-          "createdAt": "2026-08-17T08:17:45.680Z"
-        }
-      ],
-      "createdAt": "2026-08-17T08:15:00.220Z"
-    }
-  ],
-  "notes": [
-    {
-      "id": "mt5ukl54997fe",
-      "title": "efr",
-      "content": "400 a prendre chez osé pour la bouffe",
-      "tags": [],
-      "color": "#8b5cf6",
-      "pinned": false,
-      "createdAt": "2026-08-23T13:32:57.736Z"
-    }
-  ],
+  "todoLists": [],
+  "notes": [],
   "lists": [],
-  "expenses": [
-    {
-      "id": "msw988og2unyr",
-      "date": "2026-08-16",
-      "description": "Argent du mois",
-      "category": "finance",
-      "origin": "argent-de-poche",
-      "amount": 10000,
-      "createdAt": "2026-08-16T20:25:34.192Z"
-    },
-    {
-      "id": "mswxogr7vcv58",
-      "date": "2026-08-17",
-      "description": "Carburent",
-      "amount": -1500,
-      "category": "carburent",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-17T07:50:01.939Z"
-    },
-    {
-      "id": "mswxq0km7ktm9",
-      "date": "2026-08-17",
-      "description": "Paté",
-      "amount": -300,
-      "category": "nourriture",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-17T07:51:14.278Z"
-    },
-    {
-      "id": "msx6rjpi65bts",
-      "date": "2026-08-17",
-      "description": "Bouffe",
-      "amount": -300,
-      "category": "nourriture",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-17T12:04:22.279Z"
-    },
-    {
-      "id": "msxdr4xdoluhr",
-      "date": "2026-08-17",
-      "description": "Bouffe",
-      "amount": -300,
-      "category": "nourriture",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-17T15:20:00.433Z"
-    },
-    {
-      "id": "msxkm6jwnjky3",
-      "date": "2026-08-17",
-      "description": "Remboursement — Osée",
-      "category": "finance",
-      "origin": "loan-repayment",
-      "amount": -600,
-      "createdAt": "2026-08-17T18:32:06.572Z"
-    },
-    {
-      "id": "msycs2zonkj0b",
-      "date": "2026-08-17",
-      "description": "Api DeepSeek",
-      "amount": -3000,
-      "category": "deepseek",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-18T07:40:31.140Z"
-    },
-    {
-      "id": "msyk4izvdc4ii",
-      "date": "2026-08-18",
-      "description": "Atiéké",
-      "amount": -500,
-      "category": "nourriture",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-18T11:06:09.067Z"
-    },
-    {
-      "id": "mt2syuszkabdb",
-      "date": "2026-08-19",
-      "description": "Lait + pain",
-      "amount": -1300,
-      "category": "gillotages",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-21T10:24:45.683Z"
-    },
-    {
-      "id": "mt2sz3n2dazbf",
-      "date": "2026-08-21",
-      "description": "Remboursement — Zabulon",
-      "category": "finance",
-      "origin": "loan-repayment",
-      "amount": -1500,
-      "createdAt": "2026-08-21T10:24:57.134Z"
-    },
-    {
-      "id": "mt2t059r2ifyr",
-      "date": "2026-08-20",
-      "description": "Essance",
-      "amount": -700,
-      "category": "carburent",
-      "origin": "argent-de-poche",
-      "createdAt": "2026-08-21T10:25:45.903Z"
-    },
-    {
-      "id": "mt2t2y0wyaxps",
-      "date": "2026-08-20",
-      "description": "Donné au stage par mr Maxime",
-      "category": "finance",
-      "origin": "stage",
-      "amount": 5000,
-      "createdAt": "2026-08-21T10:27:56.480Z"
-    },
-    {
-      "id": "mt2t4jhfpb40f",
-      "date": "2026-08-21",
-      "description": "Cash pour activé wifi",
-      "category": "finance",
-      "origin": "wifi",
-      "amount": 15000,
-      "createdAt": "2026-08-21T10:29:10.947Z"
-    },
-    {
-      "id": "mt2t63njy02u5",
-      "date": "2026-08-21",
-      "description": "Riz + poisson a IFRI",
-      "amount": -1000,
-      "category": "gillotages",
-      "origin": "stage",
-      "createdAt": "2026-08-21T10:30:23.743Z"
-    },
-    {
-      "id": "mt2t7unuwut15",
-      "date": "2026-08-21",
-      "description": "Leslie",
-      "amount": -3550,
-      "category": "imprevue",
-      "origin": "stage",
-      "createdAt": "2026-08-21T10:31:45.402Z"
-    },
-    {
-      "id": "mt2tm0adcdd8a",
-      "date": "2026-08-21",
-      "description": "J'ai oublier de noté",
-      "amount": -1500,
-      "category": "oublie",
-      "origin": "stage",
-      "createdAt": "2026-08-21T10:42:45.877Z"
-    },
-    {
-      "id": "mt2tmdtd3znfs",
-      "date": "2026-08-21",
-      "description": "Remboursement — Osée",
-      "category": "finance",
-      "origin": "loan-repayment",
-      "amount": -50,
-      "createdAt": "2026-08-21T10:43:03.409Z"
-    },
-    {
-      "id": "mt5mma7kjop1r",
-      "date": "2026-08-22",
-      "description": "Ataxie",
-      "amount": -400,
-      "category": "nourriture",
-      "origin": "wifi",
-      "createdAt": "2026-08-23T09:50:19.952Z"
-    },
-    {
-      "id": "mt5mn8py0aatu",
-      "date": "2026-08-22",
-      "description": "Riz le soir",
-      "amount": -600,
-      "category": "gillotages",
-      "origin": "wifi",
-      "createdAt": "2026-08-23T09:51:04.678Z"
-    },
-    {
-      "id": "mt5movzqs75a4",
-      "date": "2026-08-06",
-      "description": "Opencode",
-      "amount": -3000,
-      "category": "deepseek",
-      "origin": "wifi",
-      "createdAt": "2026-08-23T09:52:21.494Z"
-    },
-    {
-      "id": "mt70ivhe3upje",
-      "date": "2026-08-24",
-      "description": "Caburant de la semaine",
-      "amount": -2000,
-      "category": "carburent",
-      "origin": "wifi",
-      "createdAt": "2026-08-24T09:07:21.698Z"
-    },
-    {
-      "id": "mt70jgh701ij9",
-      "date": "2026-08-24",
-      "description": "Lait + pain",
-      "amount": -1500,
-      "category": "gillotages",
-      "origin": "wifi",
-      "createdAt": "2026-08-24T09:07:48.907Z"
-    },
-    {
-      "id": "mt70lbpbyiles",
-      "date": "2026-08-24",
-      "description": "J'ai oublier de noté",
-      "amount": -1000,
-      "category": "oublie",
-      "origin": "wifi",
-      "createdAt": "2026-08-24T09:09:16.031Z"
-    }
-  ],
-  "wellness": [
-    {
-      "id": "_tsj0p1fxi",
-      "date": "2025-06-02",
-      "type": "sleep",
-      "value": 6,
-      "notes": "",
-      "createdAt": "2025-06-02T16:19:09.557Z"
-    },
-    {
-      "id": "_lc3v9c81k",
-      "date": "2025-06-02",
-      "type": "water",
-      "value": 6,
-      "notes": "2 litre d'eau",
-      "createdAt": "2025-06-03T16:15:02.824Z"
-    },
-    {
-      "id": "_9j4sdo219",
-      "date": "2025-06-03",
-      "type": "water",
-      "value": 4,
-      "notes": "1 litre d'eau",
-      "createdAt": "2025-06-03T16:15:28.969Z"
-    },
-    {
-      "id": "_hu4bjdqwv",
-      "date": "2025-06-01",
-      "type": "sleep",
-      "value": 4,
-      "notes": "",
-      "createdAt": "2025-06-03T16:15:53.325Z"
-    },
-    {
-      "id": "_qsemehqed",
-      "date": "2025-06-02",
-      "type": "sleep",
-      "value": 5,
-      "notes": "",
-      "createdAt": "2025-06-03T16:16:10.010Z"
-    },
-    {
-      "id": "_koi1iuxaz",
-      "date": "2025-06-03",
-      "type": "sleep",
-      "value": 4,
-      "notes": "",
-      "createdAt": "2025-06-03T16:16:23.371Z"
-    }
-  ],
+  "expenses": [],
+  "wellness": [],
   "categories": [
     {
-      "id": "carburent",
-      "name": "Carburent",
-      "color": "#9333ea"
+      "id": "work",
+      "name": "Travail",
+      "color": "#6366F1"
     },
     {
-      "id": "nourriture",
+      "id": "personal",
+      "name": "Personnel",
+      "color": "#3B82F6"
+    },
+    {
+      "id": "health",
+      "name": "Santé",
+      "color": "#10B981"
+    },
+    {
+      "id": "finance",
+      "name": "Finances",
+      "color": "#F59E0B"
+    },
+    {
+      "id": "food",
       "name": "Nourriture",
-      "color": "#34eae7"
+      "color": "#84CC16"
     },
     {
-      "id": "gillotages",
-      "name": "Gillotages",
-      "color": "#3483ea"
+      "id": "transport",
+      "name": "Transport",
+      "color": "#0EA5E9"
     },
     {
-      "id": "imprevue",
-      "name": "Imprevue",
-      "color": "#3452ea"
+      "id": "housing",
+      "name": "Logement",
+      "color": "#8B5CF6"
     },
     {
-      "id": "moto",
-      "name": "Moto",
-      "color": "#dd612c"
+      "id": "entertainment",
+      "name": "Loisirs",
+      "color": "#F97316"
     },
     {
-      "id": "tirage-licence",
-      "name": "Tirage licence",
-      "color": "#b332a2"
+      "id": "recharge",
+      "name": "Recharge",
+      "color": "#A855F7"
     },
     {
-      "id": "wifi",
-      "name": "WIFI",
-      "color": "#20bc2a"
-    },
-    {
-      "id": "ramené-un-truc-à-la-maison",
-      "name": "Ramené un truc à la maison",
-      "color": "#a98219"
-    },
-    {
-      "id": "offrande",
-      "name": "Offrande",
-      "color": "#8e1546"
-    },
-    {
-      "id": "deepseek",
-      "name": "Deepseek",
-      "color": "#e5a50a"
-    },
-    {
-      "id": "oublie",
-      "name": "Oublie",
-      "color": "#000000"
-    },
-    {
-      "id": "opencode-go",
-      "name": "Opencode go",
-      "color": "#9a9996"
+      "id": "other",
+      "name": "Autre",
+      "color": "#64748B"
     }
   ],
   "origins": [
     {
-      "id": "argent-de-poche",
-      "name": "Argent de poche",
-      "color": "#4caf50"
+      "id": "salary",
+      "name": "Salaire",
+      "color": "#10B981"
     },
     {
-      "id": "wifi",
-      "name": "Wifi",
-      "color": "#41e6af"
+      "id": "gift",
+      "name": "Don",
+      "color": "#FCD34D"
     },
     {
-      "id": "manipulation-de-marché",
-      "name": "Manipulation de marché",
-      "color": "#93b710"
+      "id": "freelance",
+      "name": "Freelance",
+      "color": "#3B82F6"
     },
     {
-      "id": "stage",
-      "name": "Stage",
-      "color": "#e01b24"
+      "id": "savings-transfer",
+      "name": "Transfert Épargne",
+      "color": "#A855F7"
+    },
+    {
+      "id": "loan-disbursement",
+      "name": "Décaissement Prêt",
+      "color": "#F97316"
+    },
+    {
+      "id": "other-income",
+      "name": "Autre Revenu",
+      "color": "#64748B"
+    },
+    {
+      "id": "cash",
+      "name": "Espèces",
+      "color": "#78716C"
+    },
+    {
+      "id": "bank-card",
+      "name": "Carte Bancaire",
+      "color": "#4C1D95"
+    },
+    {
+      "id": "online-payment",
+      "name": "Paiement en ligne",
+      "color": "#6D28D9"
+    },
+    {
+      "id": "loan-repayment",
+      "name": "Remboursement Prêt",
+      "color": "#EF4444"
     }
   ],
-  "loans": [
-    {
-      "id": "mswxqwh9shww2",
-      "name": "Osée",
-      "amount": 650,
-      "paid": 650,
-      "dueDate": "",
-      "createdAt": "2026-08-17T07:51:55.629Z"
-    },
-    {
-      "id": "mswxr8xkopmv6",
-      "name": "Zabulon",
-      "amount": 1500,
-      "paid": 1500,
-      "dueDate": "",
-      "createdAt": "2026-08-17T07:52:11.768Z"
-    }
-  ],
+  "loans": [],
   "savings": {
     "balance": 0,
     "transactions": []
   },
-  "salaryForecasts": [
-    {
-      "id": "_fm6n76w7e",
-      "name": "Pretention salarial",
-      "averageSalary": 250000,
-      "expenses": [
-        {
-          "description": "WiFi",
-          "amount": 15500
-        },
-        {
-          "description": "Lavage moto",
-          "amount": 3000
-        },
-        {
-          "description": "Entretien moto",
-          "amount": 10000
-        },
-        {
-          "description": "Habillage",
-          "amount": 6000
-        },
-        {
-          "description": "Carburant 1000 x 30",
-          "amount": 30000
-        },
-        {
-          "description": "Facture",
-          "amount": 6000
-        },
-        {
-          "description": "Parent (5000 x 2)",
-          "amount": 10000
-        },
-        {
-          "description": "Epargne",
-          "amount": 20000
-        },
-        {
-          "description": "Poche (500 x 30)",
-          "amount": 15000
-        },
-        {
-          "description": "Salle de sport",
-          "amount": 10000
-        },
-        {
-          "description": "Course pour la chambre",
-          "amount": 15000
-        },
-        {
-          "description": "Loyé",
-          "amount": 35000
-        },
-        {
-          "description": "Gaz",
-          "amount": 6000
-        },
-        {
-          "description": "Serveur - Contabo",
-          "amount": 10000
-        },
-        {
-          "description": "Claude code",
-          "amount": 15000
-        },
-        {
-          "description": "Deepseek",
-          "amount": 20000
-        }
-      ],
-      "createdAt": "2025-06-01T21:37:00.962Z"
-    }
-  ],
+  "salaryForecasts": [],
   "plannedExpenses": [],
   "habits": [],
   "goals": [],
@@ -500,12 +128,6 @@
   "settings": {
     "theme": "dark",
     "currency": "FCFA",
-    "start": "dashboard",
-    "targets": {
-      "sleep": 7,
-      "water": 8,
-      "exercise": 30,
-      "weightGoal": null
-    }
+    "start": "dashboard"
   }
 }
